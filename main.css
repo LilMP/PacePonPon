@@ -7,8 +7,15 @@ input[type="text"]::placeholder, input[type="number"]::placeholder {
 }
 /* 設定數字欄位寬度 */
 input[type='number']{
-    width: 5em;
+    width: 3em;
 } 
+#pace_input1{
+    width: 2.2em !important;
+}
+#pace_input2, #pace_input2::placeholder{
+    width: 1.5em !important;
+    text-align: left !important;
+}
 
 /* 取消數字欄位預設有的箭頭: 注意不同瀏覽器寫法不同 */
 /* Chrome, Safari, Edge, Opera */
@@ -22,11 +29,9 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-div.indent-text {
-    text-indent: 25px;
-}
-div.indent-text input {
-    width: 3em;
+.indent-text {
+    /* text-indent: 22px; */
+    margin-left: 2em;
 }
 
 /* increment樣式取消底色&框線 */
