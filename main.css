@@ -21,3 +21,18 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+
+div.indent-text {
+    text-indent: 25px;
+}
+div.indent-text input {
+    width: 3em;
+}
+
+/* increment樣式取消底色&框線 */
+.increment {
+    border: none;
+    background-color: white;
+    text-align: left !important;
+    width: auto !important;
+}

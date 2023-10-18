@@ -7,25 +7,45 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <h1>Pace朋朋: 你的配速好朋友</h1>
+    <!-- <h1>Pace朋朋</h1> -->
+    <!-- <h2>你的配速好朋友</h2> -->
     <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()">/km<br>
     <input type="radio" onchange="ChangeOption(this)" id="c_track" name="type" value="track"><label for="track">操場</label><input type="number" name="" id="track_input" placeholder="ex: 84" size="4" maxlength="4" onclick="this.select()" disabled>秒/圈<br>
+    <div class="indent-text">100m: <input type="text" name="" id="m100" placeholder="" size="4" disabled>秒</div>
+    <div class="indent-text">200m: <input type="text" name="" id="m200" placeholder="" size="4" disabled>秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled></div>
+    <div class="indent-text">300m: <input type="text" name="" id="m300" placeholder="" size="4" disabled>秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled></div>
+    <div class="indent-text">400m: <input type="text" name="" id="m400" placeholder="" size="4" disabled>秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled></div>
     <input type="radio" onchange="ChangeOption(this)" id="c_treadmill" name="type" value="treadmill"><label for="treadmill">跑步機</label><input type="number" name="" id="treadmill_input" placeholder="ex: 15" size="4" maxlength="4" onclick="this.select()" disabled>km/h<br>
     <button class="" id='calBtn' onclick="Calculate()">Enter</button>
 </body>
 
 <script type="text/javascript" src="strftime-min.js"></script>
+<script type="text/javascript" src="js-big-decimal.min.js"></script>
+
 
 <script>   
     var ui_pace_text = document.getElementById('pace_input');
     var ui_track_text = document.getElementById('track_input');
     var ui_treadmill_text = document.getElementById('treadmill_input');
+
+    var ui_m100 = document.getElementById('m100');
+    var ui_m200 = document.getElementById('m200');
+    var ui_m300 = document.getElementById('m300');
+    var ui_m400 = document.getElementById('m400');
+    var ui_m200_increment = document.getElementById('m200_increment');
+    var ui_m300_increment = document.getElementById('m300_increment');
+    var ui_m400_increment = document.getElementById('m400_increment');
+
+
+    // 一種把數字後面小數點去掉的方法
+    // const toFixedWithoutZeros = (num, precision) =>
+    //     num.toFixed(precision).replace(/\.0+$/, '');
+    // toFixedWithoutZeros(12.0, 1);
     
     // 沒選到不能輸入
     function DisableTextBox(e){
         var checkid = e.id;
         // console.log(checkid);
-
         ui_pace_text.disabled = true;
         ui_track_text.disabled = true;
         ui_treadmill_text.disabled = true;
@@ -44,6 +64,14 @@
         ui_pace_text.value = "";
         ui_track_text.value = "";
         ui_treadmill_text.value = "";
+        ui_m100.value = "";
+        ui_m200.value = "";
+        ui_m300.value = "";
+        ui_m400.value = "";
+        ui_m200_increment.value = "";
+        ui_m300_increment.value = "";
+        ui_m400_increment.value = "";
+
     }
 
     // 切換選項的動作: 1.把沒選到的disable 2.清掉輸入紀錄
@@ -59,38 +87,23 @@
         let pace_input = ui_pace_text.value;
         let track_input = ui_track_text.value;
         let treadmill_input = ui_treadmill_text.value;
-        // console.log(pace_input)
-        // console.log(track_input)
-        // console.log(treadmill_input)
 
         // 找到被選的選項
         checked = document.querySelector('input[name="type"]:checked').value;
         // console.log(checked);
         
-        let pace_result, track_result, treadmill_result;
-
-        
+        // 把欲顯示的答案初始化
+        let pace_result = ui_pace_text.value;
+        let track_result = ui_track_text.value;
+        let treadmill_result = ui_treadmill_text.value;        
 
         if (checked == 'pace') {
             var hms = pace_input;   // your input string
             var a = hms.split(':'); // split it at the colons
             var seconds = Number(a[0])*60+Number(a[1]);
             
-            // var track_lap_sec = seconds/2.5;
-            // console.log("track: "+track_lap_sec);
             track_result = seconds/2.5;
-
-            // var km_hr = Math.round(1440/track_lap_sec*100)/100;
-            // console.log("treadmill: "+km_hr);
-            treadmill_result = Math.round(1440/track_result*100)/100;
-
-            // console.log("track: "+track_result);
-            // console.log("treadmill: "+treadmill_result);
-            
-            // update 結果
-            document.getElementById('track_input').value = track_result;
-            document.getElementById('treadmill_input').value = treadmill_result;
-            
+            treadmill_result = Math.round(1440/track_result*100)/100;  
         }
         else if (checked == 'track') {
             var seconds = track_input*2.5;
@@ -100,40 +113,41 @@
                 // var mm_ss_str = strftime("%M:%S", date);
             // console.log("pace: "+mm_ss_str);
             pace_result = strftime('%M:%S', new Date(0,0,0,0,0,seconds));
-
-            // var km_hr = Math.round(1440/track_input*100)/100;
-            // console.log("treadmill: "+km_hr);
             treadmill_result = Math.round(1440/track_input*100)/100;
-
-            // console.log("pace: "+pace_result);
-            // console.log("treadmill: "+treadmill_result);
-
-            // update 結果
-            document.getElementById('pace_input').value = pace_result;
-            document.getElementById('treadmill_input').value = treadmill_result;
-            
         }
         else if (checked == 'treadmill') {
-            
-            // var track_sec = Math.round(1440/treadmill_input*100)/100;
-            // console.log("track: "+track_sec);
-            track_result = Math.round(1440/treadmill_input*100)/100;
-
+            track_result = Math.round(1440/treadmill_input*10)/10;
             // var pace_mm_ss = strftime('%M:%S', new Date(0,0,0,0,0,track_sec*2.5));
             // console.log("pace: "+pace_mm_ss);
-            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
-
-            // console.log("track: "+track_result);
-            // console.log("pace: "+pace_result);
-
-            // update 結果
-            document.getElementById('pace_input').value = pace_result;
-            document.getElementById('track_input').value = track_result;
-            
+            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));            
         }
         else {
             console.log('something\'s wrong')
         }
+
+        // update 結果
+        document.getElementById('pace_input').value = pace_result;
+        document.getElementById('track_input').value = track_result;
+        document.getElementById('treadmill_input').value = treadmill_result;
+
+        // update 每100結果    
+        // var m100 = bigDecimal.round(track_result/4, 1); // value = "123.68"
+        var m100,m200,m300,m400;
+        m100 = track_result/4;
+        m200 = bigDecimal.round(bigDecimal.add(m100, m100));
+        m300 = bigDecimal.round(bigDecimal.add(m200, m100));
+        m400 = track_result;
+        m100 = bigDecimal.round(m100);
+        
+        document.getElementById('m100').value = m100;
+        document.getElementById('m200').value = m200;
+        document.getElementById('m300').value = m300;
+        document.getElementById('m400').value = m400;
+        
+        document.getElementById('m200_increment').value = "(+"+bigDecimal.subtract(m200,m100)+")";
+        document.getElementById('m300_increment').value = "(+"+bigDecimal.subtract(m300,m200)+")";
+        document.getElementById('m400_increment').value = "(+"+bigDecimal.subtract(track_result,m300)+")";
+
     }
 </script>
 </html>
