@@ -9,13 +9,13 @@
 <body>
     <!-- <h1>Pace朋朋</h1> -->
     <!-- <h2>你的配速好朋友</h2> -->
-    <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()">/km<br>
-    <input type="radio" onchange="ChangeOption(this)" id="c_track" name="type" value="track"><label for="track">操場</label><input type="number" name="" id="track_input" placeholder="ex: 84" size="4" maxlength="4" onclick="this.select()" disabled>秒/圈<br>
+    <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()" onkeyup="Calculate()">/km<br>
+    <input type="radio" onchange="ChangeOption(this)" id="c_track" name="type" value="track"><label for="track">操場</label><input type="number" name="" id="track_input" placeholder="ex: 84" size="4" maxlength="4" onclick="this.select()" disabled onkeyup="Calculate()">秒/圈<br>
     <div class="indent-text">100m: <input type="text" name="" id="m100" placeholder="" size="4" disabled>秒</div>
     <div class="indent-text">200m: <input type="text" name="" id="m200" placeholder="" size="4" disabled>秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled></div>
     <div class="indent-text">300m: <input type="text" name="" id="m300" placeholder="" size="4" disabled>秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled></div>
     <div class="indent-text">400m: <input type="text" name="" id="m400" placeholder="" size="4" disabled>秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled></div>
-    <input type="radio" onchange="ChangeOption(this)" id="c_treadmill" name="type" value="treadmill"><label for="treadmill">跑步機</label><input type="number" name="" id="treadmill_input" placeholder="ex: 15" size="4" maxlength="4" onclick="this.select()" disabled>km/h<br>
+    <input type="radio" onchange="ChangeOption(this)" id="c_treadmill" name="type" value="treadmill"><label for="treadmill">跑步機</label><input type="number" name="" id="treadmill_input" placeholder="ex: 15" size="4" maxlength="4" onclick="this.select()" disabled onkeyup="Calculate()">km/h<br>
     <button class="" id='calBtn' onclick="Calculate()">Enter</button>
 </body>
 
