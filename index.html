@@ -12,12 +12,12 @@
     <!-- <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()">/km<br> -->
     <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input class="pace_input" type="number" name="" id="pace_input1" placeholder="ex: 3" onclick="this.select()" onkeyup="Calculate()" autofocus>:<input class="pace_input" type="number" name="" id="pace_input2" placeholder="15" onclick="this.select()" onkeyup="Calculate()">/km<br>
 
-    <input type="radio" onchange="ChangeOption(this)" id="c_track" name="type" value="track"><label for="track">操場</label><input type="number" name="" id="track_input" placeholder="ex: 84" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled>秒/圈<br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="track100"><label for="track100">100m: </label><input type="text" name="" id="m100" placeholder="" size="4" onkeyup="Calculate()" disabled>秒<br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="track200"><label for="track200">200m: </label><input type="text" name="" id="m200" placeholder="" size="4" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="track300"><label for="track300">300m: </label><input type="text" name="" id="m300" placeholder="" size="4" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="track400"><label for="track400">400m: </label><input type="text" name="" id="m400" placeholder="" size="4" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br>
-    <input type="radio" onchange="ChangeOption(this)" id="c_treadmill" name="type" value="treadmill"><label for="treadmill">跑步機</label><input type="number" name="" id="treadmill_input" placeholder="ex: 15" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled >km/h<br>
+    <input type="radio" onchange="ChangeOption(this)" id="c_track" name="type" value="track"><label for="track">操場</label><input type="number" name="" id="track_input" placeholder="ex: 84" size="2" maxlength="" onclick="this.select()" onkeyup="Calculate()" disabled>秒/圈<br>
+    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="track100"><label for="track100">100m: </label><input type="text" name="" id="m100" placeholder="" size="1" onkeyup="Calculate()" disabled>秒<br>
+    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="track200"><label for="track200">200m: </label><input type="text" name="" id="m200" placeholder="" size="1" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
+    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="track300"><label for="track300">300m: </label><input type="text" name="" id="m300" placeholder="" size="1" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
+    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="track400"><label for="track400">400m: </label><input type="text" name="" id="m400" placeholder="" size="1" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br>
+    <input type="radio" onchange="ChangeOption(this)" id="c_treadmill" name="type" value="treadmill"><label for="treadmill">跑步機</label><input type="text" name="" id="treadmill_input" placeholder="ex: 15" size="2" onclick="this.select()" onkeyup="Calculate()" disabled >km/h<br>
     <!-- <button class="" id='calBtn' onclick="Calculate()">Enter</button> -->
 </body>
 
@@ -27,13 +27,12 @@
 
 
 <script>   
+
+    // 取得各input的值
     var ui_pace_text1 = document.getElementById('pace_input1');
     var ui_pace_text2 = document.getElementById('pace_input2');
     var ui_track_text = document.getElementById('track_input');
-
-
     var ui_treadmill_text = document.getElementById('treadmill_input');
-
     var ui_m100 = document.getElementById('m100');
     var ui_m200 = document.getElementById('m200');
     var ui_m300 = document.getElementById('m300');
@@ -117,17 +116,20 @@
         // 取目前的input值
         let pace_input1 = ui_pace_text1.value;
         let pace_input2 = ui_pace_text2.value;
-        let track_input = ui_track_text.value;
-        let treadmill_input = ui_treadmill_text.value;
+        let track_input = Number(ui_track_text.value);
+        let treadmill_input = Number(ui_treadmill_text.value);
+        
 
         // 找到被選的選項
         checked = document.querySelector('input[name="type"]:checked').value;
-        console.log(checked);
+        // console.log(checked);
         
         // 把欲顯示的答案初始化
-        let pace_result = ui_pace_text1.value+":"+ui_pace_text2.value;
-        let track_result = ui_track_text.value;
-        let treadmill_result = ui_treadmill_text.value;    
+        let pace_result = pace_input1+":"+pace_input2;
+        // let track_result = track_input;
+        // let treadmill_result = treadmill_input;
+        let track_result = isNaN(track_input)? 0 : track_input ;
+        let treadmill_result = isNaN(treadmill_input) ? 0 : treadmill_input;
         
         var pace_result_split;
         var m100,m200,m300,m400;
@@ -139,8 +141,7 @@
             var seconds = Number(ui_pace_text1.value)*60+Number(ui_pace_text2.value);
             
             track_result = seconds/2.5;
-            treadmill_result = Math.round(1440/track_result*100)/100;  
-
+            treadmill_result = 0 ? 0:  Math.round(1440/track_result*100)/100;
             pace_result = strftime('%M:%S', new Date(0,0,0,0,0,seconds));
         }
         else if (checked == 'track') {
@@ -151,7 +152,7 @@
                 // var mm_ss_str = strftime("%M:%S", date);
             // console.log("pace: "+mm_ss_str);
             pace_result = strftime('%M:%S', new Date(0,0,0,0,0,seconds));
-            treadmill_result = Math.round(1440/track_input*100)/100;
+            treadmill_result = 0 ? 0:  Math.round(1440/track_result*100)/100;
         }
         else if (checked == 'treadmill') {
             track_result = Math.round(1440/treadmill_input*10)/10;
@@ -162,55 +163,47 @@
         else if (checked == 'track100'){
             track_result = Number(ui_m100.value)*4;
             pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
-            treadmill_result = Math.round(1440/track_result*100)/100;
+            treadmill_result = 0 ? 0:  Math.round(1440/track_result*100)/100;
         }
         else if (checked == 'track200'){
             track_result = Number(ui_m200.value)*2;
             pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
-            treadmill_result = Math.round(1440/track_result*100)/100;
+            treadmill_result = 0 ? 0:  Math.round(1440/track_result*100)/100;
         }
         else if (checked == 'track300'){
             track_result = bigDecimal.round(Number(ui_m300.value)/3*4, 1);
             pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
-            treadmill_result = Math.round(1440/track_result*100)/100;
+            treadmill_result = 0 ? 0:  Math.round(1440/track_result*100)/100;
         }
         else if (checked == 'track400'){
-            track_result = Number(ui_m400.value);
+            track_result = isNaN(Number(ui_m400.value))? '0' : Number(ui_m400.value) ;
+            // track_result = Number(ui_m400.value);
             pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
-            treadmill_result = Math.round(1440/track_result*100)/100;
+            treadmill_result = 0 ? 0:  Math.round(1440/track_result*100)/100;
+
         }
-        
-        
         else {
             console.log('something\'s wrong')
         }
 
         pace_result_split = pace_result.split(':');
 
-
-        // update 結果
-        // document.getElementById('pace_input').value = pace_result;
-        document.getElementById('pace_input1').value = pace_result_split[0];
-        document.getElementById('pace_input2').value = pace_result_split[1];
-
-        document.getElementById('track_input').value = track_result;
-        document.getElementById('treadmill_input').value = treadmill_result;
-
-        // update 每100結果    
-        // var m100 = bigDecimal.round(track_result/4, 1); // value = "123.68"
-        
-        
+        // m100-m400推算
         m100 = track_result/4;
         m200 = bigDecimal.round(bigDecimal.add(m100, m100));
         m300 = bigDecimal.round(bigDecimal.add(m200, m100));
         m400 = track_result;
         m100 = bigDecimal.round(m100);
-        
+
+        // update 結果
+        document.getElementById('pace_input1').value = pace_result_split[0];
+        document.getElementById('pace_input2').value = pace_result_split[1];
+        document.getElementById('track_input').value = track_result;
+        document.getElementById('treadmill_input').value = treadmill_result;
         document.getElementById('m100').value = m100;
         document.getElementById('m200').value = m200;
         document.getElementById('m300').value = m300;
         document.getElementById('m400').value = m400;
-        
         document.getElementById('m200_increment').value = "(+"+bigDecimal.subtract(m200,m100)+")";
         document.getElementById('m300_increment').value = "(+"+bigDecimal.subtract(m300,m200)+")";
         document.getElementById('m400_increment').value = "(+"+bigDecimal.subtract(track_result,m300)+")";
