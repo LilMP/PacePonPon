@@ -10,7 +10,7 @@
     <!-- <h1>Pace朋朋</h1> -->
     <!-- <h2>你的配速好朋友</h2> -->
     <!-- <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()">/km<br> -->
-    <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input class="pace_input" type="number" name="" id="pace_input1" placeholder="ex: 3" onclick="this.select()" onkeyup="Calculate()">:<input class="pace_input" type="number" name="" id="pace_input2" placeholder="15" onclick="this.select()" onkeyup="Calculate()">/km<br>
+    <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input class="pace_input" type="number" name="" id="pace_input1" placeholder="ex: 3" onclick="this.select()" onkeyup="Calculate()" autofocus>:<input class="pace_input" type="number" name="" id="pace_input2" placeholder="15" onclick="this.select()" onkeyup="Calculate()">/km<br>
 
     <input type="radio" onchange="ChangeOption(this)" id="c_track" name="type" value="track"><label for="track">操場</label><input type="number" name="" id="track_input" placeholder="ex: 84" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled>秒/圈<br>
     <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="track100"><label for="track100">100m: </label><input type="text" name="" id="m100" placeholder="" size="4" onkeyup="Calculate()" disabled>秒<br>
@@ -66,18 +66,25 @@
         if (checkid == 'c_pace') {
             ui_pace_text1.disabled = false;
             ui_pace_text2.disabled = false;
+            document.getElementById("pace_input1").focus();
         } else if (checkid == 'c_track') {
             ui_track_text.disabled = false;
+            document.getElementById("track_input").focus();
         } else if (checkid == 'c_treadmill') {
             ui_treadmill_text.disabled = false;
+            document.getElementById("treadmill_input").focus();
         } else if (checkid == 'c_track100'){
             ui_m100.disabled = false;
+            document.getElementById("m100").focus();
         } else if (checkid == 'c_track200'){
             ui_m200.disabled = false;
+            document.getElementById("m200").focus();
         } else if (checkid == 'c_track300'){
             ui_m300.disabled = false;
+            document.getElementById("m300").focus();
         } else if (checkid == 'c_track400'){
             ui_m400.disabled = false;
+            document.getElementById("m400").focus();
         }
     }
 
