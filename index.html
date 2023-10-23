@@ -10,14 +10,14 @@
     <!-- <h1>Pace朋朋</h1> -->
     <!-- <h2>你的配速好朋友</h2> -->
     <!-- <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()">/km<br> -->
-    <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="c_pace">配速</label><input class="pace_input" type="number" name="" id="pace_input1" placeholder="ex: 3" onclick="this.select()" onkeyup="Calculate()" autofocus>:<input class="pace_input" type="number" name="" id="pace_input2" placeholder="15" onclick="this.select()" onkeyup="Calculate()">/km<br>
+    <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="c_pace">配速</label><input class="pace_input" type="number" name="" id="pace_input" placeholder="ex: 3" onclick="this.select()" onkeyup="Calculate2()" autofocus>:<input class="pace_input" type="number" name="" id="pace_input2" placeholder="15" onclick="this.select()" onkeyup="Calculate2()">/km<br>
 
-    <input type="radio" onchange="ChangeOption(this)" id="c_track" name="type" value="track"><label for="c_track">操場</label><input type="number" name="" id="track_input" placeholder="ex: 84" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled>秒/圈<br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="track100"><label for="c_track100">100m: </label><input type="text" name="" id="m100" placeholder="" size="4" onkeyup="Calculate()" disabled>秒<br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="track200"><label for="c_track200">200m: </label><input type="text" name="" id="m200" placeholder="" size="4" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="track300"><label for="c_track300">300m: </label><input type="text" name="" id="m300" placeholder="" size="4" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="track400"><label for="c_track400">400m: </label><input type="text" name="" id="m400" placeholder="" size="4" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br>
-    <input type="radio" onchange="ChangeOption(this)" id="c_treadmill" name="type" value="treadmill"><label for="c_treadmill">跑步機</label><input type="number" name="" id="treadmill_input" placeholder="ex: 15" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled >km/h<br>
+    <input type="radio" onchange="ChangeOption(this)" id="c_track" name="type" value="track"><label for="c_track">操場</label><input type="number" name="" id="track_input" placeholder="ex: 84" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled>秒/圈<br>
+    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="m100"><label for="c_track100">100m: </label><input type="text" name="" id="m100_input" placeholder="" size="4" onkeyup="Calculate2()" disabled>秒<br>
+    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="m200"><label for="c_track200">200m: </label><input type="text" name="" id="m200_input" placeholder="" size="4" onkeyup="Calculate2()"  disabled>秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
+    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="m300"><label for="c_track300">300m: </label><input type="text" name="" id="m300_input" placeholder="" size="4" onkeyup="Calculate2()"  disabled>秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
+    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="m400"><label for="c_track400">400m: </label><input type="text" name="" id="m400_input" placeholder="" size="4" onkeyup="Calculate2()"  disabled>秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br>
+    <input type="radio" onchange="ChangeOption(this)" id="c_treadmill" name="type" value="treadmill"><label for="c_treadmill">跑步機</label><input type="number" name="" id="treadmill_input" placeholder="ex: 15" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled >km/h<br>
     <!-- <button class="" id='calBtn' onclick="Calculate()">Enter</button> -->
     <hr>
     <!-- new feature race distance btn -->
@@ -27,7 +27,7 @@
     <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_track_10000" name="road" value="10000"><label for="c_track_10000">10000m</label>
     <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_road_half" name="road" value="21097.5"><label for="c_road_half">半馬</label>
     <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_road_full" name="road" value="42195"><label for="c_road_full">全馬</label><br>
-    <input type="radio" onchange="ChangeOption(this)" id="c_finish_time" name="type" value="finish"><label for="c_finish_time">完成時間: </label><input type="text" name="" id="finish_time" placeholder="" size="8" onkeyup="Calculate()"  disabled>
+    <input type="radio" onchange="ChangeOption(this)" id="c_finish_time" name="type" value="finish_time"><label for="c_finish_time">完成時間: </label><input type="text" name="" id="finish_time_input" placeholder="" size="8" onkeyup="Calculate2()"  disabled>
 
 
 </body>
@@ -38,29 +38,70 @@
 
 
 <script>   
-    var ui_pace_text1 = document.getElementById('pace_input1');
+    var ui_pace_text1 = document.getElementById('pace_input');
     var ui_pace_text2 = document.getElementById('pace_input2');
     var ui_track_text = document.getElementById('track_input');
 
 
     var ui_treadmill_text = document.getElementById('treadmill_input');
 
-    var ui_m100 = document.getElementById('m100');
-    var ui_m200 = document.getElementById('m200');
-    var ui_m300 = document.getElementById('m300');
-    var ui_m400 = document.getElementById('m400');
+    var ui_m100 = document.getElementById('m100_input');
+    var ui_m200 = document.getElementById('m200_input');
+    var ui_m300 = document.getElementById('m300_input');
+    var ui_m400 = document.getElementById('m400_input');
     var ui_m200_increment = document.getElementById('m200_increment');
     var ui_m300_increment = document.getElementById('m300_increment');
     var ui_m400_increment = document.getElementById('m400_increment');
 
-    var ui_finish_time = document.getElementById('finish_time');
-    console.log("ui_finish_time: "+ui_finish_time.disabled);
+    var ui_finish_time = document.getElementById('finish_time_input');
+    // console.log("ui_finish_time: "+ui_finish_time.disabled);
 
 
     // 一種把數字後面小數點去掉的方法
     // const toFixedWithoutZeros = (num, precision) =>
     //     num.toFixed(precision).replace(/\.0+$/, '');
     // toFixedWithoutZeros(12.0, 1);
+    var input_ui=["pace_input","pace_input2","track_input",
+        "m100_input","m200_input","m300_input","m400_input",
+        "m200_increment","m300_increment","m400_increment",
+        "treadmill_input",
+        "finish_time_input"];
+    
+    var input_ui_value = new Array(input_ui.length);
+
+    function GetInputValue(){
+        // 取目前顯示的input value
+        for (let index = 0; index < input_ui_value.length; index++) {
+            input_ui_value[index] = document.getElementById(input_ui[index]).value;
+        }
+        return input_ui_value;
+    }
+
+    function UpdateInputValue(){
+        // 取目前的input value
+        for (let index = 0; index < input_ui_value.length; index++) {
+            document.getElementById(input_ui[index]).value = input_ui_value[index];
+        }
+        // // 清空,只留下第一個
+        // for (let index = 1; index < input_ui_value.length; index++) {
+        //     input_ui_value[index] = "";
+        // }
+    }
+
+    function AllInputDisabled(){
+        input_ui.forEach(element => {
+            document.getElementById(element).disabled = true;
+        });
+    }
+    function AllInputClean(){
+        // 顯示結果清空
+        input_ui.forEach(element => {
+            document.getElementById(element).value = "";
+        });
+
+        // 暫存結果清空
+        input_ui_value = new Array(input_ui.length);
+    }
     
     // 沒選到不能輸入
     function DisableTextBox(e){
@@ -82,7 +123,7 @@
         if (checkid == 'c_pace') {
             ui_pace_text1.disabled = false;
             ui_pace_text2.disabled = false;
-            document.getElementById("pace_input1").focus();
+            document.getElementById("pace_input").focus();
         } else if (checkid == 'c_track') {
             ui_track_text.disabled = false;
             document.getElementById("track_input").focus();
@@ -91,20 +132,34 @@
             document.getElementById("treadmill_input").focus();
         } else if (checkid == 'c_track100'){
             ui_m100.disabled = false;
-            document.getElementById("m100").focus();
+            document.getElementById('m100_input').focus();
         } else if (checkid == 'c_track200'){
             ui_m200.disabled = false;
-            document.getElementById("m200").focus();
+            document.getElementById('m200_input').focus();
         } else if (checkid == 'c_track300'){
             ui_m300.disabled = false;
-            document.getElementById("m300").focus();
+            document.getElementById('m300_input').focus();
         } else if (checkid == 'c_track400'){
             ui_m400.disabled = false;
-            document.getElementById("m400").focus();
+            document.getElementById('m400_input').focus();
         } else if (checkid == 'c_finish_time'){
             ui_finish_time.disabled = false;
-            document.getElementById("finish_time").focus();
+            document.getElementById("finish_time_input").focus();
         }
+    }
+    function DisableTextBox2(e){
+        // 做的事情:
+        // 1. 全部設 disabled
+        // 2. 選到的 disabled = false 然後 focus()
+        AllInputDisabled('disabled');
+        var check_value = e.value+"_input";
+        console.log(check_value);
+        if(check_value == 'pace_input'){
+            document.getElementById(check_value+"2").disabled = false;
+        }
+        document.getElementById(check_value).disabled = false;
+        document.getElementById(check_value).focus();
+
     }
 
     // 清掉輸入紀錄
@@ -128,8 +183,10 @@
 
     // 切換選項的動作: 1.把沒選到的disable 2.清掉輸入紀錄
     function ChangeOption(e) {
-        DisableTextBox(e);
-        CleanTextBox();
+        DisableTextBox2(e);
+        // CleanTextBox();
+        AllInputClean(); 
+        console.log("切換選項後input_ui_value: "+input_ui_value);
     }
 
     // 按下enter後執行計算
@@ -144,7 +201,7 @@
 
         // 找到被選的選項
         checked = document.querySelector('input[name="type"]:checked').value;
-        console.log(checked);
+        // console.log(checked);
         
         // 把欲顯示的答案初始化
         let pace_result = ui_pace_text1.value+":"+ui_pace_text2.value;
@@ -181,22 +238,22 @@
             // console.log("pace: "+pace_mm_ss);
             pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));            
         }
-        else if (checked == 'track100'){
+        else if (checked == 'm100'){
             track_result = Number(ui_m100.value)*4;
             pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
             treadmill_result = Math.round(1440/track_result*100)/100;
         }
-        else if (checked == 'track200'){
+        else if (checked == 'm200'){
             track_result = Number(ui_m200.value)*2;
             pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
             treadmill_result = Math.round(1440/track_result*100)/100;
         }
-        else if (checked == 'track300'){
+        else if (checked == 'm300'){
             track_result = bigDecimal.round(Number(ui_m300.value)/3*4, 1);
             pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
             treadmill_result = Math.round(1440/track_result*100)/100;
         }
-        else if (checked == 'track400'){
+        else if (checked == 'm400'){
             track_result = Number(ui_m400.value);
             pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
             treadmill_result = Math.round(1440/track_result*100)/100;
@@ -214,7 +271,7 @@
 
         // update 結果
         // document.getElementById('pace_input').value = pace_result;
-        document.getElementById('pace_input1').value = pace_result_split[0];
+        document.getElementById('pace_input').value = pace_result_split[0];
         document.getElementById('pace_input2').value = pace_result_split[1];
 
         document.getElementById('track_input').value = track_result;
@@ -230,10 +287,10 @@
         m400 = track_result;
         m100 = bigDecimal.round(m100);
         
-        document.getElementById('m100').value = m100;
-        document.getElementById('m200').value = m200;
-        document.getElementById('m300').value = m300;
-        document.getElementById('m400').value = m400;
+        document.getElementById('m100_input').value = m100;
+        document.getElementById('m200_input').value = m200;
+        document.getElementById('m300_input').value = m300;
+        document.getElementById('m400_input').value = m400;
         
         document.getElementById('m200_increment').value = "(+"+bigDecimal.subtract(m200,m100)+")";
         document.getElementById('m300_increment').value = "(+"+bigDecimal.subtract(m300,m200)+")";
@@ -243,12 +300,106 @@
         Calculate_finish_time(distance);
     }
 
+    function Calculate2(){
+        
+        // for (let index = 0; index < input_ui_value.length; index++) {
+        //     console.log("id: "+input_ui[index]);
+        //     console.log("value: "+input_ui_value[index]);
+        // }
+
+        // 取目前的input值
+        var temp_arr = GetInputValue();
+        var pace_input1 = temp_arr[0];
+        var pace_input2 = temp_arr[1];
+        var track_input = temp_arr[2];
+        var treadmill_input = temp_arr[10];
+
+        // // 找到被選的選項
+        var checked_option = document.querySelector('input[name="type"]:checked').value;
+        // console.log("option: "+checked_option);
+
+        // // 把欲顯示的答案初始化
+        var pace_result = pace_input1+":"+pace_input2;
+        var track_result = track_input;
+        var treadmill_result = treadmill_input;  
+        var seconds_per_lap;
+        console.log("##### 計算前 #####");
+        console.log("track_result: "+track_result);
+        console.log("pace_result: "+pace_result);
+        console.log("treadmill_result: "+treadmill_result);
+        console.log("seconds_per_lap: "+seconds_per_lap);
+        console.log("");
+
+        if(checked_option == 'pace'){
+            seconds_per_lap = (Number(pace_input1)*60+Number(pace_input2))/2.5;
+        }
+        else if(checked_option == 'track'){
+            seconds_per_lap = track_input;
+        }
+        else if(checked_option == 'treadmill'){
+            seconds_per_lap = Math.round(1440/Number(treadmill_input)*10)/10;
+        }
+
+        console.log("##### 計算後 #####");
+        console.log("s_per_lap: "+ seconds_per_lap);
+        
+
+        track_result = seconds_per_lap;
+        pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
+        treadmill_result = Math.round(1440/track_result*100)/100;
+
+        
+        
+        console.log("track_result: "+track_result);
+        console.log("pace_result: "+pace_result);
+        console.log("treadmill_result: "+treadmill_result);
+
+
+
+        var pace_result_split = pace_result.split(':');
+        console.log(pace_result_split[0]);
+        console.log(pace_result_split[1]);
+
+        // // update 結果
+        // // document.getElementById('pace_input').value = pace_result;
+        document.getElementById('pace_input').value = pace_result_split[0];
+        console.log("pace_result_split[0]: "+pace_result_split[0]);
+        console.log("input_ui_value: "+input_ui_value);
+        document.getElementById('pace_input2').value = pace_result_split[1];
+
+        document.getElementById('track_input').value = track_result;
+        document.getElementById('treadmill_input').value = treadmill_result;
+
+        // update 每100結果    
+        // var m100 = bigDecimal.round(track_result/4, 1); // value = "123.68"
+        
+        
+        var m100 = track_result/4;
+        var m200 = bigDecimal.round(bigDecimal.add(m100, m100));
+        var m300 = bigDecimal.round(bigDecimal.add(m200, m100));
+        var m400 = track_result;
+        var m100 = bigDecimal.round(m100);
+        
+        document.getElementById('m100_input').value = m100;
+        document.getElementById('m200_input').value = m200;
+        document.getElementById('m300_input').value = m300;
+        document.getElementById('m400_input').value = m400;
+        
+        document.getElementById('m200_increment').value = "(+"+bigDecimal.subtract(m200,m100)+")";
+        document.getElementById('m300_increment').value = "(+"+bigDecimal.subtract(m300,m200)+")";
+        document.getElementById('m400_increment').value = "(+"+bigDecimal.subtract(track_result,m300)+")";
+
+        var distance = document.querySelector('input[name="road"]:checked').value;
+        Calculate_finish_time(distance);
+
+    }
+
     // 計算完成時間
     function Calculate_finish_time(d) {
         var distance = Number(d);
         var time;
-        var result_400 = document.getElementById('m400').value;
-        console.log("result_400: "+result_400);
+        var result_400 = document.getElementById('m400_input').value;
+        // console.log("result_400: "+result_400);
         // 測試資料{
         //     配速4:28
         //     操場85
@@ -259,8 +410,14 @@
 
         finish_time = strftime('%H:%M:%S', new Date(0,0,0,0,0,time));
         // console.log("finish time: "+finish_time);
-        document.getElementById('finish_time').value = finish_time;
+        document.getElementById('finish_time_input').value = finish_time;
         
     }
+
+
+
+
+
+
 </script>
 </html>
