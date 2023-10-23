@@ -21,13 +21,13 @@
     <!-- <button class="" id='calBtn' onclick="Calculate()">Enter</button> -->
     <hr>
     <!-- new feature race distance btn -->
-    <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_track_800" name="road" value="800"><label for="c_track_800">800m</label>
+    <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_track_800" name="road" value="800" checked><label for="c_track_800">800m</label>
     <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_track_1500" name="road" value="1500"><label for="c_track_1500">1500m</label>
     <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_track_5000" name="road" value="5000"><label for="c_track_5000">5000m</label>
     <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_track_10000" name="road" value="10000"><label for="c_track_10000">10000m</label>
     <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_road_half" name="road" value="21097.5"><label for="c_road_half">半馬</label>
     <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_road_full" name="road" value="42195"><label for="c_road_full">全馬</label><br>
-    <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_finish_time" name="type"><label for="c_finish_time">完成時間: </label><input type="text" name="" id="finish_time" placeholder="" size="4" onkeyup=""  disabled>
+    <input type="radio" onchange="ChangeOption(this)" id="c_finish_time" name="type" value="finish"><label for="c_finish_time">完成時間: </label><input type="text" name="" id="finish_time" placeholder="" size="8" onkeyup="Calculate()"  disabled>
 
 
 </body>
@@ -53,6 +53,9 @@
     var ui_m300_increment = document.getElementById('m300_increment');
     var ui_m400_increment = document.getElementById('m400_increment');
 
+    var ui_finish_time = document.getElementById('finish_time');
+    console.log("ui_finish_time: "+ui_finish_time.disabled);
+
 
     // 一種把數字後面小數點去掉的方法
     // const toFixedWithoutZeros = (num, precision) =>
@@ -62,7 +65,7 @@
     // 沒選到不能輸入
     function DisableTextBox(e){
         var checkid = e.id;
-        // console.log(checkid);
+        console.log("checkid: "+checkid);
         ui_pace_text1.disabled = true;
         ui_pace_text2.disabled = true;
 
@@ -73,6 +76,8 @@
 
         ui_track_text.disabled = true;
         ui_treadmill_text.disabled = true;
+
+        ui_finish_time.disabled = true;
 
         if (checkid == 'c_pace') {
             ui_pace_text1.disabled = false;
@@ -96,6 +101,9 @@
         } else if (checkid == 'c_track400'){
             ui_m400.disabled = false;
             document.getElementById("m400").focus();
+        } else if (checkid == 'c_finish_time'){
+            ui_finish_time.disabled = false;
+            document.getElementById("finish_time").focus();
         }
     }
 
@@ -114,6 +122,8 @@
         ui_m300_increment.value = "";
         ui_m400_increment.value = "";
 
+        ui_finish_time.value = "";
+
     }
 
     // 切換選項的動作: 1.把沒選到的disable 2.清掉輸入紀錄
@@ -130,6 +140,7 @@
         let pace_input2 = ui_pace_text2.value;
         let track_input = ui_track_text.value;
         let treadmill_input = ui_treadmill_text.value;
+        
 
         // 找到被選的選項
         checked = document.querySelector('input[name="type"]:checked').value;
@@ -190,6 +201,8 @@
             pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
             treadmill_result = Math.round(1440/track_result*100)/100;
         }
+
+        
         
         
         else {
@@ -226,6 +239,8 @@
         document.getElementById('m300_increment').value = "(+"+bigDecimal.subtract(m300,m200)+")";
         document.getElementById('m400_increment').value = "(+"+bigDecimal.subtract(track_result,m300)+")";
 
+        var distance = document.querySelector('input[name="road"]:checked').value;
+        Calculate_finish_time(distance);
     }
 
     // 計算完成時間
@@ -233,6 +248,11 @@
         var distance = Number(d);
         var time;
         var result_400 = document.getElementById('m400').value;
+        console.log("result_400: "+result_400);
+        // 測試資料{
+        //     配速4:28
+        //     操場85
+        // }
 
         time = distance*result_400/400; // in seconds
         // console.log(time);
