@@ -10,15 +10,26 @@
     <!-- <h1>Pace朋朋</h1> -->
     <!-- <h2>你的配速好朋友</h2> -->
     <!-- <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()">/km<br> -->
-    <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input class="pace_input" type="number" name="" id="pace_input1" placeholder="ex: 3" onclick="this.select()" onkeyup="Calculate()" autofocus>:<input class="pace_input" type="number" name="" id="pace_input2" placeholder="15" onclick="this.select()" onkeyup="Calculate()">/km<br>
+    <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="c_pace">配速</label><input class="pace_input" type="number" name="" id="pace_input1" placeholder="ex: 3" onclick="this.select()" onkeyup="Calculate()" autofocus>:<input class="pace_input" type="number" name="" id="pace_input2" placeholder="15" onclick="this.select()" onkeyup="Calculate()">/km<br>
 
-    <input type="radio" onchange="ChangeOption(this)" id="c_track" name="type" value="track"><label for="track">操場</label><input type="number" name="" id="track_input" placeholder="ex: 84" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled>秒/圈<br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="track100"><label for="track100">100m: </label><input type="text" name="" id="m100" placeholder="" size="4" onkeyup="Calculate()" disabled>秒<br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="track200"><label for="track200">200m: </label><input type="text" name="" id="m200" placeholder="" size="4" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="track300"><label for="track300">300m: </label><input type="text" name="" id="m300" placeholder="" size="4" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="track400"><label for="track400">400m: </label><input type="text" name="" id="m400" placeholder="" size="4" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br>
-    <input type="radio" onchange="ChangeOption(this)" id="c_treadmill" name="type" value="treadmill"><label for="treadmill">跑步機</label><input type="number" name="" id="treadmill_input" placeholder="ex: 15" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled >km/h<br>
+    <input type="radio" onchange="ChangeOption(this)" id="c_track" name="type" value="track"><label for="c_track">操場</label><input type="number" name="" id="track_input" placeholder="ex: 84" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled>秒/圈<br>
+    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="track100"><label for="c_track100">100m: </label><input type="text" name="" id="m100" placeholder="" size="4" onkeyup="Calculate()" disabled>秒<br>
+    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="track200"><label for="c_track200">200m: </label><input type="text" name="" id="m200" placeholder="" size="4" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
+    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="track300"><label for="c_track300">300m: </label><input type="text" name="" id="m300" placeholder="" size="4" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
+    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="track400"><label for="c_track400">400m: </label><input type="text" name="" id="m400" placeholder="" size="4" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br>
+    <input type="radio" onchange="ChangeOption(this)" id="c_treadmill" name="type" value="treadmill"><label for="c_treadmill">跑步機</label><input type="number" name="" id="treadmill_input" placeholder="ex: 15" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled >km/h<br>
     <!-- <button class="" id='calBtn' onclick="Calculate()">Enter</button> -->
+    <hr>
+    <!-- new feature race distance btn -->
+    <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_track_800" name="road" value="800"><label for="c_track_800">800m</label>
+    <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_track_1500" name="road" value="1500"><label for="c_track_1500">1500m</label>
+    <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_track_5000" name="road" value="5000"><label for="c_track_5000">5000m</label>
+    <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_track_10000" name="road" value="10000"><label for="c_track_10000">10000m</label>
+    <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_road_half" name="road" value="21097.5"><label for="c_road_half">半馬</label>
+    <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_road_full" name="road" value="42195"><label for="c_road_full">全馬</label><br>
+    <input type="radio" onchange="Calculate_finish_time(this.value)" id="c_finish_time" name="type"><label for="c_finish_time">完成時間: </label><input type="text" name="" id="finish_time" placeholder="" size="4" onkeyup=""  disabled>
+
+
 </body>
 
 <!-- 引入有用到的js函式庫 -->
@@ -215,6 +226,21 @@
         document.getElementById('m300_increment').value = "(+"+bigDecimal.subtract(m300,m200)+")";
         document.getElementById('m400_increment').value = "(+"+bigDecimal.subtract(track_result,m300)+")";
 
+    }
+
+    // 計算完成時間
+    function Calculate_finish_time(d) {
+        var distance = Number(d);
+        var time;
+        var result_400 = document.getElementById('m400').value;
+
+        time = distance*result_400/400; // in seconds
+        // console.log(time);
+
+        finish_time = strftime('%H:%M:%S', new Date(0,0,0,0,0,time));
+        // console.log("finish time: "+finish_time);
+        document.getElementById('finish_time').value = finish_time;
+        
     }
 </script>
 </html>
