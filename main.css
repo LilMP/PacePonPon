@@ -1,4 +1,23 @@
 
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    height: 90vh;
+    flex-direction: column;
+    background-color: rgb(69, 117, 117);
+    /* color: rgb(107, 189, 107); */
+    color: rgb(237, 237, 222);
+    font-family: Microsoft JhengHei;
+    /* border: 2px solid red; */
+}
+.box {
+    width: 100%;
+    /* outline: 2px solid red; */
+    margin: 5px;
+    /* border: 2px solid blue; */
+}
+
 /* 文字靠右 */
 input[type="text"],input[type="number"],
 input[type="text"]::placeholder, input[type="number"]::placeholder {        
@@ -10,10 +29,10 @@ input[type='number']{
     width: 3em;
 } 
 #pace_input1{
-    width: 2.2em !important;
+    width: 2em !important;
 }
 #pace_input2, #pace_input2::placeholder{
-    width: 1.5em !important;
+    width: 2em !important;
     text-align: left !important;
 }
 
@@ -37,7 +56,94 @@ input[type=number] {
 /* increment樣式取消底色&框線 */
 .increment {
     border: none;
-    background-color: white;
+    background-color: transparent;
     text-align: left !important;
     width: auto !important;
+    color: rgb(189, 204, 204);
+}
+
+
+
+/* 圖片當按鈕 */
+/* HIDE RADIO */
+.hidden-radio { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+/* IMAGE STYLES */
+.row {
+    padding: 5px 0;
+    cursor: pointer;
+    display: flow;
+    /* outline: 2px solid black; */
+    width: 100%;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    /* margin: 5px; */
+    /* -webkit-text-stroke: 1px rgb(91, 155, 91); */
+}
+label {
+    cursor: pointer;
+}
+input{
+    vertical-align: middle;
+    padding: 3px;
+    font-size: 0.6em;
+    margin-bottom: 5px;
+    background-color: #BDCCCC;
+    /* border: 2px solid rgb(233, 233, 173); */
+}
+label img {
+    height: 0.9em;
+    margin: 5px;
+    vertical-align: text-bottom;
+}
+
+
+
+/* CHECKED STYLES */
+[type=radio]:checked, [type=radio]:checked + div {
+    /* outline: 2px solid #f00; */
+    background-color: rgb(184, 108, 108);
+}
+
+
+input:focus {
+    /* background-color: ivory; */
+    /* background-color: #bdcccc; */
+    background-color: rgb(233, 233, 173);    
+    outline: transparent;
+    /* border: 2px solid rgb(233, 233, 173); */
+}
+
+.footer a{
+    color: rgb(204, 204, 204);
+}
+
+
+
+
+
+.left-right {
+    overflow:hidden;
+    height:200px;
+    width:200px;
+    position:relative;
+    background-color:#333;
+}
+.slider {
+    width:200px;
+    height:200px;
+    position:absolute;
+    left:0;
+    top:-200px;
+    background-color:#000;
+    color:#fff;
+    transition:0.4s ease;
+}
+
+.left-right:hover .slider {
+  top:0;
 }

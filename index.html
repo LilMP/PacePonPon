@@ -7,18 +7,57 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <!-- <h1>Pace朋朋</h1> -->
-    <!-- <h2>你的配速好朋友</h2> -->
-    <!-- <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()">/km<br> -->
-    <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input class="pace_input" type="number" name="" id="pace_input1" placeholder="ex: 3" onclick="this.select()" onkeyup="Calculate()" autofocus>:<input class="pace_input" type="number" name="" id="pace_input2" placeholder="15" onclick="this.select()" onkeyup="Calculate()">/km<br>
+    <div>
+        <h1 class="box" style="display: inline;">Pace朋朋</h1>
+        <h3 class="box"style="display: inline;">你的配速好朋友</h3>
+        <!-- <h1 class="box">名字還在想</h1> -->
+        <!-- <h2 class="box">還在想</h2> -->
+        <hr width="100%">
+        <!-- <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()">/km<br> -->
+        <div class="box">
+            <label>
+                <input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked>
+                <div class="row">
+                    <img src="speedometer.png" alt="Option 1">配速
+                    <input class="pace_input" type="number" name="" id="pace_input1" placeholder="" onclick="this.select()" onkeyup="Calculate()" autofocus> : <input class="pace_input" type="number" name="" id="pace_input2" placeholder="" onclick="this.select()" onkeyup="Calculate()"> /km
+                </div>
+            </label>
+        </div>
 
-    <input type="radio" onchange="ChangeOption(this)" id="c_track" name="type" value="track"><label for="track">操場</label><input type="number" name="" id="track_input" placeholder="ex: 84" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled>秒/圈<br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="track100"><label for="track100">100m: </label><input type="text" name="" id="m100" placeholder="" size="4" onkeyup="Calculate()" disabled>秒<br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="track200"><label for="track200">200m: </label><input type="text" name="" id="m200" placeholder="" size="4" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="track300"><label for="track300">300m: </label><input type="text" name="" id="m300" placeholder="" size="4" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
-    <input class="indent-text" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="track400"><label for="track400">400m: </label><input type="text" name="" id="m400" placeholder="" size="4" onkeyup="Calculate()"  disabled>秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br>
-    <input type="radio" onchange="ChangeOption(this)" id="c_treadmill" name="type" value="treadmill"><label for="treadmill">跑步機</label><input type="number" name="" id="treadmill_input" placeholder="ex: 15" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled >km/h<br>
-    <!-- <button class="" id='calBtn' onclick="Calculate()">Enter</button> -->
+        <div class="box">
+            <label>
+                <input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track" name="type" value="track">
+                <div class="row">
+                    <img src="track.png" alt="Option 2">田徑場
+                    <input type="number" name="" id="track_input" placeholder="" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled> 秒/圈
+                </div>
+            </label>
+        </div>
+        <div class="">
+        <div class="box indent-text "> 
+        <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="track100">100m: </label><input type="text" name="" id="m100" placeholder="" size="1" onkeyup="Calculate()" disabled> 秒<br>
+        <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="track200">200m: </label><input type="text" name="" id="m200" placeholder="" size="1" onkeyup="Calculate()"  disabled> 秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
+        <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="track300">300m: </label><input type="text" name="" id="m300" placeholder="" size="1" onkeyup="Calculate()"  disabled> 秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
+        <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="track400">400m: </label><input type="text" name="" id="m400" placeholder="" size="1" onkeyup="Calculate()"  disabled> 秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br>
+        </div>
+        </div>
+        
+        <div class="box">    
+            <label>
+                <input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_treadmill" name="type" value="treadmill"><div class="row">
+                    <img src="treadmill.png" alt="Option 3">跑步機
+                    <input type="number" name="" id="treadmill_input" placeholder="" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled > km/h
+                </div>
+            </label>
+        </div> 
+        <!-- <button class="" id='calBtn' onclick="Calculate()">Enter</button> -->
+        <!-- <hr> -->
+        <!-- <div class="footer" ><a target="_blank" href="https://icons8.com/icon/iK0ZhsguDd3G/running-track">Running Track</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></div> -->
+        <!-- <a target="_blank" href="https://icons8.com/icon/1737/speedometer">Speedometer</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+        <!-- <a target="_blank" href="https://icons8.com/icon/7673/treadmill">Treadmill</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+
+
+    </div>
 </body>
 
 <!-- 引入有用到的js函式庫 -->
@@ -67,6 +106,8 @@
             ui_pace_text1.disabled = false;
             ui_pace_text2.disabled = false;
             document.getElementById("pace_input1").focus();
+            // document.getElementById("pace_input1").parentElement.parentElement.parentElement.style.backgroundColor = "rgb(184, 108, 108)";
+            // document.getElementById("pace_input1").parentElement.parentElement.style.backgroundColor = "red";
         } else if (checkid == 'c_track') {
             ui_track_text.disabled = false;
             document.getElementById("track_input").focus();
