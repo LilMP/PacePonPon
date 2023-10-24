@@ -11,9 +11,10 @@ body {
     font-family: Microsoft JhengHei;
     /* border: 2px solid red; */
     margin-top:10vh;
+    padding: 0 10px;
 }
 .box {
-    width: 100%;
+    width: 90%;
     /* outline: 2px solid red; */
     margin: 5px;
     /* border: 2px solid blue; */
