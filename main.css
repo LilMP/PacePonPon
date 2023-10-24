@@ -3,13 +3,14 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-    height: 90vh;
+    /* height: 90vh; */
     flex-direction: column;
     background-color: rgb(69, 117, 117);
     /* color: rgb(107, 189, 107); */
     color: rgb(237, 237, 222);
     font-family: Microsoft JhengHei;
     /* border: 2px solid red; */
+    margin-top:10vh;
 }
 .box {
     width: 100%;
