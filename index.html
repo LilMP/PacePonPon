@@ -18,11 +18,10 @@
             <label>
                 <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_pace" name="type" value="pace" checked>
                 <div class="row">
-                    <img src="speedometer.png" alt="Option 1"><span>配速</span>
+                    <img src="speedometer.png" alt="Option 1"><span>配速　</span>
                 </div>
             </label>
             <input class="pace_input" type="number" name="" id="pace_input" placeholder="ex: 3" onclick="this.select()" onkeyup="Calculate2()" autofocus><span>:</span><input class="pace_input" type="number" name="" id="pace_input2" placeholder="30" onclick="this.select()" onkeyup="Calculate2()"><span>/km</span>
-
         </div>
 
         <div class="box">
@@ -104,7 +103,7 @@
         <label>
             <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_finish_time" name="type" value="finish_time">
             <div class="row">
-                <img src="stopwatch.png" alt="Option 3"><span>時間</span>
+                <img src="stopwatch.png" alt="Option 3"><span>時間　</span>
             </div>
                            
             <select id="dropdown" onchange="ChangeDistance(this.value)" style="margin-right: 0.5em;">
@@ -118,7 +117,7 @@
                 <option value="42195">全馬</option>
             </select>
     
-            <input type="text" name="" id="finish_time_input" placeholder="" size="11" onclick="this.select()" onkeyup="Calculate2()" disabled >
+            <input type="text" name="" id="finish_time_input" placeholder="" size="8" onclick="this.select()" onkeyup="Calculate2()" disabled >
 
         </label>
     </div> 
@@ -307,7 +306,7 @@
 
         var checked_option = document.querySelector('input[name="type"]:checked').value;
         if(checked_option=="finish_time"){
-            document.getElementById("finish_time_input").placeholder = "分:秒 or 時:分:秒";
+            document.getElementById("finish_time_input").placeholder = "分:秒/時:分:秒";
         }else if(checked_option=="track"){
             document.getElementById(e.value+"_input").placeholder = "ex:100";
         }else if(checked_option=="treadmill"){
