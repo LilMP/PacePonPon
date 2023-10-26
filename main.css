@@ -220,3 +220,13 @@ input:focus {
     background-color: #BDCCCC;
 } */
 
+/* 移除手機版點按鈕時的藍色背景 */
+input,
+label,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
