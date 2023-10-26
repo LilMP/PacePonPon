@@ -3,21 +3,22 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-    /* height: 90vh; */
+    /* height: 45vh; */
     flex-direction: column;
     background-color: rgb(69, 117, 117);
     /* color: rgb(107, 189, 107); */
     color: rgb(237, 237, 222);
     font-family: Microsoft JhengHei;
     /* border: 2px solid red; */
-    margin-top:10vh;
+    margin-top:5vh;
     padding: 0 10px;
     /* font-size:2em; */
 }
 .box {
-    width: 95%;
+    
+    /* width: 95%; */
     /* outline: 2px solid red; */
-    margin: 5px;
+    /* margin: 5px; */
     /* border: 2px solid blue; */
 }
 
@@ -26,17 +27,20 @@ input[type="text"],input[type="number"],
 input[type="text"]::placeholder, input[type="number"]::placeholder {        
     /* Firefox, Chrome, Opera */
     text-align: right;
+    color: rgb(117,117,117);
 }
 /* 設定數字欄位寬度 */
 input[type='number']{
-    width: 3em;
+    width: 4em;
 } 
-#pace_input1{
-    width: 2em !important;
+#pace_input{
+    width: 3em !important;
+    background-color: rgb(233, 233, 173);
 }
 #pace_input2, #pace_input2::placeholder{
-    width: 2em !important;
+    width: 2.5em !important;
     text-align: left !important;
+    background-color: rgb(233, 233, 173);
 }
 
 /* 取消數字欄位預設有的箭頭: 注意不同瀏覽器寫法不同 */
@@ -51,18 +55,37 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
+input + span {
+    /* font-size: 10px; */
+    font-size: 0.5em;
+    vertical-align: super;
+    padding: 0 5px;
+    color: rgb(189, 204, 204);
+}
+
 .indent-text {
     /* text-indent: 22px; */
     margin-left: 2em;
+    padding-left: 5px;
+    display: inline-block;
 }
 
 /* increment樣式取消底色&框線 */
 .increment {
+    padding: 0;
+    vertical-align: baseline;
     border: none;
     background-color: transparent;
     text-align: left !important;
-    width: auto !important;
-    color: rgb(189, 204, 204);
+    /* width: auto !important; */
+    width: 40px;
+    /* color: rgb(189, 204, 204) !important; */
+    color: #95a0a0 !important;
+    font-size: 10px;
+}
+.input-right {
+    width: 30px !important;
+    text-align: right;
 }
 
 
@@ -79,40 +102,58 @@ input[type=number] {
 .row {
     display: inline;
     margin-right: 0.5em;
-
+    /* display: inline-grid; */
     padding: 5px 0;
     cursor: pointer;
     /* display: flow; */
     /* outline: 2px solid black; */
-    width: 100%;
-    font-size: 1.5rem;
-    border-radius: 15px;
+    /* width: 100%; */
+    font-size: 1em;
+    /* border-radius: 15px; */
     /* margin: 5px; */
     /* -webkit-text-stroke: 1px rgb(91, 155, 91); */
+}
+.row span {
+    font-size: large;
+    vertical-align: super;
+    text-align: center;
 }
 label {
     cursor: pointer;
 }
 input{
-    vertical-align: middle;
+    vertical-align: super;
     padding: 3px;
-    font-size: 0.6em;
-    margin-bottom: 5px;
+    /* font-size: 1.5em; */
+    /* margin-bottom: 5px; */
     background-color: #BDCCCC;
     /* border: 2px solid rgb(233, 233, 173); */
+    border: none;
+    color: rgb(84, 84, 84) !important;
+
 }
 label img {
-    height: 0.9em;
-    margin: 5px;
+    font-size: 1.5em;
+    /* height: 2em; */
+    height: 1em;
+    /* margin: 5px; */
     vertical-align: text-bottom;
+    padding: 5px;
+    border-radius: 10px;
+    margin-right: 2px;
 }
 
 
 
 /* CHECKED STYLES */
-[type=radio]:checked, [type=radio]:checked + div {
+[type=radio]:checked, [type=radio]:checked + div img {
     /* outline: 2px solid #f00; */
     background-color: rgb(184, 108, 108);
+    /* border-bottom: 2px solid rgb(184, 108, 108); */
+}
+[type=radio]:checked + div span {
+    border-bottom: 2px solid rgb(184, 108, 108);
+    /* border-color: rgb(184, 108, 108); */
 }
 
 
@@ -125,12 +166,14 @@ input:focus {
 }
 
 
+/* 下滑式清單 */
 #dropdown {
     background-color: #BDCCCC;
     color: rgb(84, 84, 84);
-    vertical-align: text-top;
+    vertical-align: super;
     cursor: pointer;
     outline: transparent;
+    /* text-align: center; */
 }
 
 
@@ -143,8 +186,34 @@ input:focus {
     /* overflow:hidden 一定要加 */
     overflow: hidden; 
     /* height 也必須指定pixel 用auto/100%會瞬間消失 */
-    height: 150px;
+    height: 90px;
 }
 .SlideDown {
     height: 0px;
 }
+
+/* 按鈕動畫 */
+#slide-button {
+    background-color: transparent;
+    border:none;
+    color: rgb(237, 237, 222);
+    font-weight: bold;
+    /* font-size: 1.5em; */
+    text-shadow: 0.05em 0.05em rgb(84, 84, 84);
+    cursor: pointer;
+    vertical-align: super;
+}
+
+.click-expand {
+    /* animation-duration: 4s; */
+    animation-timing-function: linear;
+    /* animation-iteration-count: 1; */
+    transform: rotate(45deg) translateZ(0) ;
+}
+
+/* .tohighlight {
+    background-color: rgb(233, 233, 173); 
+}
+.todisabled {
+    background-color: #BDCCCC;
+} */

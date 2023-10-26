@@ -8,20 +8,20 @@
 </head>
 <body>
     <div>
-        <h1 class="box" style="display: inline;">Pace朋朋</h1>
-        <h3 class="box"style="display: inline;">你的配速好朋友</h3>
+        <h1 class="box" style="margin:0;">Pace朋朋</h1>
+        <span class="box"style="font-size:0.5rem;color:rgb(189, 204, 204);vertical-align:top;">你的配速好朋友</span>
         <!-- <h1 class="box">名字還在想</h1> -->
         <!-- <h2 class="box">還在想</h2> -->
-        <hr width="100%" style="margin-bottom:1em;">
+        <hr width="100%" style="margin: 0 0 1em 0;">
         <!-- <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()">/km<br> -->
         <div class="box">
             <label>
                 <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_pace" name="type" value="pace" checked>
                 <div class="row">
-                    <img src="speedometer.png" alt="Option 1">配速
+                    <img src="speedometer.png" alt="Option 1"><span>配速</span>
                 </div>
             </label>
-            <input class="pace_input" type="number" name="" id="pace_input" placeholder="" onclick="this.select()" onkeyup="Calculate2()" autofocus> : <input class="pace_input" type="number" name="" id="pace_input2" placeholder="" onclick="this.select()" onkeyup="Calculate2()"> /km
+            <input class="pace_input" type="number" name="" id="pace_input" placeholder="ex: 3" onclick="this.select()" onkeyup="Calculate2()" autofocus><span>:</span><input class="pace_input" type="number" name="" id="pace_input2" placeholder="30" onclick="this.select()" onkeyup="Calculate2()"><span>/km</span>
 
         </div>
 
@@ -29,11 +29,11 @@
             <label>
                 <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_track" name="type" value="track">
                 <div class="row">
-                    <img src="track.png" alt="Option 2">田徑場
+                    <img src="track.png" alt="Option 2"><span>田徑場</span>
                     
                 </div>
             </label>
-            <input type="number" name="" id="track_input" placeholder="" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled> 秒/圈
+            <input type="number" name="" id="track_input" placeholder="" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled><span>秒/圈</span>
             <button id='slide-button'>+</button>
         </div>
         <!-- <div class="" style="display: none;">
@@ -55,10 +55,16 @@
                 <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="m200">200m: </label><input type="text" name="" id="m200_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br> -->
                 <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="m300">300m: </label><input type="text" name="" id="m300_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br> -->
                 <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="m400">400m: </label><input type="text" name="" id="m400_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br> -->
-                <div style="display: inline;" class="increment">100m: </div><input class="increment" type="text" name="" id="m100_input" placeholder="" size="1" disabled><br>
-                <div style="display: inline;" class="increment">200m: </div><input class="increment" type="text" name="" id="m200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
-                <div style="display: inline;" class="increment">300m: </div><input class="increment" type="text" name="" id="m300_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
-                <div style="display: inline;" class="increment">400m: </div><input class="increment" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">100m: </div><input class="increment input-right" type="text" name="" id="m100_input" placeholder="" size="1" disabled><br>
+                <div style="display: inline;" class="increment">200m: </div><input class="increment input-right" type="text" name="" id="m200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">300m: </div><input class="increment input-right" type="text" name="" id="m300_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">400m: </div><input class="increment input-right" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br>
+            </div>
+            <div class="indent-text">
+                <div style="display: inline;" class="increment">800m: </div><input class="increment input-right" type="text" name="" id="m800_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m800_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">1200m: </div><input class="increment input-right" type="text" name="" id="m1200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m1200_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">1600m: </div><input class="increment input-right" type="text" name="" id="m1600_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m1600_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">2000m: </div><input class="increment input-right" type="text" name="" id="m2000_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m2000_increment" placeholder="" disabled><br>
             </div>
         </div>
 
@@ -68,10 +74,10 @@
             <label>
                 <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_treadmill" name="type" value="treadmill">
                 <div class="row">
-                    <img src="treadmill.png" alt="Option 3">跑步機
+                    <img src="treadmill.png" alt="Option 3"><span>跑步機</span>
                 </div>
             </label>
-            <input type="number" name="" id="treadmill_input" placeholder="" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled > km/h
+            <input type="number" name="" id="treadmill_input" placeholder="" size="6" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled ><span>km/h</span>
         </div> 
         <!-- <button class="" id='calBtn' onclick="Calculate()">Enter</button> -->
         <!-- <hr> -->
@@ -98,13 +104,13 @@
         <label>
             <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_finish_time" name="type" value="finish_time">
             <div class="row">
-                <img src="stopwatch.png" alt="Option 3">時間
+                <img src="stopwatch.png" alt="Option 3"><span>時間</span>
             </div>
                            
             <select id="dropdown" onchange="ChangeDistance(this.value)" style="margin-right: 0.5em;">
                 <option value="">距離</option>
-                <option value="800">800</option>
-                <option value="1500">1500</option>
+                <option value="800">800m</option>
+                <option value="1500">1500m</option>
                 <option value="3000">3k</option>
                 <option value="5000">5k</option>
                 <option value="10000">10k</option>
@@ -112,7 +118,7 @@
                 <option value="42195">全馬</option>
             </select>
     
-            <input type="text" name="" id="finish_time_input" placeholder="分:秒 or 時:分:秒" size="11" onclick="this.select()" onkeyup="Calculate2()" disabled >
+            <input type="text" name="" id="finish_time_input" placeholder="" size="11" onclick="this.select()" onkeyup="Calculate2()" disabled >
 
         </label>
     </div> 
@@ -126,8 +132,17 @@
 
 
 <script>   
-    // document.body.style.transform = "scale(0.5)";
-    // document.body.style.zoom = 1.5;
+
+
+    function mobileCheck() {
+        let check = false;
+        (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
+        return check;
+    };
+    if(!mobileCheck()){
+        document.body.style.zoom = 2;
+    }
+    
     var ui_pace_text1 = document.getElementById('pace_input');
     var ui_pace_text2 = document.getElementById('pace_input2');
     var ui_track_text = document.getElementById('track_input');
@@ -155,7 +170,9 @@
         "m100_input","m200_input","m300_input","m400_input",
         "m200_increment","m300_increment","m400_increment",
         "treadmill_input",
-        "finish_time_input"];
+        "finish_time_input",
+        "m800_input","m1200_input","m1600_input","m2000_input"
+    ];
     
     var input_ui_value = new Array(input_ui.length);
     var seconds_per_lap = 0;
@@ -188,6 +205,10 @@
         input_ui.forEach(element => {
             document.getElementById(element).value = "";
         });
+        var ui_index = [0,1,2,10,11];
+        for (let index = 0; index < ui_index.length; index++) {
+            document.getElementById(input_ui[ui_index[index]]).style.backgroundColor = "#BDCCCC";
+        }
     }
     
     // 沒選到不能輸入
@@ -238,14 +259,17 @@
         // 做的事情:
         // 1. 全部設 disabled
         // 2. 選到的 disabled = false 然後 focus()
-        AllInputDisabled('disabled');
+        AllInputDisabled();
         var check_value = e.value+"_input";
         console.log(check_value);
         if(check_value == 'pace_input'){
             document.getElementById(check_value+"2").disabled = false;
+            document.getElementById(check_value+"2").style.backgroundColor = "rgb(233, 233, 173)";
         }
         document.getElementById(check_value).disabled = false;
         document.getElementById(check_value).focus();
+
+        
     }
 
     // 清掉輸入紀錄
@@ -274,6 +298,29 @@
         // 清掉顯示結果/輸入紀錄
         AllInputAreaClean(); 
         AllInputTempArrayClean();
+
+        // 清掉placeholder
+        input_ui.forEach(element => {
+            document.getElementById(element).placeholder = "";
+        });
+
+
+        var checked_option = document.querySelector('input[name="type"]:checked').value;
+        if(checked_option=="finish_time"){
+            document.getElementById("finish_time_input").placeholder = "分:秒 or 時:分:秒";
+        }else if(checked_option=="track"){
+            document.getElementById(e.value+"_input").placeholder = "ex:100";
+        }else if(checked_option=="treadmill"){
+            document.getElementById(e.value+"_input").placeholder = "ex:12";
+        }
+        else if(checked_option=="pace"){
+            document.getElementById(e.value+"_input").placeholder = "ex: 3";
+            document.getElementById(e.value+"_input2").placeholder = "30";
+            document.getElementById(e.value+"_input2").style.backgroundColor = "rgb(233, 233, 173)";
+        }
+        document.getElementById(e.value+"_input").style.backgroundColor = "rgb(233, 233, 173)";
+        
+        
         
         
     }
@@ -284,7 +331,7 @@
 
         var checked_option = document.querySelector('input[name="type"]:checked').value;
         
-        console.log(document.getElementById("dropdown").value);
+        // console.log(document.getElementById("dropdown").value);
         var checked_dropdown = document.getElementById("dropdown").value;
 
         // console.log(checked_option);
@@ -428,6 +475,10 @@
         var m200_input = Number(temp_arr[4]);
         var m300_input = Number(temp_arr[5]);
         var m400_input = Number(temp_arr[6]);
+        var m800_input = Number(temp_arr[12]);
+        var m1200_input = Number(temp_arr[13]);
+        var m1600_input = Number(temp_arr[14]);
+        var m2000_input = Number(temp_arr[15]);
 
         // // 找到被選的選項
         var checked_option = document.querySelector('input[name="type"]:checked').value;
@@ -465,6 +516,18 @@
         else if(checked_option == 'm400'){
             seconds_per_lap = m400_input;
         }
+        else if(checked_option == 'm800'){
+            seconds_per_lap = m800_input/2;
+        }
+        else if(checked_option == 'm1200'){
+            seconds_per_lap = m1200_input/3;
+        }
+        else if(checked_option == 'm1600'){
+            seconds_per_lap = m1600_input/4;
+        }
+        else if(checked_option == 'm2000'){
+            seconds_per_lap = m2000_input/5;
+        }
         else if(checked_option == 'finish_time'){
             seconds_per_lap = Calculate_ftime_version(distance);
         }
@@ -485,16 +548,34 @@
         var m300_increment = "(+"+bigDecimal.round(bigDecimal.subtract(m300,m200),1)+")";
         var m400_increment = "(+"+bigDecimal.round(bigDecimal.subtract(track_result,m300),1)+")";
 
+        var m800 = track_result*2;
+        var m1200 = track_result*3;
+        var m1600 = track_result*4;
+        var m2000 = track_result*5;
+        
+
+
         m100 = bigDecimal.round(m100); // 調整m100顯示到整數位,分秒顯示
         m200 = bigDecimal.round(m200); // 調整m200顯示到整數位,分秒顯示
         m300 = bigDecimal.round(m300); // 調整m300顯示到整數位,分秒顯示
         m400 = bigDecimal.round(m400); // 調整m400顯示到整數位,分秒顯示
         track_result = bigDecimal.round(track_result); // 調整單圈顯示到小數點第2位,分秒顯示
 
-        // m100 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m100))); // 調整m100顯示到整數位,分秒顯示
-        // m200 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m200))); // 調整m200顯示到整數位,分秒顯示
-        // m300 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m300))); // 調整m300顯示到整數位,分秒顯示
-        // m400 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m400))); // 調整m400顯示到整數位,分秒顯示
+        m800 = bigDecimal.round(m800); // 調整m400顯示到整數位,分秒顯示
+        m1200 = bigDecimal.round(m1200); // 調整m400顯示到整數位,分秒顯示
+        m1600 = bigDecimal.round(m1600); // 調整m400顯示到整數位,分秒顯示
+        m2000 = bigDecimal.round(m2000); // 調整m400顯示到整數位,分秒顯示
+
+        m100 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m100))); // 調整m100顯示到整數位,分秒顯示
+        m200 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m200))); // 調整m200顯示到整數位,分秒顯示
+        m300 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m300))); // 調整m300顯示到整數位,分秒顯示
+        m400 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m400))); // 調整m400顯示到整數位,分秒顯示
+        m800 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m800))); // 調整m100顯示到整數位,分秒顯示
+        m1200 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m1200))); // 調整m200顯示到整數位,分秒顯示
+        m1600 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m1600))); // 調整m300顯示到整數位,分秒顯示
+        m2000 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m2000))); // 調整m400顯示到整數位,分秒顯示
+
+
 
         //塞入結果陣列
         var result_arr = [];
@@ -509,6 +590,8 @@
         result_arr.push(m300_increment);
         result_arr.push(m400_increment);
         result_arr.push(treadmill_result);
+
+        
         
         
         // 5k 10k 半馬 全馬 完成時間估算
@@ -516,6 +599,11 @@
         finish_time_result = Calculate_finish_time(distance);
 
         result_arr.push(finish_time_result);
+
+        result_arr.push(m800);
+        result_arr.push(m1200);
+        result_arr.push(m1600);
+        result_arr.push(m2000);
 
         // 更新顯示畫面
         UpdateInputValue(result_arr);
