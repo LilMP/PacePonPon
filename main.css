@@ -124,36 +124,6 @@ input:focus {
     /* border: 2px solid rgb(233, 233, 173); */
 }
 
-.footer a{
-    color: rgb(204, 204, 204);
-}
-
-
-
-
-
-.left-right {
-    overflow:hidden;
-    height:200px;
-    width:200px;
-    position:relative;
-    background-color:#333;
-}
-.slider {
-    width:200px;
-    height:200px;
-    position:absolute;
-    left:0;
-    top:-200px;
-    background-color:#000;
-    color:#fff;
-    transition:0.4s ease;
-}
-
-.left-right:hover .slider {
-  top:0;
-}
-
 
 #dropdown {
     background-color: #BDCCCC;
@@ -161,4 +131,20 @@ input:focus {
     vertical-align: text-top;
     cursor: pointer;
     outline: transparent;
+}
+
+
+/* 上滑效果 */
+.animation {
+    transition: height .5s;
+}
+.container {
+    width: auto;
+    /* overflow:hidden 一定要加 */
+    overflow: hidden; 
+    /* height 也必須指定pixel 用auto/100%會瞬間消失 */
+    height: 150px;
+}
+.SlideDown {
+    height: 0px;
 }
