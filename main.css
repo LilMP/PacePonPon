@@ -12,9 +12,10 @@ body {
     /* border: 2px solid red; */
     margin-top:10vh;
     padding: 0 10px;
+    /* font-size:2em; */
 }
 .box {
-    width: 90%;
+    width: 95%;
     /* outline: 2px solid red; */
     margin: 5px;
     /* border: 2px solid blue; */
@@ -76,9 +77,12 @@ input[type=number] {
 }
 /* IMAGE STYLES */
 .row {
+    display: inline;
+    margin-right: 0.5em;
+
     padding: 5px 0;
     cursor: pointer;
-    display: flow;
+    /* display: flow; */
     /* outline: 2px solid black; */
     width: 100%;
     font-size: 1.5rem;
@@ -148,4 +152,13 @@ input:focus {
 
 .left-right:hover .slider {
   top:0;
+}
+
+
+#dropdown {
+    background-color: #BDCCCC;
+    color: rgb(84, 84, 84);
+    vertical-align: text-top;
+    cursor: pointer;
+    outline: transparent;
 }

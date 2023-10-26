@@ -12,40 +12,41 @@
         <h3 class="box"style="display: inline;">你的配速好朋友</h3>
         <!-- <h1 class="box">名字還在想</h1> -->
         <!-- <h2 class="box">還在想</h2> -->
-        <hr width="100%">
+        <hr width="100%" style="margin-bottom:1em;">
         <!-- <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()">/km<br> -->
         <div class="box">
             <label>
-                <input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked>
+                <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_pace" name="type" value="pace" checked>
                 <div class="row">
                     <img src="speedometer.png" alt="Option 1">配速
-                    <input class="pace_input" type="number" name="" id="pace_input" placeholder="" onclick="this.select()" onkeyup="Calculate2()" autofocus> : <input class="pace_input" type="number" name="" id="pace_input2" placeholder="" onclick="this.select()" onkeyup="Calculate2()"> /km
                 </div>
             </label>
+            <input class="pace_input" type="number" name="" id="pace_input" placeholder="" onclick="this.select()" onkeyup="Calculate2()" autofocus> : <input class="pace_input" type="number" name="" id="pace_input2" placeholder="" onclick="this.select()" onkeyup="Calculate2()"> /km
+
         </div>
 
         <div class="box">
             <label>
-                <input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track" name="type" value="track">
+                <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_track" name="type" value="track">
                 <div class="row">
                     <img src="track.png" alt="Option 2">田徑場
-                    <input type="number" name="" id="track_input" placeholder="" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled> 秒/圈
                 </div>
             </label>
+            <input type="number" name="" id="track_input" placeholder="" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled> 秒/圈
         </div>
-        <div class="">
+        <div class="" style="display: none;">
             <div class="box indent-text "> 
-                <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="m100">100m: </label><input type="text" name="" id="m100_input" placeholder="" size="1" onkeyup="Calculate2()" disabled> 秒<br>
-                <!-- <label>
-                    <input class="hidden-radio" type="radio" onchange="ChangeOption(this.value)" id="c_track100" name="type" value="m100">
-                    <div class="row">
-                        100m: 
-                        <input type="text" name="" id="m100_input" placeholder="" size="1" onclick="this.select()" onkeyup="Calculate2()" disabled >
-                    </div>
-                </label> -->
-                <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="m200">200m: </label><input type="text" name="" id="m200_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
-                <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="m300">300m: </label><input type="text" name="" id="m300_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
-                <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="m400">400m: </label><input type="text" name="" id="m400_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br>
+                <!-- 舊版/正常版 -->
+                <!-- <label><input class="hidden-radio increment" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="m100">100m: </label><input class="increment" type="text" name="" id="m100_input" placeholder="" size="1" onkeyup="Calculate2()" disabled> 秒<br> -->
+                <!-- <label><input class="hidden-radio increment" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="m200">200m: </label><input class="increment" type="text" name="" id="m200_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br> -->
+                <!-- <label><input class="hidden-radio increment" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="m300">300m: </label><input class="increment" type="text" name="" id="m300_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br> -->
+                <!-- <label><input class="hidden-radio increment" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="m400">400m: </label><input class="increment" type="text" name="" id="m400_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br> -->
+                <!-- 測試版 -->
+                <div style="display: inline;" class="increment">100m: </div><input class="increment" type="text" name="" id="m100_input" placeholder="" size="1" disabled><br>
+                <div style="display: inline;" class="increment">200m: </div><input class="increment" type="text" name="" id="m200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">300m: </div><input class="increment" type="text" name="" id="m300_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">400m: </div><input class="increment" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br>
+
             </div>
         </div>
 
@@ -53,10 +54,12 @@
         
         <div class="box">    
             <label>
-                <input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_treadmill" name="type" value="treadmill"><div class="row">
+                <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_treadmill" name="type" value="treadmill">
+                <div class="row">
                     <img src="treadmill.png" alt="Option 3">跑步機
-                    <input type="number" name="" id="treadmill_input" placeholder="" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled > km/h
                 </div>
+                <input type="number" name="" id="treadmill_input" placeholder="" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate()" disabled > km/h
+
             </label>
         </div> 
         <!-- <button class="" id='calBtn' onclick="Calculate()">Enter</button> -->
@@ -65,16 +68,16 @@
         <!-- <a target="_blank" href="https://icons8.com/icon/1737/speedometer">Speedometer</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
         <!-- <a target="_blank" href="https://icons8.com/icon/7673/treadmill">Treadmill</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
         <!-- <a target="_blank" href="https://icons8.com/icon/pKhn26TDfnzg/stopwatch">Stopwatch</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
-        <hr>
+        <!-- <hr> -->
     <!-- new feature race distance btn -->
-    <div>
+    <!-- <div>
         <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_800" name="road" value="800" checked><label for="c_track_800">800m</label>
         <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_1500" name="road" value="1500"><label for="c_track_1500">1500m</label>
         <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_5000" name="road" value="5000"><label for="c_track_5000">5k</label>
         <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_10000" name="road" value="10000"><label for="c_track_10000">10k</label>
         <input type="radio" onchange="ChangeDistance(this.value)" id="c_road_half" name="road" value="21097.5"><label for="c_road_half">半馬</label>
         <input type="radio" onchange="ChangeDistance(this.value)" id="c_road_full" name="road" value="42195"><label for="c_road_full">全馬</label>    
-    </div>
+    </div> -->
 
     
     
@@ -82,10 +85,24 @@
     <!-- <input type="radio" onchange="ChangeOption(this)" id="c_finish_time" name="type" value="finish_time"><label for="c_finish_time">完成時間: </label><input type="text" name="" id="finish_time_input" placeholder="分:秒 or 時:分:秒" size="11" onchange="Calculate2()"  disabled> -->
     <div class="box">    
         <label>
-            <input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_finish_time" name="type" value="finish_time"><div class="row">
-                <img src="stopwatch.png" alt="Option 3">完成時間
-                <input type="text" name="" id="finish_time_input" placeholder="分:秒 or 時:分:秒" size="11" onclick="this.select()" onkeyup="Calculate2()" disabled >
+            <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_finish_time" name="type" value="finish_time">
+            <div class="row">
+                <img src="stopwatch.png" alt="Option 3">時間
             </div>
+                           
+            <select id="dropdown" onchange="ChangeDistance(this.value)" style="margin-right: 0.5em;">
+                <option value="">距離</option>
+                <option value="800">800</option>
+                <option value="1500">1500</option>
+                <option value="3000">3k</option>
+                <option value="5000">5k</option>
+                <option value="10000">10k</option>
+                <option value="21097.5">半馬</option>
+                <option value="42195">全馬</option>
+            </select>
+    
+            <input type="text" name="" id="finish_time_input" placeholder="分:秒 or 時:分:秒" size="11" onclick="this.select()" onkeyup="Calculate2()" disabled >
+
         </label>
     </div> 
 
@@ -98,6 +115,8 @@
 
 
 <script>   
+    // document.body.style.transform = "scale(0.5)";
+    // document.body.style.zoom = 1.5;
     var ui_pace_text1 = document.getElementById('pace_input');
     var ui_pace_text2 = document.getElementById('pace_input2');
     var ui_track_text = document.getElementById('track_input');
@@ -216,7 +235,6 @@
         }
         document.getElementById(check_value).disabled = false;
         document.getElementById(check_value).focus();
-
     }
 
     // 清掉輸入紀錄
@@ -245,6 +263,8 @@
         // 清掉顯示結果/輸入紀錄
         AllInputAreaClean(); 
         AllInputTempArrayClean();
+        
+        
     }
 
     function ChangeDistance(distance){
@@ -252,6 +272,10 @@
         // 當選擇其他選項時: 每一次切換選項都會根據上半部的track_input欄位計算結果
 
         var checked_option = document.querySelector('input[name="type"]:checked').value;
+        
+        console.log(document.getElementById("dropdown").value);
+        var checked_dropdown = document.getElementById("dropdown").value;
+
         // console.log(checked_option);
         // console.log(e);
         if(checked_option=="finish_time"){
@@ -259,7 +283,8 @@
             document.getElementById("finish_time_input").focus();
             // document.getElementById("finish_time_input").select();
         }
-        document.getElementById("finish_time_input").value = Calculate_finish_time(distance);
+        // document.getElementById("finish_time_input").value = Calculate_finish_time(distance);
+        document.getElementById("finish_time_input").value = Calculate_finish_time(checked_dropdown);
         
     }
 
@@ -397,7 +422,8 @@
         var checked_option = document.querySelector('input[name="type"]:checked').value;
 
         // 5k 10k 半馬 全馬 完成時間估算
-        var distance = document.querySelector('input[name="road"]:checked').value;
+        // var distance = document.querySelector('input[name="road"]:checked').value;
+        var distance = document.getElementById("dropdown").value;
 
         // // 把欲顯示的答案初始化
         var pace_result;
