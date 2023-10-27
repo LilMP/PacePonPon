@@ -12,7 +12,7 @@
         <h1 class="box" style="margin:0;">Pace朋朋<img id="logo" src="icons8-exercise-96.png" alt="logo"></h1>
         <div class="footer">你的配速換算好朋友</div>
         <div class="footer float-right">
-            all icons by：<a class="" target="_blank" href="https://icons8.com" >Icons8</a><br>
+            all icons by：<a class="" target="_blank" href="https://icons8.com" >Icons8</a><img id="icons8" src="icons8.png" alt="icons8"><br>
             小M平的<a class="" target="_blank" href="https://reurl.cc/DoYp8N">跑步宇宙</a>🌌<br>
             喜歡的話不妨請我<a class="" target="_blank" href="https://lilmp.soci.vip">喝杯咖啡</a>☕
         </div>
@@ -154,12 +154,14 @@
 
 <script>   
 
-    function changeMargin(className) {
-        document.querySelectorAll(className).forEach(el => {
-            el.style.marginBottom = "10px";
-            el.style.marginTop = "10px";
-        });
-    }
+    // function changeMargin(className) {
+    //     console.log(className);
+    //     console.log(document.querySelectorAll(className));
+    //     document.querySelectorAll(className).forEach(el => {
+    //         el.style.marginBottom = "10px";
+    //         el.style.marginTop = "10px";
+    //     });
+    // }
 
     function mobileCheck() {
         let check = false;
@@ -168,8 +170,9 @@
     };
     if(!mobileCheck()){
         document.body.style.zoom = 2;
-        changeMargin('box');
-        
+        // changeMargin('box');
+    }else{
+        document.body.style.zoom = 1.3;
     }
     
     var ui_pace_text1 = document.getElementById('pace_input');

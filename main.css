@@ -88,6 +88,7 @@ input + span {
     /* color: #95a0a0 !important; */
     color: #BDCCCC !important;
     font-size: 10px;
+    /* padding-left:5px; */
 }
 .input-right {
     width: 30px !important;
@@ -245,6 +246,7 @@ a {
 #m200_increment,#m300_increment,#m400_increment{
     font-size: 7px;
     font-weight: 100;
+    padding-left: 5px;
 }
 
 #lane-length {
@@ -260,7 +262,7 @@ a {
     margin-left: 0;
 }
 
-#logo {
+#logo, #icons8 {
     height: 1em;
 }
 
