@@ -71,19 +71,19 @@
                 <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="m200">200m: </label><input type="text" name="" id="m200_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br> -->
                 <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="m300">300m: </label><input type="text" name="" id="m300_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br> -->
                 <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="m400">400m: </label><input type="text" name="" id="m400_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br> -->
-                <div style="display: inline;" class="increment">100m　</div><input class="increment input-right" type="text" name="" id="m100_input" placeholder="" size="1" disabled><br>
-                <div style="display: inline;" class="increment">200m　</div><input class="increment input-right" type="text" name="" id="m200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="3" id="m200_increment" placeholder="" disabled><br>
-                <div style="display: inline;" class="increment">300m　</div><input class="increment input-right" type="text" name="" id="m300_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="3" id="m300_increment" placeholder="" disabled><br>
-                <div style="display: inline;" class="increment">400m　</div><input class="increment input-right" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="3" id="m400_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">100　</div><input class="increment input-right" type="text" name="" id="m100_input" placeholder="" size="1" disabled><br>
+                <div style="display: inline;" class="increment">200　</div><input class="increment input-right" type="text" name="" id="m200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m200_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">300　</div><input class="increment input-right" type="text" name="" id="m300_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m300_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">400　</div><input class="increment input-right" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m400_increment" placeholder="" disabled><br>
             </div>
             <div id="laps-result2" class="indent-text">
-                <div style="display: inline;" class="increment">跑2圈<span id="twolaps">&emsp;(800m)</span>　</div><input class="increment input-right" type="text" name="" id="m800_input" placeholder="" size="1" disabled><br>
+                <div style="display: inline;" class="increment">2圈<span id="twolaps">&emsp;800</span>　</div><input class="increment input-right" type="text" name="" id="m800_input" placeholder="" size="1" disabled><br>
                 <!-- <input class="increment" type="text" name="" id="m800_increment" placeholder="" disabled><br> -->
-                <div style="display: inline;" class="increment">跑3圈 <span id="threelaps">(1200m)</span>　</div><input class="increment input-right" type="text" name="" id="m1200_input" placeholder="" size="1" disabled><br>
+                <div style="display: inline;" class="increment">3圈 <span id="threelaps">1200</span>　</div><input class="increment input-right" type="text" name="" id="m1200_input" placeholder="" size="1" disabled><br>
                 <!-- <input class="increment" type="text" name="" id="m1200_increment" placeholder="" disabled><br> -->
-                <div style="display: inline;" class="increment">跑4圈 <span id="fourlaps">(1600m)</span>　</div><input class="increment input-right" type="text" name="" id="m1600_input" placeholder="" size="1" disabled><br>
+                <div style="display: inline;" class="increment">4圈 <span id="fourlaps">1600</span>　</div><input class="increment input-right" type="text" name="" id="m1600_input" placeholder="" size="1" disabled><br>
                 <!-- <input class="increment" type="text" name="" id="m1600_increment" placeholder="" disabled><br> -->
-                <div style="display: inline;" class="increment">跑5圈 <span id="fivelaps">(2000m)</span>　</div><input class="increment input-right" type="text" name="" id="m2000_input" placeholder="" size="1" disabled><br>
+                <div style="display: inline;" class="increment">5圈 <span id="fivelaps">2000</span>　</div><input class="increment input-right" type="text" name="" id="m2000_input" placeholder="" size="1" disabled><br>
                 <!-- <input class="increment" type="text" name="" id="m2000_increment" placeholder="" disabled><br> -->
             </div>
         </div>
@@ -172,7 +172,7 @@
         document.body.style.zoom = 2;
         // changeMargin('box');
     }else{
-        document.body.style.zoom = 1.2;
+        // document.body.style.zoom = 1.2;
     }
     
     var ui_pace_text1 = document.getElementById('pace_input');
@@ -388,11 +388,11 @@
 
         // 取得select option的text
         var lane_chinese = lane.options[lane.selectedIndex].text;
-        document.getElementById('lane-length').innerHTML = "第"+lane_chinese+"　"+currentLane+"m";
-        document.getElementById('twolaps').innerHTML = "&emsp;("+currentLane*2+"m)";
-        document.getElementById('threelaps').innerHTML = "("+currentLane*3+"m)";
-        document.getElementById('fourlaps').innerHTML = "("+currentLane*4+"m)";
-        document.getElementById('fivelaps').innerHTML = "("+currentLane*5+"m)";
+        document.getElementById('lane-length').innerHTML = "第"+lane_chinese+"　"+currentLane+"";
+        document.getElementById('twolaps').innerHTML = "&emsp;"+currentLane*2+"";
+        document.getElementById('threelaps').innerHTML = ""+currentLane*3+"";
+        document.getElementById('fourlaps').innerHTML = ""+currentLane*4+"";
+        document.getElementById('fivelaps').innerHTML = ""+currentLane*5+"";
     }
     function getCurrentLane(){
         return currentLane;

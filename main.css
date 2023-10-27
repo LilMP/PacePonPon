@@ -248,6 +248,7 @@ a {
     font-size: 7px;
     font-weight: 100;
     padding-left: 5px;
+    color: transparent !important;
 }
 
 #lane-length {
@@ -261,6 +262,7 @@ a {
 }
 #laps-result2 {
     margin-left: 0;
+    padding-right: 2em;
 }
 
 #logo, #icons8 {
@@ -300,11 +302,28 @@ a {
         /* font-size: 1.1em; */
         margin: 30% 30px;
     }
+    .animation {
+        transition: height .5s;
+    }
+    .container {
+        width: auto;
+        /* overflow:hidden 一定要加 */
+        overflow: hidden; 
+        /* height 也必須指定pixel 用auto/100%會瞬間消失 */
+        height: 150px;
+    }
+    .SlideDown {
+        height: 0px;
+    }
     .footer{
         font-size: 0.9rem;
     }
     .float-right {
         font-size: 0.5rem;
     }
+    .indent-text{
+        margin-left: 1.5em;
+    }
 
+    
 }
