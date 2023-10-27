@@ -11,14 +11,14 @@ body {
     font-family: Microsoft JhengHei;
     /* border: 2px solid red; */
     margin-top:5vh;
-    padding: 0 10px;
+    /* padding: 0 10px; */
     /* font-size:2em; */
 }
 .box {
     
     /* width: 95%; */
     /* outline: 2px solid red; */
-    margin: 5px 0;
+    margin: 0 0 5px 0;
     /* border: 2px solid blue; */
 }
 
@@ -66,8 +66,10 @@ input + span {
 .indent-text {
     /* text-indent: 22px; */
     margin-left: 2em;
+    margin-top: 5px;
     padding-left: 5px;
     display: inline-block;
+    border-top: 1px dotted #BDCCCC;
 }
 
 /* increment樣式取消底色&框線 */
@@ -87,6 +89,7 @@ input + span {
 .input-right {
     width: 30px !important;
     text-align: right;
+    font-weight: 600;
 }
 
 
@@ -168,7 +171,7 @@ input:focus {
 
 
 /* 下滑式清單 */
-#dropdown {
+#dropdown, #laneNumber {
     background-color: #BDCCCC;
     color: rgb(84, 84, 84);
     vertical-align: super;
@@ -188,7 +191,7 @@ input:focus {
     /* overflow:hidden 一定要加 */
     overflow: hidden; 
     /* height 也必須指定pixel 用auto/100%會瞬間消失 */
-    height: 90px;
+    height: 120px;
 }
 .SlideDown {
     height: 0px;
@@ -230,3 +233,24 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
+#twolaps, #threelaps, #fourlaps, #fivelaps {
+    /* color: black !important; */
+    font-size: 0.7em;
+}
+#m200_increment,#m300_increment,#m400_increment{
+    font-size: 7px;
+    font-weight: 100;
+}
+
+#lane-length {
+    font-size: 10px;
+    /* display: flex; */
+    /* justify-content: center; */
+    padding-left: 37px;
+    margin: 5px 0 0 0;
+    /* border-bottom: 1px solid black; */
+    color: #BDCCCC;
+}
+#laps-result2 {
+    margin-left: 0;
+}

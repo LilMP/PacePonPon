@@ -32,6 +32,16 @@
                     
                 </div>
             </label>
+            <select id="laneNumber" onchange="ChangeLane(this)" style="margin-right: 0.5em;">
+                <option value="400">1道</option>
+                <option value="408">2道</option>
+                <option value="415">3道</option>
+                <option value="423">4道</option>
+                <option value="430">5道</option>
+                <option value="438">6道</option>
+                <option value="445">7道</option>
+                <option value="453">8道</option>
+            </select>
             <input type="number" name="" id="track_input" placeholder="" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled><span>秒/圈</span>
             <button id='slide-button'>+</button>
         </div>
@@ -49,21 +59,26 @@
                 <div style="display: inline;" class="increment">400m: </div><input class="increment" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br> -->
 
         <div class='container animation SlideDown' id='container' >
+            <div id="lane-length">第1道　400m</div>
             <div class="box indent-text" > 
                 <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="m100">100m: </label><input type="text" name="" id="m100_input" placeholder="" size="1" onkeyup="Calculate2()" disabled> 秒<br> -->
                 <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="m200">200m: </label><input type="text" name="" id="m200_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br> -->
                 <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="m300">300m: </label><input type="text" name="" id="m300_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br> -->
                 <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="m400">400m: </label><input type="text" name="" id="m400_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br> -->
-                <div style="display: inline;" class="increment">100m: </div><input class="increment input-right" type="text" name="" id="m100_input" placeholder="" size="1" disabled><br>
-                <div style="display: inline;" class="increment">200m: </div><input class="increment input-right" type="text" name="" id="m200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
-                <div style="display: inline;" class="increment">300m: </div><input class="increment input-right" type="text" name="" id="m300_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
-                <div style="display: inline;" class="increment">400m: </div><input class="increment input-right" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">100m　</div><input class="increment input-right" type="text" name="" id="m100_input" placeholder="" size="1" disabled><br>
+                <div style="display: inline;" class="increment">200m　</div><input class="increment input-right" type="text" name="" id="m200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">300m　</div><input class="increment input-right" type="text" name="" id="m300_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">400m　</div><input class="increment input-right" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br>
             </div>
-            <div class="indent-text">
-                <div style="display: inline;" class="increment">800m: </div><input class="increment input-right" type="text" name="" id="m800_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m800_increment" placeholder="" disabled><br>
-                <div style="display: inline;" class="increment">1200m: </div><input class="increment input-right" type="text" name="" id="m1200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m1200_increment" placeholder="" disabled><br>
-                <div style="display: inline;" class="increment">1600m: </div><input class="increment input-right" type="text" name="" id="m1600_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m1600_increment" placeholder="" disabled><br>
-                <div style="display: inline;" class="increment">2000m: </div><input class="increment input-right" type="text" name="" id="m2000_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m2000_increment" placeholder="" disabled><br>
+            <div id="laps-result2" class="indent-text">
+                <div style="display: inline;" class="increment">跑2圈<span id="twolaps">&emsp;(800m)</span>　</div><input class="increment input-right" type="text" name="" id="m800_input" placeholder="" size="1" disabled><br>
+                <!-- <input class="increment" type="text" name="" id="m800_increment" placeholder="" disabled><br> -->
+                <div style="display: inline;" class="increment">跑3圈 <span id="threelaps">(1200m)</span>　</div><input class="increment input-right" type="text" name="" id="m1200_input" placeholder="" size="1" disabled><br>
+                <!-- <input class="increment" type="text" name="" id="m1200_increment" placeholder="" disabled><br> -->
+                <div style="display: inline;" class="increment">跑4圈 <span id="fourlaps">(1600m)</span>　</div><input class="increment input-right" type="text" name="" id="m1600_input" placeholder="" size="1" disabled><br>
+                <!-- <input class="increment" type="text" name="" id="m1600_increment" placeholder="" disabled><br> -->
+                <div style="display: inline;" class="increment">跑5圈 <span id="fivelaps">(2000m)</span>　</div><input class="increment input-right" type="text" name="" id="m2000_input" placeholder="" size="1" disabled><br>
+                <!-- <input class="increment" type="text" name="" id="m2000_increment" placeholder="" disabled><br> -->
             </div>
         </div>
 
@@ -132,6 +147,12 @@
 
 <script>   
 
+    function changeMargin(className) {
+        document.querySelectorAll(className).forEach(el => {
+            el.style.marginBottom = "10px";
+            el.style.marginTop = "10px";
+        });
+    }
 
     function mobileCheck() {
         let check = false;
@@ -140,6 +161,8 @@
     };
     if(!mobileCheck()){
         document.body.style.zoom = 2;
+        changeMargin('box');
+        
     }
     
     var ui_pace_text1 = document.getElementById('pace_input');
@@ -345,6 +368,26 @@
         
     }
 
+    var currentLane = document.getElementById("laneNumber").value ;
+    
+
+    function ChangeLane(lane) {
+        currentLane = lane.value;
+        console.log("current lane: "+currentLane);
+        Calculate2();
+
+        // 取得select option的text
+        var lane_chinese = lane.options[lane.selectedIndex].text;
+        document.getElementById('lane-length').innerHTML = "第"+lane_chinese+"　"+currentLane+"m";
+        document.getElementById('twolaps').innerHTML = "&emsp;("+currentLane*2+"m)";
+        document.getElementById('threelaps').innerHTML = "("+currentLane*3+"m)";
+        document.getElementById('fourlaps').innerHTML = "("+currentLane*4+"m)";
+        document.getElementById('fivelaps').innerHTML = "("+currentLane*5+"m)";
+    }
+    function getCurrentLane(){
+        return currentLane;
+    }
+
 
     // 按下enter後執行計算
     function Calculate() {
@@ -479,6 +522,9 @@
         var m1600_input = Number(temp_arr[14]);
         var m2000_input = Number(temp_arr[15]);
 
+        var lane = getCurrentLane();
+        console.log("lane now: "+lane);
+
         // // 找到被選的選項
         var checked_option = document.querySelector('input[name="type"]:checked').value;
 
@@ -495,7 +541,9 @@
         
 
         if(checked_option == 'pace'){
-            seconds_per_lap = (pace_input1*60+pace_input2)/2.5;
+            // seconds_per_lap = (pace_input1*60+pace_input2)/2.5;
+            console.log(1000/lane);
+            seconds_per_lap = (pace_input1*60+pace_input2)/(1000/lane);
         }
         else if(checked_option == 'track'){
             seconds_per_lap = track_input;
@@ -532,25 +580,43 @@
         }
     
         track_result = seconds_per_lap;
-        pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
-        treadmill_result = Math.round(1440/track_result*100)/100;
+        // pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
+
+        // 避免輸入算完後被進位改掉
+        if(checked_option == 'pace'){
+            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,(pace_input1*60+pace_input2)));
+        }else{
+            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*(1000/lane)));
+        }
+        // treadmill_result = Math.round(1440/track_result*100)/100;
+        // treadmill_result = Math.round(lane/track_result*3600/1000*100)/100;
+        treadmill_result = (lane/track_result*3600/1000).toFixed(2);
 
 
         var pace_result_split = pace_result.split(':');
 
         // 計算每100m時間、increment
-        var m100 = track_result/4;
+        // var m100 = track_result/4;
+        var m100 = track_result/(lane/100);
         var m200 = bigDecimal.add(m100, m100);
         var m300 = bigDecimal.add(m200, m100);
-        var m400 = track_result;
+        // var m400 = track_result;
+        var m400 = bigDecimal.add(m300, m100);
         var m200_increment = "(+"+bigDecimal.round(bigDecimal.subtract(m200,m100),1)+")";
         var m300_increment = "(+"+bigDecimal.round(bigDecimal.subtract(m300,m200),1)+")";
-        var m400_increment = "(+"+bigDecimal.round(bigDecimal.subtract(track_result,m300),1)+")";
-
+        // var m400_increment = "(+"+bigDecimal.round(bigDecimal.subtract(track_result,m300),1)+")";
+        var m400_increment = "(+"+bigDecimal.round(bigDecimal.subtract(m400,m300),1)+")";
+        
+        //原本是800/1200/1600/..改成跑2圈、3圈...變數名稱沒變
         var m800 = track_result*2;
         var m1200 = track_result*3;
         var m1600 = track_result*4;
         var m2000 = track_result*5;
+
+        // var m800 = m400*2;
+        // var m1200 = m400*3;
+        // var m1600 = m400*4;
+        // var m2000 = m400*5;
         
 
 
@@ -592,7 +658,7 @@
 
         
         
-        
+        UpdateInputValue(result_arr);
         // 5k 10k 半馬 全馬 完成時間估算
         // 如果選擇輸入完成時間則不更新(進位問題)
         finish_time_result = Calculate_finish_time(distance);
@@ -618,15 +684,27 @@
         
         var distance = Number(d);
         var time;
-        var result_400 = document.getElementById('track_input').value;
+        var seconds_per_lap = document.getElementById('track_input').value;
         var finish_time_input = document.getElementById('finish_time_input').value;
         console.log(finish_time_input);
+        if(finish_time_input=='undefined'){
+            console.log("undefined!");
+            finish_time_input = "00:00:00"
+        }
         // console.log("result_400: "+result_400);
         // 測試資料{
         //     配速4:28
         //     操場85
         // }
-        time = distance*result_400/400; // in seconds
+        var lane = getCurrentLane();
+        
+        console.log("#####");
+        console.log(seconds_per_lap);
+        console.log(lane);
+
+        //計算速度(s/m),處理進位到小數點2
+        var v = (seconds_per_lap/lane).toFixed(2);
+        time = distance*v; // in seconds
         finish_time = strftime('%H:%M:%S', new Date(0,0,0,0,0,time));
         var f_time = finish_time.split(':');
         if(f_time[0]=="00"){
@@ -652,6 +730,8 @@
         var finish_time_input = document.getElementById('finish_time_input').value;
         var finish_time_split = finish_time_input.split(':');
         var hours,mins,secs;
+
+        console.log("cfv: "+finish_time_input);
         
         if(finish_time_split.length == 3){
             hours = parseInt(finish_time_input.split(":")[0]);
