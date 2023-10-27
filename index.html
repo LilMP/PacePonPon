@@ -65,7 +65,7 @@
                 <div style="display: inline;" class="increment">400m: </div><input class="increment" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br> -->
 
         <div class='container animation SlideDown' id='container' >
-            <div id="lane-length">第1道　400m</div>
+            <div id="lane-length">第1道：400m</div>
             <div class="box indent-text" > 
                 <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="m100">100m: </label><input type="text" name="" id="m100_input" placeholder="" size="1" onkeyup="Calculate2()" disabled> 秒<br> -->
                 <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="m200">200m: </label><input type="text" name="" id="m200_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br> -->
@@ -388,7 +388,7 @@
 
         // 取得select option的text
         var lane_chinese = lane.options[lane.selectedIndex].text;
-        document.getElementById('lane-length').innerHTML = "第"+lane_chinese+"　"+currentLane+"m";
+        document.getElementById('lane-length').innerHTML = "第"+lane_chinese+"："+currentLane+"m";
         document.getElementById('twolaps').innerHTML = "&emsp;"+currentLane*2+"";
         document.getElementById('threelaps').innerHTML = ""+currentLane*3+"";
         document.getElementById('fourlaps').innerHTML = ""+currentLane*4+"";
