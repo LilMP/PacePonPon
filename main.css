@@ -255,7 +255,7 @@ a {
     font-size: 10px;
     /* display: flex; */
     /* justify-content: center; */
-    padding-left: 37px;
+    padding-left: 30px;
     margin: 5px 0 0 0;
     /* border-bottom: 1px solid black; */
     color: #BDCCCC;
@@ -310,7 +310,7 @@ a {
         /* overflow:hidden 一定要加 */
         overflow: hidden; 
         /* height 也必須指定pixel 用auto/100%會瞬間消失 */
-        height: 150px;
+        height: 130px;
     }
     .SlideDown {
         height: 0px;
