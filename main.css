@@ -297,8 +297,8 @@ a {
 
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
     body {
-        font-size: 1.5rem;
-        margin: 50% 30px;
+        /* font-size: 1.1em; */
+        margin: 30% 30px;
     }
     .animation {
         transition: height .5s;
@@ -308,7 +308,7 @@ a {
         /* overflow:hidden 一定要加 */
         overflow: hidden; 
         /* height 也必須指定pixel 用auto/100%會瞬間消失 */
-        height: 150px;
+        height: 120px;
     }
     .SlideDown {
         height: 0px;
