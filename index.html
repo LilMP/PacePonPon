@@ -72,9 +72,9 @@
                 <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="m300">300m: </label><input type="text" name="" id="m300_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br> -->
                 <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="m400">400m: </label><input type="text" name="" id="m400_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br> -->
                 <div style="display: inline;" class="increment">100m　</div><input class="increment input-right" type="text" name="" id="m100_input" placeholder="" size="1" disabled><br>
-                <div style="display: inline;" class="increment">200m　</div><input class="increment input-right" type="text" name="" id="m200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
-                <div style="display: inline;" class="increment">300m　</div><input class="increment input-right" type="text" name="" id="m300_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
-                <div style="display: inline;" class="increment">400m　</div><input class="increment input-right" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">200m　</div><input class="increment input-right" type="text" name="" id="m200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="3" id="m200_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">300m　</div><input class="increment input-right" type="text" name="" id="m300_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="3" id="m300_increment" placeholder="" disabled><br>
+                <div style="display: inline;" class="increment">400m　</div><input class="increment input-right" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="3" id="m400_increment" placeholder="" disabled><br>
             </div>
             <div id="laps-result2" class="indent-text">
                 <div style="display: inline;" class="increment">跑2圈<span id="twolaps">&emsp;(800m)</span>　</div><input class="increment input-right" type="text" name="" id="m800_input" placeholder="" size="1" disabled><br>
@@ -172,7 +172,7 @@
         document.body.style.zoom = 2;
         // changeMargin('box');
     }else{
-        document.body.style.zoom = 1.3;
+        // document.body.style.zoom = 1.3;
     }
     
     var ui_pace_text1 = document.getElementById('pace_input');
