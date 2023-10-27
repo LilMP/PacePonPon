@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PacePonPon</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="image/x-icon" href="icons8-exercise-96.png">
 </head>
 <body>
     <div>
-        <h1 class="box" style="margin:0;">Pace朋朋</h1>
-        <span class="box"style="font-size:0.5rem;color:rgb(189, 204, 204);vertical-align:top;">你的配速好朋友</span>
+        <h1 class="box" style="margin:0;">Pace朋朋<img id="logo" src="icons8-exercise-96.png" alt="logo"></h1>
+        <div class="footer">你的配速換算好朋友</div>
+        <div class="footer float-right">
+            all icons by：<a class="" target="_blank" href="https://icons8.com" >Icons8</a><br>
+            小M平的<a class="" target="_blank" href="https://reurl.cc/DoYp8N">跑步宇宙</a>🌌<br>
+            喜歡的話不妨請我<a class="" target="_blank" href="https://lilmp.soci.vip">喝杯咖啡</a>☕
+        </div>
         <!-- <h1 class="box">名字還在想</h1> -->
         <!-- <h2 class="box">還在想</h2> -->
         <hr width="100%" style="margin: 0 0 1em 0;">
@@ -21,7 +27,7 @@
                     <img src="speedometer.png" alt="Option 1"><span>配速　</span>
                 </div>
             </label>
-            <input class="pace_input" type="number" name="" id="pace_input" placeholder="ex: 3" onclick="this.select()" onkeyup="Calculate2()" autofocus><span>:</span><input class="pace_input" type="number" name="" id="pace_input2" placeholder="30" onclick="this.select()" onkeyup="Calculate2()"><span>/km</span>
+            <input class="pace_input" type="number" name="" id="pace_input" placeholder="3" onclick="this.select()" onkeyup="Calculate2()" autofocus><span>:</span><input class="pace_input" type="number" name="" id="pace_input2" placeholder="30" onclick="this.select()" onkeyup="Calculate2()"><span>/km</span>
         </div>
 
         <div class="box">
@@ -95,50 +101,51 @@
         </div> 
         <!-- <button class="" id='calBtn' onclick="Calculate()">Enter</button> -->
         <!-- <hr> -->
+        <!-- <hr> -->
+        <!-- new feature race distance btn -->
+        <!-- <div>
+            <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_800" name="road" value="800" checked><label for="c_track_800">800m</label>
+            <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_1500" name="road" value="1500"><label for="c_track_1500">1500m</label>
+            <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_5000" name="road" value="5000"><label for="c_track_5000">5k</label>
+            <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_10000" name="road" value="10000"><label for="c_track_10000">10k</label>
+            <input type="radio" onchange="ChangeDistance(this.value)" id="c_road_half" name="road" value="21097.5"><label for="c_road_half">半馬</label>
+            <input type="radio" onchange="ChangeDistance(this.value)" id="c_road_full" name="road" value="42195"><label for="c_road_full">全馬</label>    
+        </div> -->
+
+    
+    
+    
+        <!-- <input type="radio" onchange="ChangeOption(this)" id="c_finish_time" name="type" value="finish_time"><label for="c_finish_time">完成時間: </label><input type="text" name="" id="finish_time_input" placeholder="分:秒 or 時:分:秒" size="11" onchange="Calculate2()"  disabled> -->
+        <div class="box">    
+            <label>
+                <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_finish_time" name="type" value="finish_time">
+                <div class="row">
+                    <img src="stopwatch.png" alt="Option 3"><span>時間　</span>
+                </div>
+                            
+                <select id="dropdown" onchange="ChangeDistance(this.value)" style="margin-right: 0.5em;">
+                    <option value="">距離</option>
+                    <option value="800">800m</option>
+                    <option value="1500">1500m</option>
+                    <option value="3000">3k</option>
+                    <option value="5000">5k</option>
+                    <option value="10000">10k</option>
+                    <option value="21097.5">半馬</option>
+                    <option value="42195">全馬</option>
+                </select>
+        
+                <input type="text" name="" id="finish_time_input" placeholder="" size="8" onclick="this.select()" onkeyup="Calculate2()" disabled >
+
+            </label>
+        </div> 
         <!-- <div class="footer" ><a target="_blank" href="https://icons8.com/icon/iK0ZhsguDd3G/running-track">Running Track</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></div> -->
         <!-- <a target="_blank" href="https://icons8.com/icon/1737/speedometer">Speedometer</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
         <!-- <a target="_blank" href="https://icons8.com/icon/7673/treadmill">Treadmill</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
         <!-- <a target="_blank" href="https://icons8.com/icon/pKhn26TDfnzg/stopwatch">Stopwatch</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
-        <!-- <hr> -->
-    <!-- new feature race distance btn -->
-    <!-- <div>
-        <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_800" name="road" value="800" checked><label for="c_track_800">800m</label>
-        <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_1500" name="road" value="1500"><label for="c_track_1500">1500m</label>
-        <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_5000" name="road" value="5000"><label for="c_track_5000">5k</label>
-        <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_10000" name="road" value="10000"><label for="c_track_10000">10k</label>
-        <input type="radio" onchange="ChangeDistance(this.value)" id="c_road_half" name="road" value="21097.5"><label for="c_road_half">半馬</label>
-        <input type="radio" onchange="ChangeDistance(this.value)" id="c_road_full" name="road" value="42195"><label for="c_road_full">全馬</label>    
-    </div> -->
-
-    
-    
-    
-    <!-- <input type="radio" onchange="ChangeOption(this)" id="c_finish_time" name="type" value="finish_time"><label for="c_finish_time">完成時間: </label><input type="text" name="" id="finish_time_input" placeholder="分:秒 or 時:分:秒" size="11" onchange="Calculate2()"  disabled> -->
-    <div class="box">    
-        <label>
-            <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_finish_time" name="type" value="finish_time">
-            <div class="row">
-                <img src="stopwatch.png" alt="Option 3"><span>時間　</span>
-            </div>
-                           
-            <select id="dropdown" onchange="ChangeDistance(this.value)" style="margin-right: 0.5em;">
-                <option value="">距離</option>
-                <option value="800">800m</option>
-                <option value="1500">1500m</option>
-                <option value="3000">3k</option>
-                <option value="5000">5k</option>
-                <option value="10000">10k</option>
-                <option value="21097.5">半馬</option>
-                <option value="42195">全馬</option>
-            </select>
-    
-            <input type="text" name="" id="finish_time_input" placeholder="" size="8" onclick="this.select()" onkeyup="Calculate2()" disabled >
-
-        </label>
-    </div> 
-
+        <!-- <a target="_blank" href="https://icons8.com/icon/k1l1XFkME39t/exercise">Exercise</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+        
     </div>
-</body>
+ </body>
 
 <!-- 引入有用到的js函式庫 -->
 <script type="text/javascript" src="strftime-min.js"></script>
@@ -331,12 +338,12 @@
         if(checked_option=="finish_time"){
             document.getElementById("finish_time_input").placeholder = "分:秒/時:分:秒";
         }else if(checked_option=="track"){
-            document.getElementById(e.value+"_input").placeholder = "ex:100";
+            document.getElementById(e.value+"_input").placeholder = "100";
         }else if(checked_option=="treadmill"){
-            document.getElementById(e.value+"_input").placeholder = "ex:12";
+            document.getElementById(e.value+"_input").placeholder = "12";
         }
         else if(checked_option=="pace"){
-            document.getElementById(e.value+"_input").placeholder = "ex: 3";
+            document.getElementById(e.value+"_input").placeholder = "3";
             document.getElementById(e.value+"_input2").placeholder = "30";
             document.getElementById(e.value+"_input2").style.backgroundColor = "rgb(233, 233, 173)";
         }
@@ -542,7 +549,7 @@
 
         if(checked_option == 'pace'){
             // seconds_per_lap = (pace_input1*60+pace_input2)/2.5;
-            console.log(1000/lane);
+            // console.log(1000/lane);
             seconds_per_lap = (pace_input1*60+pace_input2)/(1000/lane);
         }
         else if(checked_option == 'track'){
@@ -588,10 +595,17 @@
         }else{
             pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*(1000/lane)));
         }
+
+        // 避免輸入算完後被進位改掉 treadmill輸入 14,21,22會發生
         // treadmill_result = Math.round(1440/track_result*100)/100;
         // treadmill_result = Math.round(lane/track_result*3600/1000*100)/100;
-        treadmill_result = (lane/track_result*3600/1000).toFixed(2);
-
+        // treadmill_result = (lane/track_result*3600/1000).toFixed(2);
+        if(checked_option == 'treadmill'){
+            treadmill_result = treadmill_input;
+        }else{
+            treadmill_result = Math.round(lane/track_result*3600/1000*100)/100;
+        }
+        
 
         var pace_result_split = pace_result.split(':');
 
@@ -656,9 +670,10 @@
         result_arr.push(m400_increment);
         result_arr.push(treadmill_result);
 
+        // 解決finish_time更新的的work-around: 提前更新 讓Calculate_finish_time(distance)抓的到
+        document.getElementById('track_input').value = track_result;
         
-        
-        UpdateInputValue(result_arr);
+        // UpdateInputValue(result_arr);
         // 5k 10k 半馬 全馬 完成時間估算
         // 如果選擇輸入完成時間則不更新(進位問題)
         finish_time_result = Calculate_finish_time(distance);
@@ -686,26 +701,39 @@
         var time;
         var seconds_per_lap = document.getElementById('track_input').value;
         var finish_time_input = document.getElementById('finish_time_input').value;
-        console.log(finish_time_input);
-        if(finish_time_input=='undefined'){
-            console.log("undefined!");
-            finish_time_input = "00:00:00"
+        var seconds_per_meter;
+        var lane = getCurrentLane();
+
+        // 解決抓取進位問題: 不要都用換算過的track_input
+        // // 1. 找到被選的選項
+        var checked_option = document.querySelector('input[name="type"]:checked').value;
+        if(checked_option=='pace'){
+            
+            var seconds = Number(document.getElementById('pace_input').value)*60+Number(document.getElementById('pace_input2').value);
+            seconds_per_meter = seconds/1000;
+
+        }else if(checked_option=='track'){
+            seconds_per_meter = seconds_per_lap/lane;
+        }else if(checked_option=='treadmill'){
+            // var km_per_hour = Number(document.getElementById('treadmill_input').value);
+            // seconds_per_meter = 3600/(km_per_hour*1000);
+            // console.log(seconds_per_meter);
+            seconds_per_meter = seconds_per_lap/lane;
         }
+        
         // console.log("result_400: "+result_400);
         // 測試資料{
         //     配速4:28
         //     操場85
         // }
-        var lane = getCurrentLane();
-        
-        console.log("#####");
-        console.log(seconds_per_lap);
-        console.log(lane);
 
         //計算速度(s/m),處理進位到小數點2
-        var v = (seconds_per_lap/lane).toFixed(2);
-        time = distance*v; // in seconds
+        time = (distance*seconds_per_meter).toFixed(2); // in seconds
+        console.log("### v*distance = time!! ###");
+        console.log(time);
         finish_time = strftime('%H:%M:%S', new Date(0,0,0,0,0,time));
+        console.log("### finish_time!! ###")
+        console.log(finish_time);
         var f_time = finish_time.split(':');
         if(f_time[0]=="00"){
             f_time = f_time[1]+":"+f_time[2]; 
@@ -714,10 +742,13 @@
         }
         var checked_option = document.querySelector('input[name="type"]:checked').value;
         if(checked_option != "finish_time"){
-            
+            console.log("return f_time!");
+            console.log(f_time);
             // document.getElementById('finish_time_input').value = f_time;
             return f_time;
         }else{
+            console.log("return finish_time_input!");
+            console.log(finish_time_input);
             // console.log(document.getElementById('finish_time_input').value);
             return finish_time_input;
         }
@@ -730,6 +761,7 @@
         var finish_time_input = document.getElementById('finish_time_input').value;
         var finish_time_split = finish_time_input.split(':');
         var hours,mins,secs;
+        var lane = getCurrentLane();
 
         console.log("cfv: "+finish_time_input);
         
@@ -747,7 +779,8 @@
         secs += mins * 60;
         console.log(secs);
 
-        seconds_per_lap = secs/distance*400;
+        // seconds_per_lap = secs/distance*400;
+        seconds_per_lap = secs/distance*lane;
 
         return seconds_per_lap;
     }
