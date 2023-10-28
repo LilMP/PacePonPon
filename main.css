@@ -11,7 +11,7 @@ body {
     color: rgb(237, 237, 222);
     font-family: Microsoft JhengHei;
     /* border: 2px solid red; */
-    margin-top:5vh;
+    margin-top: 3em;
     /* padding: 0 10px; */
     /* font-size:2em; */
 }
@@ -19,8 +19,11 @@ body {
     
     /* width: 95%; */
     /* outline: 2px solid red; */
-    margin: 0 0 5px 0;
+    /* margin: 0 0 5px 0; */
     /* border: 2px solid blue; */
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
 }
 
 /* 文字靠右 */
@@ -69,11 +72,11 @@ input + span {
 
 .indent-text {
     /* text-indent: 22px; */
-    margin-left: 2em;
-    margin-top: 5px;
-    padding-left: 5px;
+    margin-left: 1em;
+    /* margin-top: 5px; */
+    /* padding-left: 5px; */
     display: inline-block;
-    border-top: 1px dotted #BDCCCC;
+    /* border-top: 1px dotted #BDCCCC; */
 }
 
 /* increment樣式取消底色&框線 */
@@ -124,9 +127,14 @@ input + span {
 }
 .row span {
     /* font-size: large; */
-    font-size: 0.5em;
+    font-size: 10px;
     vertical-align: super;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    color: #bdcccc;
 }
 label {
     cursor: pointer;
@@ -150,21 +158,30 @@ label img {
     vertical-align: text-bottom;
     padding: 5px;
     border-radius: 10px;
-    margin-right: 2px;
+    /* margin-right: 2px; */
+    box-shadow: 0 2px #999;
+    border: 1px solid #999;
 }
-
 
 
 /* CHECKED STYLES */
 [type=radio]:checked, [type=radio]:checked + div img {
     /* outline: 2px solid #f00; */
     background-color: rgb(184, 108, 108);
+    box-shadow: 0 2px #999;
     /* border-bottom: 2px solid rgb(184, 108, 108); */
 }
 [type=radio]:checked + div span {
-    border-bottom: 2px solid rgb(184, 108, 108);
+    /* border-bottom: 2px solid rgb(184, 108, 108); */
     /* border-color: rgb(184, 108, 108); */
+    color: rgb(237, 237, 222);
 }
+
+[type=radio]:active + div img {
+    /* background-color: #3e8e41; */
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
+  }
 
 
 input:focus {
@@ -250,20 +267,25 @@ a {
     font-weight: 100;
     padding-left: 5px;
     color: transparent !important;
+    display: none;
 }
 
 #lane-length {
     font-size: 10px;
     /* display: flex; */
     /* justify-content: center; */
-    padding-left: 30px;
+    /* padding-left: 30px; */
     margin: 5px 0 0 0;
     /* border-bottom: 1px solid black; */
     color: #BDCCCC;
+    text-align: center;
+    /* padding-right: 1em; */
+    border-bottom: 1px dotted;
+    padding-bottom: 5px;
 }
 #laps-result2 {
     margin-left: 0;
-    padding-right: 2em;
+    /* padding-right: 2em; */
 }
 
 #logo, #icons8 {
@@ -289,6 +311,16 @@ a {
     text-align: end;
     float: right;
     font-size: 0.4rem;
+}
+
+.column2 {
+    margin-left: 1em;
+}
+
+#split-detail{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 

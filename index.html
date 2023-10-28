@@ -24,10 +24,12 @@
             <label>
                 <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_pace" name="type" value="pace" checked>
                 <div class="row">
-                    <img src="speedometer.png" alt="Option 1"><span>配速　</span>
+                    <img src="speedometer.png" alt="Option 1"><span>配速</span>
                 </div>
             </label>
-            <input class="pace_input" type="number" name="" id="pace_input" placeholder="3" onclick="this.select()" onkeyup="Calculate2()" autofocus><span>:</span><input class="pace_input" type="number" name="" id="pace_input2" placeholder="30" onclick="this.select()" onkeyup="Calculate2()"><span>/km</span>
+            <div class="column2">
+                <input class="pace_input" type="number" name="" id="pace_input" placeholder="3" onclick="this.select()" onkeyup="Calculate2()" autofocus><span>:</span><input class="pace_input" type="number" name="" id="pace_input2" placeholder="30" onclick="this.select()" onkeyup="Calculate2()"><span>/km</span>
+            </div>
         </div>
 
         <div class="box">
@@ -38,18 +40,21 @@
                     
                 </div>
             </label>
-            <select id="laneNumber" onchange="ChangeLane(this)" style="margin-right: 0.5em;">
-                <option value="400">1道</option>
-                <option value="408">2道</option>
-                <option value="415">3道</option>
-                <option value="423">4道</option>
-                <option value="430">5道</option>
-                <option value="438">6道</option>
-                <option value="445">7道</option>
-                <option value="453">8道</option>
-            </select>
-            <input type="number" name="" id="track_input" placeholder="" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled><span>秒/圈</span>
-            <button id='slide-button'>+</button>
+            <div class="column2">
+                <select id="laneNumber" onchange="ChangeLane(this)" style="margin-right: 0.5em;">
+                    <option value="400">1道</option>
+                    <option value="408">2道</option>
+                    <option value="415">3道</option>
+                    <option value="423">4道</option>
+                    <option value="430">5道</option>
+                    <option value="438">6道</option>
+                    <option value="445">7道</option>
+                    <option value="453">8道</option>
+                </select>
+                <input type="number" name="" id="track_input" placeholder="" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled><span>秒/圈</span>
+                <button id='slide-button'>+</button>
+            </div>
+            
         </div>
         <!-- <div class="" style="display: none;">
             <div class="box indent-text ">  -->
@@ -66,26 +71,29 @@
 
         <div class='container animation SlideDown' id='container' >
             <div id="lane-length">第1道：400m</div>
-            <div class="box indent-text" > 
-                <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="m100">100m: </label><input type="text" name="" id="m100_input" placeholder="" size="1" onkeyup="Calculate2()" disabled> 秒<br> -->
-                <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="m200">200m: </label><input type="text" name="" id="m200_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br> -->
-                <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="m300">300m: </label><input type="text" name="" id="m300_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br> -->
-                <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="m400">400m: </label><input type="text" name="" id="m400_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br> -->
-                <div style="display: inline;" class="increment">100　</div><input class="increment input-right" type="text" name="" id="m100_input" placeholder="" size="1" disabled><br>
-                <div style="display: inline;" class="increment">200　</div><input class="increment input-right" type="text" name="" id="m200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m200_increment" placeholder="" disabled><br>
-                <div style="display: inline;" class="increment">300　</div><input class="increment input-right" type="text" name="" id="m300_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m300_increment" placeholder="" disabled><br>
-                <div style="display: inline;" class="increment">400　</div><input class="increment input-right" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m400_increment" placeholder="" disabled><br>
+            <div id="split-detail">
+                <div class="box indent-text" > 
+                    <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="m100">100m: </label><input type="text" name="" id="m100_input" placeholder="" size="1" onkeyup="Calculate2()" disabled> 秒<br> -->
+                    <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="m200">200m: </label><input type="text" name="" id="m200_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br> -->
+                    <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="m300">300m: </label><input type="text" name="" id="m300_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br> -->
+                    <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="m400">400m: </label><input type="text" name="" id="m400_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br> -->
+                    <div style="display: inline;" class="increment">100　</div><input class="increment input-right" type="text" name="" id="m100_input" placeholder="" size="1" disabled><br>
+                    <div style="display: inline;" class="increment">200　</div><input class="increment input-right" type="text" name="" id="m200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m200_increment" placeholder="" disabled><br>
+                    <div style="display: inline;" class="increment">300　</div><input class="increment input-right" type="text" name="" id="m300_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m300_increment" placeholder="" disabled><br>
+                    <div style="display: inline;" class="increment">400　</div><input class="increment input-right" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m400_increment" placeholder="" disabled><br>
+                </div>
+                <div id="laps-result2" class="indent-text">
+                    <div style="display: inline;" class="increment">2圈<span id="twolaps">&emsp;800</span>　</div><input class="increment input-right" type="text" name="" id="m800_input" placeholder="" size="1" disabled><br>
+                    <!-- <input class="increment" type="text" name="" id="m800_increment" placeholder="" disabled><br> -->
+                    <div style="display: inline;" class="increment">3圈 <span id="threelaps">1200</span>　</div><input class="increment input-right" type="text" name="" id="m1200_input" placeholder="" size="1" disabled><br>
+                    <!-- <input class="increment" type="text" name="" id="m1200_increment" placeholder="" disabled><br> -->
+                    <div style="display: inline;" class="increment">4圈 <span id="fourlaps">1600</span>　</div><input class="increment input-right" type="text" name="" id="m1600_input" placeholder="" size="1" disabled><br>
+                    <!-- <input class="increment" type="text" name="" id="m1600_increment" placeholder="" disabled><br> -->
+                    <div style="display: inline;" class="increment">5圈 <span id="fivelaps">2000</span>　</div><input class="increment input-right" type="text" name="" id="m2000_input" placeholder="" size="1" disabled><br>
+                    <!-- <input class="increment" type="text" name="" id="m2000_increment" placeholder="" disabled><br> -->
+                </div>
             </div>
-            <div id="laps-result2" class="indent-text">
-                <div style="display: inline;" class="increment">2圈<span id="twolaps">&emsp;800</span>　</div><input class="increment input-right" type="text" name="" id="m800_input" placeholder="" size="1" disabled><br>
-                <!-- <input class="increment" type="text" name="" id="m800_increment" placeholder="" disabled><br> -->
-                <div style="display: inline;" class="increment">3圈 <span id="threelaps">1200</span>　</div><input class="increment input-right" type="text" name="" id="m1200_input" placeholder="" size="1" disabled><br>
-                <!-- <input class="increment" type="text" name="" id="m1200_increment" placeholder="" disabled><br> -->
-                <div style="display: inline;" class="increment">4圈 <span id="fourlaps">1600</span>　</div><input class="increment input-right" type="text" name="" id="m1600_input" placeholder="" size="1" disabled><br>
-                <!-- <input class="increment" type="text" name="" id="m1600_increment" placeholder="" disabled><br> -->
-                <div style="display: inline;" class="increment">5圈 <span id="fivelaps">2000</span>　</div><input class="increment input-right" type="text" name="" id="m2000_input" placeholder="" size="1" disabled><br>
-                <!-- <input class="increment" type="text" name="" id="m2000_increment" placeholder="" disabled><br> -->
-            </div>
+            
         </div>
 
         
@@ -97,7 +105,10 @@
                     <img src="treadmill.png" alt="Option 3"><span>跑步機</span>
                 </div>
             </label>
-            <input type="number" name="" id="treadmill_input" placeholder="" size="6" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled ><span>km/h</span>
+            <div class="column2">
+                <input type="number" name="" id="treadmill_input" placeholder="" size="6" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled ><span>km/h</span>
+
+            </div>
         </div> 
         <!-- <button class="" id='calBtn' onclick="Calculate()">Enter</button> -->
         <!-- <hr> -->
@@ -120,9 +131,12 @@
             <label>
                 <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_finish_time" name="type" value="finish_time">
                 <div class="row">
-                    <img src="stopwatch.png" alt="Option 3"><span>時間　</span>
+                    <img src="stopwatch.png" alt="Option 3"><span>時間</span>
                 </div>
                             
+
+            </label>
+            <div class="column2">
                 <select id="dropdown" onchange="ChangeDistance(this.value)" style="margin-right: 0.5em;">
                     <option value="">距離</option>
                     <option value="800">800m</option>
@@ -136,7 +150,7 @@
         
                 <input type="text" name="" id="finish_time_input" placeholder="" size="8" onclick="this.select()" onkeyup="Calculate2()" disabled >
 
-            </label>
+            </div>
         </div> 
         <!-- <div class="footer" ><a target="_blank" href="https://icons8.com/icon/iK0ZhsguDd3G/running-track">Running Track</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></div> -->
         <!-- <a target="_blank" href="https://icons8.com/icon/1737/speedometer">Speedometer</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
@@ -476,7 +490,7 @@
             console.log('something\'s wrong')
         }
 
-        pace_result_split = pace_result.split(':');
+        pace_result_split = pace_result.split(/[：:]/);
 
 
         // update 結果
@@ -610,7 +624,7 @@
         }
         
 
-        var pace_result_split = pace_result.split(':');
+        var pace_result_split = pace_result.split(/[：:]/);
 
         // 計算每100m時間、increment
         // var m100 = track_result/4;
@@ -737,7 +751,7 @@
         finish_time = strftime('%H:%M:%S', new Date(0,0,0,0,0,time));
         console.log("### finish_time!! ###")
         console.log(finish_time);
-        var f_time = finish_time.split(':');
+        var f_time = finish_time.split(/[：:]/);
         if(f_time[0]=="00"){
             f_time = f_time[1]+":"+f_time[2]; 
         }else{
@@ -762,20 +776,20 @@
         // distance 單位: 公尺
 
         var finish_time_input = document.getElementById('finish_time_input').value;
-        var finish_time_split = finish_time_input.split(':');
+        var finish_time_split = finish_time_input.split(/[：:]/);
         var hours,mins,secs;
         var lane = getCurrentLane();
 
         console.log("cfv: "+finish_time_input);
         
         if(finish_time_split.length == 3){
-            hours = parseInt(finish_time_input.split(":")[0]);
-            mins = parseInt(finish_time_input.split(":")[1]);
-            secs = parseInt(finish_time_input.split(":")[2]);
+            hours = parseInt(finish_time_input.split(/[：:]/)[0]);
+            mins = parseInt(finish_time_input.split(/[：:]/)[1]);
+            secs = parseInt(finish_time_input.split(/[：:]/)[2]);
         }else if(finish_time_split.length == 2){
             hours = 0;
-            mins = parseInt(finish_time_input.split(":")[0]);
-            secs = parseInt(finish_time_input.split(":")[1]);
+            mins = parseInt(finish_time_input.split(/[：:]/)[0]);
+            secs = parseInt(finish_time_input.split(/[：:]/)[1]);
         }
         
         mins += hours * 60;
