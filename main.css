@@ -175,6 +175,7 @@ label img {
     /* border-bottom: 2px solid rgb(184, 108, 108); */
     /* border-color: rgb(184, 108, 108); */
     color: rgb(237, 237, 222);
+    
 }
 
 [type=radio]:active + div img {
@@ -308,13 +309,16 @@ a {
     font-weight: bold;
 }
 .float-right {
-    text-align: end;
-    float: right;
+    /* text-align: end; */
+    /* float: right; */
     font-size: 0.4rem;
+    display: block;
+    text-align: right;
+    margin: 0.5em 0;
 }
 
 .column2 {
-    margin-left: 1em;
+    margin-left: 0.5em;
 }
 
 #split-detail{
@@ -349,10 +353,11 @@ a {
         height: 0px;
     }
     .footer{
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     .float-right {
         font-size: 0.5rem;
+        margin-bottom: 1rem;
     }
     .indent-text{
         margin-left: 1.5em;
