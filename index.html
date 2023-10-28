@@ -1,7 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GJ9SQR4S47"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-GJ9SQR4S47');
+    </script>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:url" content="https://lilmp.github.io/paceponpon/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Pace朋朋" />
+    <meta property="og:description" content="你的配速換算好朋友" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PacePonPon</title>
     <link rel="stylesheet" href="main.css">
@@ -10,12 +24,13 @@
 <body>
     <div>
         <h1 class="box" style="margin:0;">Pace朋朋<img id="logo" src="icons8-exercise-96.png" alt="logo"></h1>
-        <div class="footer">你的配速換算好朋友</div>
+        <div class="footer">你的配速換算好朋友<button id='slide-button2'><img id="info" src="information.png" alt="info"></button></div>
         <!-- <h1 class="box">名字還在想</h1> -->
         <!-- <h2 class="box">還在想</h2> -->
         <hr width="100%" style="margin: 0;">
-        <div class="footer float-right">
-            all icons by: <a class="" target="_blank" href="https://icons8.com" >Icons8</a> / <a class="" target="_blank" href="https://reurl.cc/DoYp8N">小M平的跑步宇宙</a> / <a class="" target="_blank" href="https://lilmp.soci.vip">喝杯咖啡</a>☕繼續努力</div>
+        <div id="container2" class="footer float-right animation container2 SlideDown">
+            <span style="font-weight: bold;">使用說明</span> 1. 左側按鈕選擇模式 2. 黃色格子才能輸入 3. 每圈配速請點+ 4. 沒了<br>
+            icons by: <a class="" target="_blank" href="https://icons8.com" >Icons8</a> / <a class="" target="_blank" href="https://reurl.cc/DoYp8N">小M平的跑步宇宙</a> / <a class="" target="_blank" href="https://lilmp.soci.vip">喝杯咖啡</a>☕繼續努力</div>
         <!-- <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()">/km<br> -->
         <div class="box">
             <label>
@@ -810,6 +825,14 @@
     }
     //按下按鈕後 增加 slidedown 的class: 設定height為0;
     slideButton.addEventListener('click', SlideUpAndDown);
+
+    let container2 = document.getElementById('container2');
+    let slideButton2 = document.getElementById('slide-button2');
+    function SlideUpAndDown2() {
+        container2.classList.toggle('SlideDown');
+        // slideButton2.classList.toggle('click-expand');
+    }
+    slideButton2.addEventListener('click', SlideUpAndDown2);
 
 
 
