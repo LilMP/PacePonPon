@@ -195,6 +195,11 @@ input:focus {
     /* border: 2px solid rgb(233, 233, 173); */
 }
 
+input:disabled, textarea:disabled, input:disabled::placeholder, textarea:disabled::placeholder {
+    -webkit-text-fill-color: currentcolor; /* 1. sets text fill to current `color` for safari */
+    opacity: 1; /* 2. correct opacity on iOS */
+}
+
 
 /* 下滑式清單 */
 #dropdown, #laneNumber {
@@ -377,7 +382,7 @@ a {
     }
     .float-right {
         font-size: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
     }
     .indent-text{
         margin-left: 1.5em;
