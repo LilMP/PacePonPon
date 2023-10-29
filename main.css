@@ -224,7 +224,7 @@ input:disabled, textarea:disabled, input:disabled::placeholder, textarea:disable
     /* overflow:hidden 一定要加 */
     overflow: hidden; 
     /* height 也必須指定pixel 用auto/100%會瞬間消失 */
-    height:2rem;
+    height:3rem;
 }
 .container {
     height: 120px;
@@ -382,7 +382,7 @@ a {
     }
     .float-right {
         font-size: 0.5rem;
-        margin-bottom: 1rem;
+        /* margin-bottom: 1rem; */
     }
     .indent-text{
         margin-left: 1.5em;
