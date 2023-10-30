@@ -34,24 +34,27 @@
         <!-- <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()">/km<br> -->
         <div class="box">
             <label>
-                <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_pace" name="type" value="pace" checked>
-                <div class="row">
-                    <img src="speedometer.png" alt="Option 1"><span>配速</span>
-                </div>
+                <input class="hidden-radio" type="radio" onclick="" id="c_pace" name="type" value="pace" checked>
+                
             </label>
+            <div class="row selected" id="pace_icon">
+                <img src="speedometer.png" alt="Option 1"><span>配速</span>
+            </div>
+            
             <div class="column2">
-                <input class="pace_input" type="number" name="" id="pace_input" placeholder="ex:3" onclick="this.select()" onkeyup="Calculate2()" autofocus><span>:</span><input class="pace_input" type="number" name="" id="pace_input2" placeholder="30" onclick="this.select()" onkeyup="Calculate2()"><span>/km</span>
+                <input class="pace_input" type="number" name="" id="pace_input" placeholder="ex:3" onclick="ChangeOption('pace')" onkeyup="Calculate2()" autofocus><span>:</span><input class="pace_input" type="number" name="" id="pace_input2" placeholder="30" onclick="ChangeOption('pace')" onkeyup="Calculate2()"><span>/km</span>
             </div>
         </div>
 
         <div class="box">
             <label>
-                <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_track" name="type" value="track">
-                <div class="row">
-                    <img src="track.png" alt="Option 2"><span>田徑場</span>
-                    
-                </div>
+                <input class="hidden-radio" type="radio" onclick="" id="c_track" name="type" value="track">
+                
             </label>
+            <div class="row" id="track_icon">
+                <img src="track.png" alt="Option 2"><span>田徑場</span>
+                
+            </div>
             <div class="column2">
                 <select id="laneNumber" onchange="ChangeLane(this)" style="margin-right: 0.5em;">
                     <option value="400">1道</option>
@@ -63,7 +66,8 @@
                     <option value="445">7道</option>
                     <option value="453">8道</option>
                 </select>
-                <input type="number" name="" id="track_input" placeholder="" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled><span>秒/圈</span>
+                <!-- <input type="number" name="" id="track_input" placeholder="" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled><span>秒/圈</span> -->
+                <input type="number" name="" id="track_input" placeholder="" size="4" maxlength="4" onclick="ChangeOption('track')" onkeyup="Calculate2()"><span>秒/圈</span>
                 <button id='slide-button'>+</button>
             </div>
             
@@ -112,13 +116,16 @@
         
         <div class="box">    
             <label>
-                <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_treadmill" name="type" value="treadmill">
-                <div class="row">
-                    <img src="treadmill.png" alt="Option 3"><span>跑步機</span>
-                </div>
+                <input class="hidden-radio" type="radio" onclick="" id="c_treadmill" name="type" value="treadmill">
+                
             </label>
+            <div class="row" id="treadmill_icon">
+                <img src="treadmill.png" alt="Option 3"><span>跑步機</span>
+            </div>
             <div class="column2">
-                <input type="number" name="" id="treadmill_input" placeholder="" size="6" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled ><span>km/h</span>
+                <!-- <input type="number" name="" id="treadmill_input" placeholder="" size="6" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled ><span>km/h</span> -->
+                <input type="number" name="" id="treadmill_input" placeholder="" size="6" maxlength="4" onclick="ChangeOption('treadmill')" onkeyup="Calculate2()" ><span>km/h</span>
+
 
             </div>
         </div> 
@@ -141,13 +148,14 @@
         <!-- <input type="radio" onchange="ChangeOption(this)" id="c_finish_time" name="type" value="finish_time"><label for="c_finish_time">完成時間: </label><input type="text" name="" id="finish_time_input" placeholder="分:秒 or 時:分:秒" size="11" onchange="Calculate2()"  disabled> -->
         <div class="box">    
             <label>
-                <input class="hidden-radio" type="radio" onclick="ChangeOption(this)" id="c_finish_time" name="type" value="finish_time">
-                <div class="row">
-                    <img src="stopwatch.png" alt="Option 3"><span>時間</span>
-                </div>
+                <input class="hidden-radio" type="radio" onclick="" id="c_finish_time" name="type" value="finish_time">
+                
                             
 
             </label>
+            <div class="row" id="finish_time_icon">
+                <img src="stopwatch.png" alt="Option 3"><span>時間</span>
+            </div>
             <div class="column2">
                 <select id="dropdown" onchange="ChangeDistance(this.value)" style="margin-right: 0.5em;">
                     <option value="">距離</option>
@@ -159,8 +167,9 @@
                     <option value="21097.5">半馬</option>
                     <option value="42195" selected="selected">全馬</option>
                 </select>
-        
-                <input type="text" name="" id="finish_time_input" placeholder="" size="8" onclick="this.select()" onkeyup="Calculate2()" disabled >
+                <!-- <input type="text" name="" id="finish_time_input" placeholder="" size="8" onclick="this.select()" onkeyup="Calculate2()" disabled > -->
+
+                <input type="text" name="" id="finish_time_input" placeholder="" size="8" onclick="ChangeOption('finish_time')" onkeyup="Calculate2()" >
 
             </div>
         </div> 
@@ -260,9 +269,9 @@
     }
     function AllInputAreaClean(){
         // 顯示結果全清空
-        input_ui.forEach(element => {
-            document.getElementById(element).value = "";
-        });
+        // input_ui.forEach(element => {
+        //     document.getElementById(element).value = "";
+        // });
         var ui_index = [0,1,2,10,11];
         for (let index = 0; index < ui_index.length; index++) {
             document.getElementById(input_ui[ui_index[index]]).style.backgroundColor = "#BDCCCC";
@@ -351,7 +360,28 @@
 
     // 切換選項的動作: 1.把沒選到的disable 2.清掉顯示結果/輸入紀錄
     function ChangeOption(e) {
-        DisableTextBox2(e);
+        console.log("##### change option: e");
+        console.log(e);
+        // 如果重複點同一個input 不清掉
+        var checked_option = document.querySelector('input[name="type"]:checked').value;
+        console.log("##### change option: checked_option");
+        console.log(checked_option);
+        
+        document.activeElement.select();
+        if(checked_option == e){
+            return;
+        }else{
+            
+            document.getElementById(checked_option+"_icon").classList.remove("selected");
+            
+            checked_option = e;
+        }
+        
+        
+        
+        
+
+        // DisableTextBox2(e);
         // CleanTextBox();
         // 清掉顯示結果/輸入紀錄
         AllInputAreaClean(); 
@@ -363,20 +393,37 @@
         });
 
 
-        var checked_option = document.querySelector('input[name="type"]:checked').value;
+        // var checked_option = document.querySelector('input[name="type"]:checked').value;
+ 
         if(checked_option=="finish_time"){
             document.getElementById("finish_time_input").placeholder = "分:秒/時:分:秒";
+            document.getElementById(e+"_icon").classList.add("selected");
+            document.getElementById("c_"+e).checked = true;
+            document.querySelector('input[name="type"]:checked').value = e;
+            
         }else if(checked_option=="track"){
-            document.getElementById(e.value+"_input").placeholder = "ex:96";
+            document.getElementById(e+"_input").placeholder = "ex:96";
+            document.getElementById(e+"_icon").classList.add("selected");
+            document.getElementById("c_"+e).checked = true;
+            document.querySelector('input[name="type"]:checked').value = e;
+            
         }else if(checked_option=="treadmill"){
-            document.getElementById(e.value+"_input").placeholder = "ex:12";
+            document.getElementById(e+"_input").placeholder = "ex:12";
+            document.getElementById(e+"_icon").classList.add("selected");
+            document.getElementById("c_"+e).checked = true;
+            document.querySelector('input[name="type"]:checked').value = e;
+            
         }
         else if(checked_option=="pace"){
-            document.getElementById(e.value+"_input").placeholder = "ex:3";
-            document.getElementById(e.value+"_input2").placeholder = "30";
-            document.getElementById(e.value+"_input2").style.backgroundColor = "rgb(233, 233, 173)";
+            document.getElementById(e+"_input").placeholder = "ex:3";
+            document.getElementById(e+"_input2").placeholder = "30";
+            document.getElementById(e+"_input2").style.backgroundColor = "rgb(233, 233, 173)";
+            document.getElementById(e+"_icon").classList.add("selected");
+            document.getElementById("c_"+e).checked = true;
+            document.querySelector('input[name="type"]:checked').value = e;
+            
         }
-        document.getElementById(e.value+"_input").style.backgroundColor = "rgb(233, 233, 173)";
+        document.getElementById(e+"_input").style.backgroundColor = "rgb(233, 233, 173)";
         
         
         
