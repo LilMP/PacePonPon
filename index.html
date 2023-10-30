@@ -25,11 +25,12 @@
     <div>
         <h1 class="box" style="margin:0;">Pace朋朋<img id="logo" src="icons8-exercise-96.png" alt="logo"></h1>
         <div class="footer">你的配速換算好朋友<button id='slide-button2'><img id="info" src="information.png" alt="info"></button></div>
+        <div style="font-size:0.5rem;color:rgb(189, 204, 204);margin-bottom: 5px;">任意輸入、即刻換算</div>
         <!-- <h1 class="box">名字還在想</h1> -->
         <!-- <h2 class="box">還在想</h2> -->
         <hr width="100%" style="margin: 0;">
         <div id="container2" class="footer float-right animation container2 SlideDown">
-            <span style="font-weight: bold;">使用說明</span> 1.<span style="border-radius: 5px;background-color: rgb(184, 108, 108);color: rgb(237, 237, 222);">按鈕</span>選模式 2.<span style="background-color: rgb(233, 233, 173);color: rgb(117,117,117);">黃色</span>格子輸入 3.看分段配速請點<span style="color: rgb(189, 204, 204);font-weight: bold;font-size: 1.5em;text-shadow: 0.05em 0.05em rgb(84, 84, 84);">+</span> 4.沒了<br>
+            <span style="font-weight: bold;">注意事項</span> 1.只能輸入整數! 2.看分段配速請點<span style="color: rgb(189, 204, 204);font-weight: bold;font-size: 1.5em;text-shadow: 0.05em 0.05em rgb(84, 84, 84);">+</span> 3.沒了<br>
             icons by: <a class="" target="_blank" href="https://icons8.com" >Icons8</a> / <a class="" target="_blank" href="https://reurl.cc/DoYp8N">小M平的跑步宇宙</a> / <a class="" target="_blank" href="https://lilmp.soci.vip">喝杯咖啡</a>☕繼續努力</div>
         <!-- <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()">/km<br> -->
         <div class="box">
@@ -204,10 +205,10 @@
         return check;
     };
     if(!mobileCheck()){
-        document.body.style.zoom = 1.8;
+        document.body.style.zoom = 2;
         // changeMargin('box');
     }else{
-        document.body.style.zoom = 1.3;
+        document.body.style.zoom = 1.5;
     }
     
     var ui_pace_text1 = document.getElementById('pace_input');
@@ -331,7 +332,7 @@
         console.log(check_value);
         if(check_value == 'pace_input'){
             document.getElementById(check_value+"2").disabled = false;
-            document.getElementById(check_value+"2").style.backgroundColor = "rgb(233, 233, 173)";
+            // document.getElementById(check_value+"2").style.backgroundColor = "rgb(233, 233, 173)";
         }
         document.getElementById(check_value).disabled = false;
         document.getElementById(check_value).focus();
@@ -360,13 +361,13 @@
 
     // 切換選項的動作: 1.把沒選到的disable 2.清掉顯示結果/輸入紀錄
     function ChangeOption(e) {
-        console.log("##### change option: e");
-        console.log(e);
+        // console.log("##### change option: e");
+        // console.log(e);
         // 如果重複點同一個input 不清掉
         var checked_option = document.querySelector('input[name="type"]:checked').value;
-        console.log("##### change option: checked_option");
-        console.log(checked_option);
-        
+        // console.log("##### change option: checked_option");
+        // console.log(checked_option);
+
         document.activeElement.select();
         if(checked_option == e){
             return;
@@ -417,13 +418,13 @@
         else if(checked_option=="pace"){
             document.getElementById(e+"_input").placeholder = "ex:3";
             document.getElementById(e+"_input2").placeholder = "30";
-            document.getElementById(e+"_input2").style.backgroundColor = "rgb(233, 233, 173)";
+            // document.getElementById(e+"_input2").style.backgroundColor = "rgb(233, 233, 173)";
             document.getElementById(e+"_icon").classList.add("selected");
             document.getElementById("c_"+e).checked = true;
             document.querySelector('input[name="type"]:checked').value = e;
             
         }
-        document.getElementById(e+"_input").style.backgroundColor = "rgb(233, 233, 173)";
+        // document.getElementById(e+"_input").style.backgroundColor = "rgb(233, 233, 173)";
         
         
         
@@ -438,16 +439,19 @@
         
         // console.log(document.getElementById("dropdown").value);
         var checked_dropdown = document.getElementById("dropdown").value;
-
-        // console.log(checked_option);
+        
+        // console.log("### checked dropdown");
+        // console.log(checked_dropdown);
         // console.log(e);
-        if(checked_option=="finish_time"){
-            document.getElementById("finish_time_input").value="";
-            document.getElementById("finish_time_input").focus();
-            // document.getElementById("finish_time_input").select();
-        }
+        // if(checked_option=="finish_time"){
+        //     // document.getElementById("finish_time_input").value="";
+        //     // document.getElementById("finish_time_input").focus();
+        //     // document.getElementById("finish_time_input").select();
+            
+        // }
         // document.getElementById("finish_time_input").value = Calculate_finish_time(distance);
-        document.getElementById("finish_time_input").value = Calculate_finish_time(checked_dropdown);
+        Calculate2();
+        // document.getElementById("finish_time_input").value = Calculate_finish_time(checked_dropdown);
         
     }
 
@@ -795,6 +799,11 @@
             // seconds_per_meter = 3600/(km_per_hour*1000);
             // console.log(seconds_per_meter);
             seconds_per_meter = seconds_per_lap/lane;
+        }else{
+            // console.log("##### change distance dropdown");
+            seconds_per_lap = Calculate_ftime_version(distance);
+            // console.log("#### seconds_per_lap");
+            // console.log(seconds_per_lap);
         }
         
         // console.log("result_400: "+result_400);
@@ -805,11 +814,11 @@
 
         //計算速度(s/m),處理進位到小數點2
         time = (distance*seconds_per_meter).toFixed(2); // in seconds
-        console.log("### v*distance = time!! ###");
-        console.log(time);
+        // console.log("### v*distance = time!! ###");
+        // console.log(time);
         finish_time = strftime('%H:%M:%S', new Date(0,0,0,0,0,time));
-        console.log("### finish_time!! ###")
-        console.log(finish_time);
+        // console.log("### finish_time!! ###")
+        // console.log(finish_time);
         var f_time = finish_time.split(/[：:]/);
         if(f_time[0]=="00"){
             f_time = f_time[1]+":"+f_time[2]; 
@@ -818,13 +827,13 @@
         }
         var checked_option = document.querySelector('input[name="type"]:checked').value;
         if(checked_option != "finish_time"){
-            console.log("return f_time!");
-            console.log(f_time);
+            // console.log("return f_time!");
+            // console.log(f_time);
             // document.getElementById('finish_time_input').value = f_time;
             return f_time;
         }else{
-            console.log("return finish_time_input!");
-            console.log(finish_time_input);
+            // console.log("return finish_time_input!");
+            // console.log(finish_time_input);
             // console.log(document.getElementById('finish_time_input').value);
             return finish_time_input;
         }

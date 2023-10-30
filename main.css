@@ -24,7 +24,7 @@ body {
     align-items: center;
     display: flex;
     justify-content: flex-start;
-    margin-left: 0.5em;
+    /* margin-left: 0.5em; */
 }
 
 /* 文字靠右 */
@@ -43,12 +43,12 @@ input[type='number']{
 } 
 #pace_input{
     width: 2.5em !important;
-    background-color: rgb(233, 233, 173);
+    /* background-color: rgb(233, 233, 173); */
 }
 #pace_input2, #pace_input2::placeholder{
     width: 2.5em !important;
     text-align: left !important;
-    background-color: rgb(233, 233, 173);
+    /* background-color: rgb(233, 233, 173); */
 }
 
 /* 取消數字欄位預設有的箭頭: 注意不同瀏覽器寫法不同 */
@@ -135,7 +135,7 @@ input + span {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     color: #bdcccc;
 }
 label {
@@ -159,27 +159,37 @@ input{
     height: 1em;
     /* margin: 5px; */
     vertical-align: text-bottom;
-    padding: 5px;
-    border-radius: 10px;
+    padding: 5px 5px 0 5px;
+    /* border-bottom: 2px solid transparent; */
+    /* border-radius: 10px; */
     /* margin-right: 2px; */
     /* box-shadow: 0 2px #999; */
-    border: 1px solid #999;
+    /* border: 1px solid #999; */
+}
+.row span {
+    border-bottom: 2px solid transparent;
+    padding: 0;
+    /* border: 1px solid #999; */
 }
 
 
 /* CHECKED STYLES */
 /* [type=radio]:checked, [type=radio]:checked + div img { */
 [type=radio]:checked, .selected img {
+    /* border-bottom: 2px solid rgb(184, 108, 108); */
     /* outline: 2px solid #f00; */
-    background-color: rgb(184, 108, 108);
+    /* background-color: rgb(184, 108, 108); */
     /* box-shadow: 0 2px #999; */
     /* border-bottom: 2px solid rgb(184, 108, 108); */
 }
 [type=radio]:checked, .selected span {
-    /* border-bottom: 2px solid rgb(184, 108, 108); */
+    border-bottom: 2px solid rgb(184, 108, 108);
     /* border-color: rgb(184, 108, 108); */
     color: rgb(237, 237, 222);
-    font-weight: bold;
+    /* background-color: rgb(184, 108, 108); */
+    /* border-radius: 5px; */
+    /* font-weight: bold; */
+    
     
 }
 
@@ -193,7 +203,7 @@ input{
 input:focus {
     /* background-color: ivory; */
     /* background-color: #bdcccc; */
-    background-color: rgb(233, 233, 173);    
+    /* background-color: rgb(233, 233, 173);     */
     outline: transparent;
     /* border: 2px solid rgb(233, 233, 173); */
 }
@@ -330,7 +340,7 @@ a {
     font-size:0.8rem;
     color:rgb(189, 204, 204);
     vertical-align:top;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
 }
 .footer a{
     color:rgb(189, 204, 204);
