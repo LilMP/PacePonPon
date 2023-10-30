@@ -240,7 +240,7 @@ input:disabled, textarea:disabled, input:disabled::placeholder, textarea:disable
     /* overflow:hidden 一定要加 */
     overflow: hidden; 
     /* height 也必須指定pixel 用auto/100%會瞬間消失 */
-    height:3rem;
+    height:2rem;
 }
 .container {
     height: 120px;
@@ -369,6 +369,38 @@ a {
 }
 
 
+
+/* # mile button */
+#unit {
+    display: inline-flex;
+    width: 2.5em;
+}
+#mile-button{
+    background-color: transparent;
+    border: none;
+    color: rgb(189, 204, 204);
+    /* font-weight: bold; */
+    font-size: 0.5em;
+    /* text-shadow: 0.1em 0.1em rgb(84, 84, 84); */
+    cursor: pointer;
+    vertical-align: super;  
+} 
+#mile-button img{
+    height: 0.5rem;
+    margin-right: 0.1rem;
+    vertical-align: text-top;
+}
+#switch{
+    display: inline-flex;
+    width: 2em;
+    vertical-align: super;
+    font-size: 0.5rem;
+}
+
+
+
+
+
 @media only screen and (max-device-width : 375px) {
     body {
         margin-top:30%;
@@ -390,7 +422,7 @@ a {
         /* overflow:hidden 一定要加 */
         overflow: hidden; 
         /* height 也必須指定pixel 用auto/100%會瞬間消失 */
-        height: 130px;
+        height: 120px;
     }
     .SlideDown {
         height: 0px;

@@ -30,7 +30,7 @@
         <!-- <h2 class="box">還在想</h2> -->
         <hr width="100%" style="margin: 0;">
         <div id="container2" class="footer float-right animation container2 SlideDown">
-            <span style="font-weight: bold;">注意事項</span> 1.只能輸入整數! 2.看分段配速請點<span style="color: rgb(189, 204, 204);font-weight: bold;font-size: 1.5em;text-shadow: 0.05em 0.05em rgb(84, 84, 84);">+</span> 3.沒了<br>
+            <span style="font-weight: bold;">注意事項</span> 1.只能輸入整數 2.看分段配速請點<span style="color: rgb(189, 204, 204);font-weight: bold;font-size: 1.5em;text-shadow: 0.05em 0.05em rgb(84, 84, 84);">+</span> 3.沒了<br>
             icons by: <a class="" target="_blank" href="https://icons8.com" >Icons8</a> / <a class="" target="_blank" href="https://reurl.cc/DoYp8N">小M平的跑步宇宙</a> / <a class="" target="_blank" href="https://lilmp.soci.vip">喝杯咖啡</a>☕繼續努力</div>
         <!-- <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()">/km<br> -->
         <div class="box">
@@ -43,7 +43,11 @@
             </div>
             
             <div class="column2">
-                <input class="pace_input" type="number" name="" id="pace_input" placeholder="ex:3" onclick="ChangeOption('pace')" onkeyup="Calculate2()" autofocus><span>:</span><input class="pace_input" type="number" name="" id="pace_input2" placeholder="30" onclick="ChangeOption('pace')" onkeyup="Calculate2()"><span>/km</span>
+                <input class="pace_input" type="number" name="" id="pace_input" placeholder="ex:3" onclick="ChangeOption('pace')" onkeyup="Calculate2()" autofocus><span>:</span><input class="pace_input" type="number" name="" id="pace_input2" placeholder="30" onclick="ChangeOption('pace')" onkeyup="Calculate2()"><span id="unit">/km</span>
+                <button id='mile-button'><img src="switch.png" alt="switch"><span id="switch">/mile</span></button>
+
+                
+
             </div>
         </div>
 
@@ -625,12 +629,27 @@
         var treadmill_result = treadmill_input;  
         var finish_time_result = document.getElementById("finish_time_input").value;
         seconds_per_lap = 0;
+
+        var seconds_per_mile=0;
+        var seconds_per_km=0;
+
+
+        var unit = document.getElementById("unit").innerHTML;
+        console.log(unit);
+
+        if(unit=="/mile"){
+            seconds_per_mile = pace_input1*60+pace_input2;
+            seconds_per_km = mphToKmh(seconds_per_mile);
+        }else{
+            seconds_per_km = pace_input1*60+pace_input2;
+        }
         
 
         if(checked_option == 'pace'){
             // seconds_per_lap = (pace_input1*60+pace_input2)/2.5;
             // console.log(1000/lane);
-            seconds_per_lap = (pace_input1*60+pace_input2)/(1000/lane);
+            // seconds_per_lap = (pace_input1*60+pace_input2)/(1000/lane);
+            seconds_per_lap = seconds_per_km/(1000/lane);
         }
         else if(checked_option == 'track'){
             seconds_per_lap = track_input;
@@ -665,6 +684,14 @@
         else if(checked_option == 'finish_time'){
             seconds_per_lap = Calculate_ftime_version(distance);
         }
+
+        // var unit = document.getElementById("unit").innerHTML;
+        // console.log(unit);
+
+        // if(unit=="/mile"){
+        //     seconds_per_lap = mphToKmh(seconds_per_lap);
+        // }
+
     
         track_result = seconds_per_lap;
         // pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
@@ -684,6 +711,13 @@
             treadmill_result = treadmill_input;
         }else{
             treadmill_result = Math.round(lane/track_result*3600/1000*100)/100;
+        }
+
+        if(unit=="/mile"){
+            pace_result = pace_result.split(/[：:]/);
+            seconds_per_km = Number(pace_result[0])*60+Number(pace_result[1]);
+            seconds_per_mile = kmhTomph(seconds_per_km);
+            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,seconds_per_mile));
         }
         
 
@@ -866,6 +900,7 @@
 
         // seconds_per_lap = secs/distance*400;
         seconds_per_lap = secs/distance*lane;
+        console.log(seconds_per_lap);
 
         return seconds_per_lap;
     }
@@ -890,6 +925,58 @@
     }
     slideButton2.addEventListener('click', SlideUpAndDown2);
 
+    // 顯示英里
+    let mileBtn = document.getElementById('mile-button');
+    function changeToMile(){
+        var unit = document.getElementById("unit").innerHTML;
+        
+
+        var min=Number(document.getElementById(input_ui[0]).value);
+        var sec=Number(document.getElementById(input_ui[1]).value);
+        sec+=min*60;
+        var result, seconds;
+        
+        if(unit=="/km"){
+            seconds = kmhTomph(sec);
+            document.getElementById("unit").innerHTML = "/mile";
+            document.getElementById("switch").innerHTML = "/km";
+        }else{
+            seconds = mphToKmh(sec);
+            document.getElementById("unit").innerHTML = "/km";
+            document.getElementById("switch").innerHTML = "/mile";
+        }
+
+        var result = strftime('%M:%S', new Date(0,0,0,0,0,seconds));
+        result = result.split(":");
+        // console.log(document.getElementById(input_ui[0]).value);
+        // console.log(document.getElementById(input_ui[1]).value);
+        
+        document.getElementById(input_ui[0]).value = result[0];
+        document.getElementById(input_ui[1]).value = result[1];
+
+        // document.getElementById(input_ui[0]).value = result[0];
+        // document.getElementById(input_ui[1]).value = result[1];
+
+    }
+    mileBtn.addEventListener('click', changeToMile);
+
+    function mphToKmh(sec){
+        
+        var seconds = sec*0.621371192;
+        
+        // document.getElementById(input_ui[0]).value = result[0];
+        // document.getElementById(input_ui[1]).value = result[1];
+        return bigDecimal.round(seconds);
+    }
+    function kmhTomph(sec){
+        
+        var seconds = sec*1.609344;
+        
+        
+        // document.getElementById(input_ui[0]).value = result[0];
+        // document.getElementById(input_ui[1]).value = result[1];
+        return bigDecimal.round(seconds);
+    }
 
 
 
