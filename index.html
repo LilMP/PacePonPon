@@ -44,7 +44,7 @@
             
             <div class="column2">
                 <input class="pace_input" type="number" name="" id="pace_input" placeholder="ex:3" onclick="ChangeOption('pace')" onkeyup="Calculate2()" autofocus><span>:</span><input class="pace_input" type="number" name="" id="pace_input2" placeholder="30" onclick="ChangeOption('pace')" onkeyup="Calculate2()"><span id="unit">/km</span>
-                <button id='mile-button'><img src="switch.png" alt="switch"><span id="switch">/mile</span></button>
+                <button id='mile-button'><img src="switch.png" alt="switch"><span id="switch">mile</span></button>
 
                 
 
@@ -939,11 +939,11 @@
         if(unit=="/km"){
             seconds = kmhTomph(sec);
             document.getElementById("unit").innerHTML = "/mile";
-            document.getElementById("switch").innerHTML = "/km";
+            document.getElementById("switch").innerHTML = "km";
         }else{
             seconds = mphToKmh(sec);
             document.getElementById("unit").innerHTML = "/km";
-            document.getElementById("switch").innerHTML = "/mile";
+            document.getElementById("switch").innerHTML = "mile";
         }
 
         var result = strftime('%M:%S', new Date(0,0,0,0,0,seconds));
