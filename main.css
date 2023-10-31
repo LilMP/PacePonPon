@@ -186,8 +186,8 @@ input{
     /* border-bottom: 2px solid rgb(184, 108, 108); */
 }
 [type=radio]:checked, .selected span {
-    /* border-bottom: 2px solid rgb(184, 108, 108); */
-    /* border-color: rgb(184, 108, 108); */
+    border-bottom: 2px solid rgb(184, 108, 108);
+    border-color: rgb(184, 108, 108);
     /* color: rgb(237, 237, 222); */
     /* background-color: rgb(184, 108, 108); */
     /* border-radius: 5px; */
@@ -371,11 +371,14 @@ a {
 
 
 /* # mile button */
-#unit {
+#unit, #unit2 {
     display: inline-flex;
-    width: 2.5em;
+    width: 2em;
 }
-#mile-button{
+#unit2{
+    width:3em;
+}
+#mile-button, #perHour-button{
     background-color: transparent;
     border: none;
     color: rgb(189, 204, 204);
@@ -384,13 +387,14 @@ a {
     /* text-shadow: 0.1em 0.1em rgb(84, 84, 84); */
     cursor: pointer;
     vertical-align: super;  
+    margin-left: 1em;
 } 
-#mile-button img{
+#mile-button img, #perHour-button img{
     height: 0.5rem;
     margin-right: 0.1rem;
     vertical-align: text-top;
 }
-#switch{
+#switch, #switch2{
     display: inline-flex;
     width: 2em;
     vertical-align: super;

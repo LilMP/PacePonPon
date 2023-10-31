@@ -26,13 +26,10 @@
         <h1 class="box" style="margin:0;">Pace朋朋<img id="logo" src="icons8-exercise-96.png" alt="logo"></h1>
         <div class="footer">你的配速換算好朋友<button id='slide-button2'><img id="info" src="information.png" alt="info"></button></div>
         <div style="font-size:0.5rem;color:rgb(189, 204, 204);margin-bottom: 5px;">任意輸入、即刻換算</div>
-        <!-- <h1 class="box">名字還在想</h1> -->
-        <!-- <h2 class="box">還在想</h2> -->
         <hr width="100%" style="margin: 0;">
         <div id="container2" class="footer float-right animation container2 SlideDown">
             <span style="font-weight: bold;">注意事項</span> 1.只能輸入整數 2.看分段配速請點<span style="color: rgb(189, 204, 204);font-weight: bold;font-size: 1.5em;text-shadow: 0.05em 0.05em rgb(84, 84, 84);">+</span> 3.沒了<br>
             icons by: <a class="" target="_blank" href="https://icons8.com" >Icons8</a> / <a class="" target="_blank" href="https://reurl.cc/DoYp8N">小M平的跑步宇宙</a> / <a class="" target="_blank" href="https://lilmp.soci.vip">喝杯咖啡</a>☕繼續努力</div>
-        <!-- <input type="radio" onchange="ChangeOption(this)" id="c_pace" name="type" value="pace" checked><label for="pace">配速</label><input type="text" name="" id="pace_input" placeholder="ex: 3:15" size="5" maxlength="4" onclick="this.select()">/km<br> -->
         <div class="box">
             <label>
                 <input class="hidden-radio" type="radio" onclick="" id="c_pace" name="type" value="pace" checked>
@@ -43,22 +40,16 @@
             </div>
             
             <div class="column2">
-                <input class="pace_input" type="number" name="" id="pace_input" placeholder="ex:3" onclick="ChangeOption('pace')" onkeyup="Calculate2()" autofocus><span>:</span><input class="pace_input" type="number" name="" id="pace_input2" placeholder="30" onclick="ChangeOption('pace')" onkeyup="Calculate2()"><span id="unit">/km</span>
-                <button id='mile-button'><img src="switch.png" alt="switch"><span id="switch">mile</span></button>
-
-                
-
+                <input class="pace_input" type="number" name="" id="pace_input" placeholder="ex:3" onclick="ChangeOption('pace')" onkeyup="Calculate2()" autofocus><span>:</span><input class="pace_input" type="number" name="" id="pace_input2" placeholder="30" onclick="ChangeOption('pace')" onkeyup="Calculate2()"><span id="unit" data-unit="km">/km</span>
+                <button id='mile-button' onclick="mileToggle(this)"><img src="switch.png" alt="switch"><span id="switch">/mile</span></button>
             </div>
         </div>
-
         <div class="box">
             <label>
-                <input class="hidden-radio" type="radio" onclick="" id="c_track" name="type" value="track">
-                
+                <input class="hidden-radio" type="radio" onclick="" id="c_track" name="type" value="track">                
             </label>
             <div class="row" id="track_icon">
-                <img src="track.png" alt="Option 2"><span>田徑場</span>
-                
+                <img src="track.png" alt="Option 2"><span>田徑場</span>                
             </div>
             <div class="column2">
                 <select id="laneNumber" onchange="ChangeLane(this)" style="margin-right: 0.5em;">
@@ -71,33 +62,14 @@
                     <option value="445">7道</option>
                     <option value="453">8道</option>
                 </select>
-                <!-- <input type="number" name="" id="track_input" placeholder="" size="4" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled><span>秒/圈</span> -->
                 <input type="number" name="" id="track_input" placeholder="" size="4" maxlength="4" onclick="ChangeOption('track')" onkeyup="Calculate2()"><span>秒/圈</span>
                 <button id='slide-button'>+</button>
             </div>
-            
         </div>
-        <!-- <div class="" style="display: none;">
-            <div class="box indent-text ">  -->
-                <!-- 舊版/正常版 -->
-                <!-- <label><input class="hidden-radio increment" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="m100">100m: </label><input class="increment" type="text" name="" id="m100_input" placeholder="" size="1" onkeyup="Calculate2()" disabled> 秒<br> -->
-                <!-- <label><input class="hidden-radio increment" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="m200">200m: </label><input class="increment" type="text" name="" id="m200_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br> -->
-                <!-- <label><input class="hidden-radio increment" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="m300">300m: </label><input class="increment" type="text" name="" id="m300_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br> -->
-                <!-- <label><input class="hidden-radio increment" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="m400">400m: </label><input class="increment" type="text" name="" id="m400_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br> -->
-                <!-- 測試版 -->
-                <!-- <div style="display: inline;" class="increment">100m: </div><input class="increment" type="text" name="" id="m100_input" placeholder="" size="1" disabled><br>
-                <div style="display: inline;" class="increment">200m: </div><input class="increment" type="text" name="" id="m200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br>
-                <div style="display: inline;" class="increment">300m: </div><input class="increment" type="text" name="" id="m300_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br>
-                <div style="display: inline;" class="increment">400m: </div><input class="increment" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br> -->
-
         <div class='container animation SlideDown' id='container' >
             <div id="lane-length">第1道：400m</div>
             <div id="split-detail">
                 <div class="box indent-text" > 
-                    <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track100" name="type" value="m100">100m: </label><input type="text" name="" id="m100_input" placeholder="" size="1" onkeyup="Calculate2()" disabled> 秒<br> -->
-                    <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track200" name="type" value="m200">200m: </label><input type="text" name="" id="m200_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m200_increment" placeholder="" disabled><br> -->
-                    <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track300" name="type" value="m300">300m: </label><input type="text" name="" id="m300_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m300_increment" placeholder="" disabled><br> -->
-                    <!-- <label><input class="hidden-radio" type="radio" onchange="ChangeOption(this)" id="c_track400" name="type" value="m400">400m: </label><input type="text" name="" id="m400_input" placeholder="" size="1" onkeyup="Calculate2()"  disabled> 秒<input class="increment" type="text" name="" id="m400_increment" placeholder="" disabled><br> -->
                     <div style="display: inline;" class="increment">100　</div><input class="increment input-right" type="text" name="" id="m100_input" placeholder="" size="1" disabled><br>
                     <div style="display: inline;" class="increment">200　</div><input class="increment input-right" type="text" name="" id="m200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m200_increment" placeholder="" disabled><br>
                     <div style="display: inline;" class="increment">300　</div><input class="increment input-right" type="text" name="" id="m300_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m300_increment" placeholder="" disabled><br>
@@ -105,20 +77,13 @@
                 </div>
                 <div id="laps-result2" class="indent-text">
                     <div style="display: inline;" class="increment">2圈<span id="twolaps">&emsp;800</span>　</div><input class="increment input-right" type="text" name="" id="m800_input" placeholder="" size="1" disabled><br>
-                    <!-- <input class="increment" type="text" name="" id="m800_increment" placeholder="" disabled><br> -->
                     <div style="display: inline;" class="increment">3圈 <span id="threelaps">1200</span>　</div><input class="increment input-right" type="text" name="" id="m1200_input" placeholder="" size="1" disabled><br>
-                    <!-- <input class="increment" type="text" name="" id="m1200_increment" placeholder="" disabled><br> -->
                     <div style="display: inline;" class="increment">4圈 <span id="fourlaps">1600</span>　</div><input class="increment input-right" type="text" name="" id="m1600_input" placeholder="" size="1" disabled><br>
-                    <!-- <input class="increment" type="text" name="" id="m1600_increment" placeholder="" disabled><br> -->
                     <div style="display: inline;" class="increment">5圈 <span id="fivelaps">2000</span>　</div><input class="increment input-right" type="text" name="" id="m2000_input" placeholder="" size="1" disabled><br>
-                    <!-- <input class="increment" type="text" name="" id="m2000_increment" placeholder="" disabled><br> -->
                 </div>
             </div>
             
         </div>
-
-        
-        
         <div class="box">    
             <label>
                 <input class="hidden-radio" type="radio" onclick="" id="c_treadmill" name="type" value="treadmill">
@@ -128,35 +93,13 @@
                 <img src="treadmill.png" alt="Option 3"><span>跑步機</span>
             </div>
             <div class="column2">
-                <!-- <input type="number" name="" id="treadmill_input" placeholder="" size="6" maxlength="4" onclick="this.select()" onkeyup="Calculate2()" disabled ><span>km/h</span> -->
-                <input type="number" name="" id="treadmill_input" placeholder="" size="6" maxlength="4" onclick="ChangeOption('treadmill')" onkeyup="Calculate2()" ><span>km/h</span>
-
-
+                <input type="number" name="" id="treadmill_input" placeholder="" size="6" maxlength="4" onclick="ChangeOption('treadmill')" onkeyup="Calculate2()" ><span id="unit2" data-unit="km">km/h</span>
+                <button id='perHour-button' onclick="mileToggle(this)"><img src="switch.png" alt="switch2"><span id="switch2">mile/h</span></button>
             </div>
         </div> 
-        <!-- <button class="" id='calBtn' onclick="Calculate()">Enter</button> -->
-        <!-- <hr> -->
-        <!-- <hr> -->
-        <!-- new feature race distance btn -->
-        <!-- <div>
-            <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_800" name="road" value="800" checked><label for="c_track_800">800m</label>
-            <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_1500" name="road" value="1500"><label for="c_track_1500">1500m</label>
-            <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_5000" name="road" value="5000"><label for="c_track_5000">5k</label>
-            <input type="radio" onchange="ChangeDistance(this.value)" id="c_track_10000" name="road" value="10000"><label for="c_track_10000">10k</label>
-            <input type="radio" onchange="ChangeDistance(this.value)" id="c_road_half" name="road" value="21097.5"><label for="c_road_half">半馬</label>
-            <input type="radio" onchange="ChangeDistance(this.value)" id="c_road_full" name="road" value="42195"><label for="c_road_full">全馬</label>    
-        </div> -->
-
-    
-    
-    
-        <!-- <input type="radio" onchange="ChangeOption(this)" id="c_finish_time" name="type" value="finish_time"><label for="c_finish_time">完成時間: </label><input type="text" name="" id="finish_time_input" placeholder="分:秒 or 時:分:秒" size="11" onchange="Calculate2()"  disabled> -->
         <div class="box">    
             <label>
                 <input class="hidden-radio" type="radio" onclick="" id="c_finish_time" name="type" value="finish_time">
-                
-                            
-
             </label>
             <div class="row" id="finish_time_icon">
                 <img src="stopwatch.png" alt="Option 3"><span>時間</span>
@@ -172,8 +115,6 @@
                     <option value="21097.5">半馬</option>
                     <option value="42195" selected="selected">全馬</option>
                 </select>
-                <!-- <input type="text" name="" id="finish_time_input" placeholder="" size="8" onclick="this.select()" onkeyup="Calculate2()" disabled > -->
-
                 <input type="text" name="" id="finish_time_input" placeholder="" size="8" onclick="ChangeOption('finish_time')" onkeyup="Calculate2()" >
 
             </div>
@@ -194,15 +135,7 @@
 
 <script>   
 
-    // function changeMargin(className) {
-    //     console.log(className);
-    //     console.log(document.querySelectorAll(className));
-    //     document.querySelectorAll(className).forEach(el => {
-    //         el.style.marginBottom = "10px";
-    //         el.style.marginTop = "10px";
-    //     });
-    // }
-
+    // 判斷是否為行動裝置
     function mobileCheck() {
         let check = false;
         (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
@@ -214,25 +147,6 @@
     }else{
         document.body.style.zoom = 1.5;
     }
-    
-    var ui_pace_text1 = document.getElementById('pace_input');
-    var ui_pace_text2 = document.getElementById('pace_input2');
-    var ui_track_text = document.getElementById('track_input');
-
-
-    var ui_treadmill_text = document.getElementById('treadmill_input');
-
-    var ui_m100 = document.getElementById('m100_input');
-    var ui_m200 = document.getElementById('m200_input');
-    var ui_m300 = document.getElementById('m300_input');
-    var ui_m400 = document.getElementById('m400_input');
-    var ui_m200_increment = document.getElementById('m200_increment');
-    var ui_m300_increment = document.getElementById('m300_increment');
-    var ui_m400_increment = document.getElementById('m400_increment');
-
-    var ui_finish_time = document.getElementById('finish_time_input');
-    // console.log("ui_finish_time: "+ui_finish_time.disabled);
-
 
     // 一種把數字後面小數點去掉的方法
     // const toFixedWithoutZeros = (num, precision) =>
@@ -248,6 +162,9 @@
     
     var input_ui_value = new Array(input_ui.length);
     var seconds_per_lap = 0;
+    
+    // 道次初始值
+    var currentLane = document.getElementById("laneNumber").value ;
     
     // 取目前畫面上顯示的input value
     function GetInputValue(){    
@@ -282,86 +199,7 @@
             document.getElementById(input_ui[ui_index[index]]).style.backgroundColor = "#BDCCCC";
         }
     }
-    
-    // 沒選到不能輸入
-    function DisableTextBox(e){
-        var checkid = e.id;
-        // console.log("checkid: "+checkid);
-        ui_pace_text1.disabled = true;
-        ui_pace_text2.disabled = true;
 
-        ui_m100.disabled = true;
-        ui_m200.disabled = true;
-        ui_m300.disabled = true;
-        ui_m400.disabled = true;
-
-        ui_track_text.disabled = true;
-        ui_treadmill_text.disabled = true;
-
-        ui_finish_time.disabled = true;
-
-        if (checkid == 'c_pace') {
-            ui_pace_text1.disabled = false;
-            ui_pace_text2.disabled = false;
-            document.getElementById("pace_input").focus();
-        } else if (checkid == 'c_track') {
-            ui_track_text.disabled = false;
-            document.getElementById("track_input").focus();
-        } else if (checkid == 'c_treadmill') {
-            ui_treadmill_text.disabled = false;
-            document.getElementById("treadmill_input").focus();
-        } else if (checkid == 'c_track100'){
-            ui_m100.disabled = false;
-            document.getElementById('m100_input').focus();
-        } else if (checkid == 'c_track200'){
-            ui_m200.disabled = false;
-            document.getElementById('m200_input').focus();
-        } else if (checkid == 'c_track300'){
-            ui_m300.disabled = false;
-            document.getElementById('m300_input').focus();
-        } else if (checkid == 'c_track400'){
-            ui_m400.disabled = false;
-            document.getElementById('m400_input').focus();
-        } else if (checkid == 'c_finish_time'){
-            ui_finish_time.disabled = false;
-            document.getElementById("finish_time_input").focus();
-        }
-    }
-    function DisableTextBox2(e){
-        // 做的事情:
-        // 1. 全部設 disabled
-        // 2. 選到的 disabled = false 然後 focus()
-        AllInputDisabled();
-        var check_value = e.value+"_input";
-        console.log(check_value);
-        if(check_value == 'pace_input'){
-            document.getElementById(check_value+"2").disabled = false;
-            // document.getElementById(check_value+"2").style.backgroundColor = "rgb(233, 233, 173)";
-        }
-        document.getElementById(check_value).disabled = false;
-        document.getElementById(check_value).focus();
-
-        
-    }
-
-    // 清掉輸入紀錄
-    function CleanTextBox(){
-        ui_pace_text1.value = "";
-        ui_pace_text2.value = "";
-
-        ui_track_text.value = "";
-        ui_treadmill_text.value = "";
-        ui_m100.value = "";
-        ui_m200.value = "";
-        ui_m300.value = "";
-        ui_m400.value = "";
-        ui_m200_increment.value = "";
-        ui_m300_increment.value = "";
-        ui_m400_increment.value = "";
-
-        ui_finish_time.value = "";
-
-    }
 
     // 切換選項的動作: 1.把沒選到的disable 2.清掉顯示結果/輸入紀錄
     function ChangeOption(e) {
@@ -383,11 +221,6 @@
         }
         
         
-        
-        
-
-        // DisableTextBox2(e);
-        // CleanTextBox();
         // 清掉顯示結果/輸入紀錄
         AllInputAreaClean(); 
         AllInputTempArrayClean();
@@ -459,12 +292,9 @@
         
     }
 
-    var currentLane = document.getElementById("laneNumber").value ;
-    
-
     function ChangeLane(lane) {
         currentLane = lane.value;
-        console.log("current lane: "+currentLane);
+        // console.log("current lane: "+currentLane);
         Calculate2();
 
         // 取得select option的text
@@ -479,118 +309,7 @@
         return currentLane;
     }
 
-
-    // 按下enter後執行計算
-    function Calculate() {
-
-        // 取目前的input值
-        let pace_input1 = ui_pace_text1.value;
-        let pace_input2 = ui_pace_text2.value;
-        let track_input = ui_track_text.value;
-        let treadmill_input = ui_treadmill_text.value;
-        
-
-        // 找到被選的選項
-        checked = document.querySelector('input[name="type"]:checked').value;
-        // console.log(checked);
-        
-        // 把欲顯示的答案初始化
-        let pace_result = ui_pace_text1.value+":"+ui_pace_text2.value;
-        let track_result = ui_track_text.value;
-        let treadmill_result = ui_treadmill_text.value;    
-        
-        var pace_result_split;
-        var m100,m200,m300,m400;
-
-        if (checked == 'pace') {
-            // var hms = pace_input;   // your input string
-            // var a = hms.split(':'); // split it at the colons
-            // var seconds = Number(a[0])*60+Number(a[1]);
-            var seconds = Number(ui_pace_text1.value)*60+Number(ui_pace_text2.value);
-            
-            track_result = seconds/2.5;
-            treadmill_result = Math.round(1440/track_result*100)/100;  
-
-            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,seconds));
-        }
-        else if (checked == 'track') {
-            var seconds = track_input*2.5;
-            // new Date(year, month, day, hours, minutes, seconds, milliseconds);
-            // var mm_ss_str = strftime('%M:%S', new Date(0,0,0,0,0,seconds));
-                // var date = new Date(0,0,0,0,0,seconds);
-                // var mm_ss_str = strftime("%M:%S", date);
-            // console.log("pace: "+mm_ss_str);
-            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,seconds));
-            treadmill_result = Math.round(1440/track_input*100)/100;
-        }
-        else if (checked == 'treadmill') {
-            track_result = Math.round(1440/treadmill_input*10)/10;
-            // var pace_mm_ss = strftime('%M:%S', new Date(0,0,0,0,0,track_sec*2.5));
-            // console.log("pace: "+pace_mm_ss);
-            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));            
-        }
-        else if (checked == 'm100'){
-            track_result = Number(ui_m100.value)*4;
-            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
-            treadmill_result = Math.round(1440/track_result*100)/100;
-        }
-        else if (checked == 'm200'){
-            track_result = Number(ui_m200.value)*2;
-            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
-            treadmill_result = Math.round(1440/track_result*100)/100;
-        }
-        else if (checked == 'm300'){
-            track_result = bigDecimal.round(Number(ui_m300.value)/3*4, 1);
-            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
-            treadmill_result = Math.round(1440/track_result*100)/100;
-        }
-        else if (checked == 'm400'){
-            track_result = Number(ui_m400.value);
-            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
-            treadmill_result = Math.round(1440/track_result*100)/100;
-        }
-
-        
-        
-        
-        else {
-            console.log('something\'s wrong')
-        }
-
-        pace_result_split = pace_result.split(/[：:]/);
-
-
-        // update 結果
-        // document.getElementById('pace_input').value = pace_result;
-        document.getElementById('pace_input').value = pace_result_split[0];
-        document.getElementById('pace_input2').value = pace_result_split[1];
-
-        document.getElementById('track_input').value = track_result;
-        document.getElementById('treadmill_input').value = treadmill_result;
-
-        // update 每100結果    
-        // var m100 = bigDecimal.round(track_result/4, 1); // value = "123.68"
-        
-        
-        m100 = track_result/4;
-        m200 = bigDecimal.round(bigDecimal.add(m100, m100));
-        m300 = bigDecimal.round(bigDecimal.add(m200, m100));
-        m400 = track_result;
-        m100 = bigDecimal.round(m100);
-        
-        document.getElementById('m100_input').value = m100;
-        document.getElementById('m200_input').value = m200;
-        document.getElementById('m300_input').value = m300;
-        document.getElementById('m400_input').value = m400;
-        
-        document.getElementById('m200_increment').value = "(+"+bigDecimal.subtract(m200,m100)+")";
-        document.getElementById('m300_increment').value = "(+"+bigDecimal.subtract(m300,m200)+")";
-        document.getElementById('m400_increment').value = "(+"+bigDecimal.subtract(track_result,m300)+")";
-
-        var distance = document.querySelector('input[name="road"]:checked').value;
-        Calculate_finish_time(distance);
-    }
-
+    // 計算function
     function Calculate2(){
         
         // for (let index = 0; index < input_ui_value.length; index++) {
@@ -614,7 +333,7 @@
         var m2000_input = Number(temp_arr[15]);
 
         var lane = getCurrentLane();
-        console.log("lane now: "+lane);
+        // console.log("lane now: "+lane);
 
         // // 找到被選的選項
         var checked_option = document.querySelector('input[name="type"]:checked').value;
@@ -630,18 +349,30 @@
         var finish_time_result = document.getElementById("finish_time_input").value;
         seconds_per_lap = 0;
 
-        var seconds_per_mile=0;
-        var seconds_per_km=0;
+        var seconds_per_mile;
+
+        // get current value;
+        var current_pace_in_km = getPaceInSeconds();
+        var current_treadmill_in_km = getTreadmill();
+        var current_track = getTrackInSeconds();
+        var current_finish_time = getFinishTime();
+        // console.log(current_pace_in_km);
+        console.log(current_track);
+        // console.log(current_treadmill_in_km);
+        // console.log(current_finish_time);
 
 
-        var unit = document.getElementById("unit").innerHTML;
-        console.log(unit);
+        var pace_unit = getCurrentUnitValue('unit');
+        var treadmill_unit = getCurrentUnitValue('unit2');
+        
+        
+        if(pace_unit=="mile"){
+            current_pace_in_km = mpmTompk(current_pace_in_km);
+        }
 
-        if(unit=="/mile"){
-            seconds_per_mile = pace_input1*60+pace_input2;
-            seconds_per_km = mphToKmh(seconds_per_mile);
-        }else{
-            seconds_per_km = pace_input1*60+pace_input2;
+        if(treadmill_unit=="mile"){
+            current_treadmill_in_km = mphTokph(current_treadmill_in_km);
+            // console.log(treadmill_in_km);
         }
         
 
@@ -649,13 +380,13 @@
             // seconds_per_lap = (pace_input1*60+pace_input2)/2.5;
             // console.log(1000/lane);
             // seconds_per_lap = (pace_input1*60+pace_input2)/(1000/lane);
-            seconds_per_lap = seconds_per_km/(1000/lane);
+            seconds_per_lap = current_pace_in_km/(1000/lane);
         }
         else if(checked_option == 'track'){
-            seconds_per_lap = track_input;
+            seconds_per_lap = current_track;
         }
         else if(checked_option == 'treadmill'){
-            seconds_per_lap = Math.round(1440/treadmill_input*10)/10;
+            seconds_per_lap = Math.round(1440/current_treadmill_in_km*10)/10;
         }
         else if(checked_option == 'm100'){
             seconds_per_lap = m100_input*4;
@@ -681,16 +412,15 @@
         else if(checked_option == 'm2000'){
             seconds_per_lap = m2000_input/5;
         }
+        
         else if(checked_option == 'finish_time'){
-            seconds_per_lap = Calculate_ftime_version(distance);
+            // seconds_per_lap = Calculate_ftime_version(distance);
+            seconds_per_lap = finishtimeToLapSeconds(distance,current_finish_time);
+            console.log("##### seconds per lap: ####");
+            console.log(seconds_per_lap);
         }
 
-        // var unit = document.getElementById("unit").innerHTML;
-        // console.log(unit);
-
-        // if(unit=="/mile"){
-        //     seconds_per_lap = mphToKmh(seconds_per_lap);
-        // }
+       
 
     
         track_result = seconds_per_lap;
@@ -699,29 +429,29 @@
         // 避免輸入算完後被進位改掉
         if(checked_option == 'pace'){
             pace_result = strftime('%M:%S', new Date(0,0,0,0,0,(pace_input1*60+pace_input2)));
-        }else{
-            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*(1000/lane)));
+        }
+        // 如為其他模式要更新配速
+        else{
+            // 用單圈道次計算每公里配速
+            pace_result = track_result*(1000/lane); // ex: 171
+            // 換成用mile表示
+            if(pace_unit=="mile"){
+                pace_result = mpkTompm(pace_result);
+            }
+            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,pace_result));
         }
 
         // 避免輸入算完後被進位改掉 treadmill輸入 14,21,22會發生
-        // treadmill_result = Math.round(1440/track_result*100)/100;
-        // treadmill_result = Math.round(lane/track_result*3600/1000*100)/100;
-        // treadmill_result = (lane/track_result*3600/1000).toFixed(2);
         if(checked_option == 'treadmill'){
-            treadmill_result = treadmill_input;
+            treadmill_result = getTreadmill();
         }else{
             treadmill_result = Math.round(lane/track_result*3600/1000*100)/100;
         }
 
-        if(unit=="/mile"){
-            pace_result = pace_result.split(/[：:]/);
-            seconds_per_km = Number(pace_result[0])*60+Number(pace_result[1]);
-            seconds_per_mile = kmhTomph(seconds_per_km);
-            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,seconds_per_mile));
-        }
+       
         
 
-        var pace_result_split = pace_result.split(/[：:]/);
+        var pace_result_split = pace_result.split(/[:]/);
 
         // 計算每100m時間、increment
         // var m100 = track_result/4;
@@ -740,13 +470,6 @@
         var m1200 = track_result*3;
         var m1600 = track_result*4;
         var m2000 = track_result*5;
-
-        // var m800 = m400*2;
-        // var m1200 = m400*3;
-        // var m1600 = m400*4;
-        // var m2000 = m400*5;
-        
-
 
         m100 = bigDecimal.round(m100); // 調整m100顯示到整數位,分秒顯示
         m200 = bigDecimal.round(m200); // 調整m200顯示到整數位,分秒顯示
@@ -768,8 +491,6 @@
         m1600 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m1600))); // 調整m300顯示到整數位,分秒顯示
         m2000 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m2000))); // 調整m400顯示到整數位,分秒顯示
 
-
-
         //塞入結果陣列
         var result_arr = [];
         result_arr.push(pace_result_split[0]);
@@ -784,16 +505,14 @@
         result_arr.push(m400_increment);
         result_arr.push(treadmill_result);
 
-        // 解決finish_time更新的的work-around: 提前更新 讓Calculate_finish_time(distance)抓的到
-        document.getElementById('track_input').value = track_result;
+
         
         // UpdateInputValue(result_arr);
         // 5k 10k 半馬 全馬 完成時間估算
         // 如果選擇輸入完成時間則不更新(進位問題)
-        finish_time_result = Calculate_finish_time(distance);
+        finish_time_result = Calculate_finish_time(distance,track_result);
 
         result_arr.push(finish_time_result);
-
         result_arr.push(m800);
         result_arr.push(m1200);
         result_arr.push(m1600);
@@ -801,50 +520,58 @@
 
         // 更新顯示畫面
         UpdateInputValue(result_arr);
-        
-
-        
-        
 
     }
 
     // 計算完成時間
-    function Calculate_finish_time(d) {
+    function Calculate_finish_time(d,lap_sec) {
         
         var distance = Number(d);
         var time;
-        var seconds_per_lap = document.getElementById('track_input').value;
-        var finish_time_input = document.getElementById('finish_time_input').value;
+        var seconds_per_lap = lap_sec;
+       
+        
         var seconds_per_meter;
         var lane = getCurrentLane();
+        var pace_unit = getCurrentUnitValue('unit');
+        var treadmill_unit = getCurrentUnitValue('unit2');
+
+        var finish_time_input = getFinishTime();
+        var current_pace = getPaceInSeconds();
+        var current_track = getTrackInSeconds();
+        var current_treadmill = getTreadmill();
 
         // 解決抓取進位問題: 不要都用換算過的track_input
         // // 1. 找到被選的選項
         var checked_option = document.querySelector('input[name="type"]:checked').value;
-        if(checked_option=='pace'){
-            
-            var seconds = Number(document.getElementById('pace_input').value)*60+Number(document.getElementById('pace_input2').value);
-            seconds_per_meter = seconds/1000;
-
-        }else if(checked_option=='track'){
-            seconds_per_meter = seconds_per_lap/lane;
-        }else if(checked_option=='treadmill'){
-            // var km_per_hour = Number(document.getElementById('treadmill_input').value);
-            // seconds_per_meter = 3600/(km_per_hour*1000);
-            // console.log(seconds_per_meter);
-            seconds_per_meter = seconds_per_lap/lane;
-        }else{
-            // console.log("##### change distance dropdown");
-            seconds_per_lap = Calculate_ftime_version(distance);
-            // console.log("#### seconds_per_lap");
-            // console.log(seconds_per_lap);
-        }
         
-        // console.log("result_400: "+result_400);
-        // 測試資料{
-        //     配速4:28
-        //     操場85
+        // 給pace算每公尺幾秒
+        if(checked_option=='pace'){
+            if(pace_unit=="mile"){
+                current_pace = mpmTompk(current_pace);
+            }            
+            seconds_per_meter = current_pace/1000;
+        }
+
+        // 給track算每公尺幾秒
+        else if(checked_option=='track'){
+            seconds_per_meter = current_track/lane;
+        }
+
+        // 給treadmill算每公尺幾秒: 不影響
+        else if(checked_option=='treadmill'){
+            // if(treadmill_unit=="mile"){
+            //     current_treadmill = mphTokph(current_treadmill);
+            // } 
+            seconds_per_meter = seconds_per_lap/lane;
+        }
+        // 給完成時間 算每公尺幾秒
+        // else{
+        //     // seconds_per_lap = Calculate_ftime_version(distance);
+        //     seconds_per_lap = finishtimeToLapSeconds(distance, finish_time_input);
         // }
+        
+        
 
         //計算速度(s/m),處理進位到小數點2
         time = (distance*seconds_per_meter).toFixed(2); // in seconds
@@ -853,56 +580,43 @@
         finish_time = strftime('%H:%M:%S', new Date(0,0,0,0,0,time));
         // console.log("### finish_time!! ###")
         // console.log(finish_time);
-        var f_time = finish_time.split(/[：:]/);
+        var f_time = finish_time.split(/[:]/);
         if(f_time[0]=="00"){
             f_time = f_time[1]+":"+f_time[2]; 
         }else{
             f_time = finish_time;
         }
+
         var checked_option = document.querySelector('input[name="type"]:checked').value;
         if(checked_option != "finish_time"){
-            // console.log("return f_time!");
-            // console.log(f_time);
-            // document.getElementById('finish_time_input').value = f_time;
             return f_time;
         }else{
-            // console.log("return finish_time_input!");
-            // console.log(finish_time_input);
-            // console.log(document.getElementById('finish_time_input').value);
             return finish_time_input;
         }
         
     }
-    function Calculate_ftime_version(distance){
+
+    // 給距離跟時間, 回傳單圈秒數
+    // function Calculate_ftime_version(distance, time){
+    function finishtimeToLapSeconds(distance, time){
         
         // distance 單位: 公尺
-
-        var finish_time_input = document.getElementById('finish_time_input').value;
-        var finish_time_split = finish_time_input.split(/[：:]/);
+        var finish_time_split = time.split(/[：:]/);
         var hours,mins,secs;
         var lane = getCurrentLane();
 
-        console.log("cfv: "+finish_time_input);
-        
         if(finish_time_split.length == 3){
-            hours = parseInt(finish_time_input.split(/[：:]/)[0]);
-            mins = parseInt(finish_time_input.split(/[：:]/)[1]);
-            secs = parseInt(finish_time_input.split(/[：:]/)[2]);
+            hours = parseInt(finish_time_split[0]);
+            mins = parseInt(finish_time_split[1]);
+            secs = parseInt(finish_time_split[2]);
         }else if(finish_time_split.length == 2){
             hours = 0;
-            mins = parseInt(finish_time_input.split(/[：:]/)[0]);
-            secs = parseInt(finish_time_input.split(/[：:]/)[1]);
+            mins = parseInt(finish_time_split[0]);
+            secs = parseInt(finish_time_split[1]);
         }
-        
         mins += hours * 60;
         secs += mins * 60;
-        console.log(secs);
-
-        // seconds_per_lap = secs/distance*400;
-        seconds_per_lap = secs/distance*lane;
-        console.log(seconds_per_lap);
-
-        return seconds_per_lap;
+        return secs/distance*lane;
     }
 
 
@@ -925,57 +639,133 @@
     }
     slideButton2.addEventListener('click', SlideUpAndDown2);
 
-    // 顯示英里
-    let mileBtn = document.getElementById('mile-button');
-    function changeToMile(){
-        var unit = document.getElementById("unit").innerHTML;
-        
-
-        var min=Number(document.getElementById(input_ui[0]).value);
-        var sec=Number(document.getElementById(input_ui[1]).value);
+    // 取得現在顯示的pace陣列(input_ui[0],input_ui[1])
+    function getPaceInSeconds(){
+        var min=Number(document.getElementById("pace_input").value);
+        var sec=Number(document.getElementById("pace_input2").value);
         sec+=min*60;
-        var result, seconds;
-        
-        if(unit=="/km"){
-            seconds = kmhTomph(sec);
-            document.getElementById("unit").innerHTML = "/mile";
-            document.getElementById("switch").innerHTML = "km";
-        }else{
-            seconds = mphToKmh(sec);
-            document.getElementById("unit").innerHTML = "/km";
-            document.getElementById("switch").innerHTML = "mile";
-        }
+        return sec;
+    }
+    // 取得現在顯示的track
+    function getTrackInSeconds(){
+        return Number(document.getElementById("track_input").value);
+    }
+    // 取得現在treadmill_input的數值
+    function getTreadmill(){
+        return document.getElementById("treadmill_input").value;
+    };
 
-        var result = strftime('%M:%S', new Date(0,0,0,0,0,seconds));
+    function getFinishTime(){
+        return document.getElementById("finish_time_input").value;
+    }
+
+
+
+    // 更新pace欄位數值(給秒數)
+    function updatePace(new_sec){
+        var result = strftime('%M:%S', new Date(0,0,0,0,0,new_sec));
         result = result.split(":");
-        // console.log(document.getElementById(input_ui[0]).value);
-        // console.log(document.getElementById(input_ui[1]).value);
         
-        document.getElementById(input_ui[0]).value = result[0];
-        document.getElementById(input_ui[1]).value = result[1];
-
-        // document.getElementById(input_ui[0]).value = result[0];
-        // document.getElementById(input_ui[1]).value = result[1];
-
+        document.getElementById('pace_input').value = result[0];
+        document.getElementById('pace_input2').value = result[1];
     }
-    mileBtn.addEventListener('click', changeToMile);
-
-    function mphToKmh(sec){
-        
-        var seconds = sec*0.621371192;
-        
-        // document.getElementById(input_ui[0]).value = result[0];
-        // document.getElementById(input_ui[1]).value = result[1];
-        return bigDecimal.round(seconds);
+    // 更新treadmill欄位數值
+    function updateTreadmill(new_treadmill){
+        document.getElementById('treadmill_input').value = new_treadmill;
     }
-    function kmhTomph(sec){
+
+
+    // 回傳現在的unit_value
+    function getCurrentUnitValue(id){
         
+        // if(btn.id == "mile-button"){
+            return document.getElementById(id).getAttribute("data-unit");
+        // }else if(btn.id == "perHour-button"){
+            // return document.getElementById(id).getAttribute("data-unit");
+        // }else{
+            // console.log("ooooop!");
+        // }
+    }
+
+    // 顯示英里
+    // let mileBtn = document.getElementById('mile-button');
+
+    // 單位換算
+    // 1. 看是哪一個按鈕
+    // 2. 看是哪個單位
+    // 3. 轉換 
+    function mileToggle(btn){
+
+        // console.log(btn.id);
+        var pace_unit = getCurrentUnitValue('unit');
+        var treadmill_unit = getCurrentUnitValue('unit2');
+        var sec = getPaceInSeconds();
+        var treadmill = getTreadmill();
+        var result;
+        
+
+        // pace unit change
+        if(btn.id == "mile-button"){
+            if(pace_unit=="km"){
+                seconds = mpkTompm(sec);
+                document.getElementById("unit").innerHTML = "/mile";
+                document.getElementById("unit").setAttribute("data-unit","mile");
+                document.getElementById("switch").innerHTML = "/km";
+            }else{
+                seconds = mpmTompk(sec);
+                document.getElementById("unit").innerHTML = "/km";
+                document.getElementById("unit").setAttribute("data-unit","km");
+                document.getElementById("switch").innerHTML = "/mile";
+            }
+            updatePace(seconds);
+        }
+        // treadmill unit change
+        else if(btn.id == "perHour-button"){
+            unit = document.getElementById("unit2").innerHTML;
+            if(treadmill_unit=="km"){
+                treadmill = kphTomph(treadmill);
+                document.getElementById("unit2").innerHTML = "mile/h";
+                document.getElementById("unit2").setAttribute("data-unit","mile");
+                document.getElementById("switch2").innerHTML = "km/h";
+            }else{
+                treadmill = mphTokph(treadmill);
+                document.getElementById("unit2").innerHTML = "km/h";
+                document.getElementById("unit2").setAttribute("data-unit","km");
+                document.getElementById("switch2").innerHTML = "mile/h";
+            }
+            updateTreadmill(treadmill);
+        }else{
+            console.log("some thing wrong here");
+            return;
+        }        
+    }
+    // mileBtn.addEventListener('click', mileToggle(mileBtn));
+
+
+    // miniutes per Km to minutes per mile
+    // return seconds
+    function mpkTompm(sec){
         var seconds = sec*1.609344;
-        
-        
-        // document.getElementById(input_ui[0]).value = result[0];
-        // document.getElementById(input_ui[1]).value = result[1];
         return bigDecimal.round(seconds);
+    }
+    // minutes per mile to minutes per km
+    // return seconds
+    function mpmTompk(sec){
+        var seconds = sec*0.621371192;
+        return bigDecimal.round(seconds);
+    }
+
+    // miles per hour to km per hour
+    // return seconds
+    function mphTokph(sec){
+        var seconds = sec*1.609344;
+        return bigDecimal.round(seconds,2);
+    }
+    // km per hour to miles per hour
+    // return seconds
+    function kphTomph(sec){    
+        var seconds = sec*0.621371192;
+        return bigDecimal.round(seconds,2);
     }
 
 
