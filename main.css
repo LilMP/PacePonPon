@@ -426,7 +426,7 @@ a {
         /* overflow:hidden 一定要加 */
         overflow: hidden; 
         /* height 也必須指定pixel 用auto/100%會瞬間消失 */
-        height: 120px;
+        height: 110px;
     }
     .SlideDown {
         height: 0px;
@@ -440,6 +440,9 @@ a {
     }
     .indent-text{
         margin-left: 1.5em;
+    }
+    #mile-button, #perHour-button{
+        margin-left: 0.5em;
     }
 
     

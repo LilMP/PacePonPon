@@ -28,8 +28,10 @@
         <div style="font-size:0.5rem;color:rgb(189, 204, 204);margin-bottom: 5px;">任意輸入、即刻換算</div>
         <hr width="100%" style="margin: 0;">
         <div id="container2" class="footer float-right animation container2 SlideDown">
-            <span style="font-weight: bold;">注意事項</span> 1.只能輸入整數 2.看分段配速請點<span style="color: rgb(189, 204, 204);font-weight: bold;font-size: 1.5em;text-shadow: 0.05em 0.05em rgb(84, 84, 84);">+</span> 3.沒了<br>
-            icons by: <a class="" target="_blank" href="https://icons8.com" >Icons8</a> / <a class="" target="_blank" href="https://reurl.cc/DoYp8N">小M平的跑步宇宙</a> / <a class="" target="_blank" href="https://lilmp.soci.vip">喝杯咖啡</a>☕繼續努力</div>
+            <!-- <span style="font-weight: bold;">注意事項</span> 1.只能輸入整數 2.看分段配速請點<span style="color: rgb(189, 204, 204);font-weight: bold;font-size: 1.5em;text-shadow: 0.05em 0.05em rgb(84, 84, 84);">+</span> 3.沒了<br> -->
+            all icons by: <a class="" target="_blank" href="https://icons8.com" >Icons8</a><br>
+            <!-- <a class="" target="_blank" href="https://reurl.cc/DoYp8N">小M平的跑步宇宙</a> / <a class="" target="_blank" href="https://lilmp.soci.vip">聯絡我</a>🖖</div> -->
+            <a class="" target="_blank" href="https://lilmp.soci.vip">問題回報．功能許願</a></div>
         <div class="box">
             <label>
                 <input class="hidden-radio" type="radio" onclick="" id="c_pace" name="type" value="pace" checked>
@@ -93,7 +95,7 @@
                 <img src="treadmill.png" alt="Option 3"><span>跑步機</span>
             </div>
             <div class="column2">
-                <input type="number" name="" id="treadmill_input" placeholder="" size="6" maxlength="4" onclick="ChangeOption('treadmill')" onkeyup="Calculate2()" ><span id="unit2" data-unit="km">km/h</span>
+                <input type="number" name="" id="treadmill_input" placeholder="" onclick="ChangeOption('treadmill')" onkeyup="Calculate2()"><span id="unit2" data-unit="km">km/h</span>
                 <button id='perHour-button' onclick="mileToggle(this)"><img src="switch.png" alt="switch2"><span id="switch2">mile/h</span></button>
             </div>
         </div> 
@@ -102,7 +104,7 @@
                 <input class="hidden-radio" type="radio" onclick="" id="c_finish_time" name="type" value="finish_time">
             </label>
             <div class="row" id="finish_time_icon">
-                <img src="stopwatch.png" alt="Option 3"><span>時間</span>
+                <img src="stopwatch.png" alt="Option 3"><span>完成時間</span>
             </div>
             <div class="column2">
                 <select id="dropdown" onchange="ChangeDistance(this.value)" style="margin-right: 0.5em;">
@@ -152,6 +154,7 @@
     // const toFixedWithoutZeros = (num, precision) =>
     //     num.toFixed(precision).replace(/\.0+$/, '');
     // toFixedWithoutZeros(12.0, 1);
+    
     var input_ui=["pace_input","pace_input2","track_input",
         "m100_input","m200_input","m300_input","m400_input",
         "m200_increment","m300_increment","m400_increment",
@@ -159,6 +162,8 @@
         "finish_time_input",
         "m800_input","m1200_input","m1600_input","m2000_input"
     ];
+
+    
     
     var input_ui_value = new Array(input_ui.length);
     var seconds_per_lap = 0;
@@ -293,7 +298,7 @@
     }
 
     function ChangeLane(lane) {
-        currentLane = lane.value;
+        var currentLane = lane.value;
         // console.log("current lane: "+currentLane);
         Calculate2();
 
@@ -306,8 +311,339 @@
         document.getElementById('fivelaps').innerHTML = ""+currentLane*5+"";
     }
     function getCurrentLane(){
-        return currentLane;
+        // return currentLane;
+        return document.getElementById("laneNumber").value;
     }
+
+
+    // 取得現在顯示的pace陣列
+    function getPaceInSeconds(){
+        var min=Number(document.getElementById("pace_input").value);
+        var sec=Number(document.getElementById("pace_input2").value);
+        sec+=min*60;
+        return sec;
+    }
+    // 取得現在顯示的track
+    function getTrackInSeconds(){
+        return Number(document.getElementById("track_input").value);
+    }
+    // 取得現在顯示的treadmill_input
+    function getTreadmill(){
+        
+        return Number(document.getElementById("treadmill_input").value);
+    };
+    // 取得現在顯示的finish_time
+    function getFinishTime(){
+        return document.getElementById("finish_time_input").value;
+    }
+    // 更新pace欄位數值(給秒數)
+    function updatePace(new_sec){
+        var result = strftime('%M:%S', new Date(0,0,0,0,0,new_sec));
+        result = result.split(":");
+        
+        document.getElementById('pace_input').value = result[0];
+        document.getElementById('pace_input2').value = result[1];
+    }
+    // 更新treadmill欄位數值
+    function updateTreadmill(new_treadmill){
+        document.getElementById('treadmill_input').value = new_treadmill;
+    }
+    // 回傳現在的unit_value
+    function getCurrentUnitValue(id){
+        
+        // if(btn.id == "mile-button"){
+            return document.getElementById(id).getAttribute("data-unit");
+        // }else if(btn.id == "perHour-button"){
+            // return document.getElementById(id).getAttribute("data-unit");
+        // }else{
+            // console.log("ooooop!");
+        // }
+    }
+    // miniutes per Km to minutes per mile, return seconds
+    function mpkTompm(sec){
+        var seconds = sec*1.609344;
+        return bigDecimal.round(seconds);
+    }
+    // minutes per mile to minutes per km, return seconds
+    function mpmTompk(sec){
+        var seconds = sec*0.621371192;
+        return bigDecimal.round(seconds);
+    }
+    // miles per hour to km per hour, return seconds
+    function mphTokph(sec){
+        var seconds = sec*1.609344;
+        return bigDecimal.round(seconds,2);
+    }
+    // km per hour to miles per hour, return seconds
+    function kphTomph(sec){    
+        var seconds = sec*0.621371192;
+        return bigDecimal.round(seconds,2);
+    }
+
+    // 計算完成時間
+    function Calculate_finish_time(d,lap_sec) {
+        
+        var distance = Number(d);
+        var time;
+        var seconds_per_lap = lap_sec;
+       
+        
+        var seconds_per_meter;
+        var lane = getCurrentLane();
+        var pace_unit = getCurrentUnitValue('unit');
+        var treadmill_unit = getCurrentUnitValue('unit2');
+
+        var finish_time_input = getFinishTime();
+        var current_pace = getPaceInSeconds();
+        var current_track = getTrackInSeconds();
+        var current_treadmill = getTreadmill();
+
+        // 解決抓取進位問題: 不要都用換算過的track_input
+        // // 1. 找到被選的選項
+        var checked_option = document.querySelector('input[name="type"]:checked').value;
+        
+        // 給pace算每公尺幾秒
+        if(checked_option=='pace'){
+            if(pace_unit=="mile"){
+                current_pace = mpmTompk(current_pace);
+            }            
+            seconds_per_meter = current_pace/1000;
+        }
+
+        // 給track算每公尺幾秒
+        else if(checked_option=='track'){
+            seconds_per_meter = current_track/lane;
+        }
+
+        // 給treadmill算每公尺幾秒: 不影響
+        else if(checked_option=='treadmill'){
+            // if(treadmill_unit=="mile"){
+            //     current_treadmill = mphTokph(current_treadmill);
+            // } 
+            seconds_per_meter = seconds_per_lap/lane;
+        }
+        // 給完成時間 算每公尺幾秒
+        // else{
+        //     // seconds_per_lap = Calculate_ftime_version(distance);
+        //     seconds_per_lap = finishtimeToLapSeconds(distance, finish_time_input);
+        // }
+        
+        
+
+        //計算速度(s/m),處理進位到小數點2
+        time = (distance*seconds_per_meter).toFixed(2); // in seconds
+        // console.log("### v*distance = time!! ###");
+        // console.log(time);
+        finish_time = strftime('%H:%M:%S', new Date(0,0,0,0,0,time));
+        // console.log("### finish_time!! ###")
+        // console.log(finish_time);
+        var f_time = finish_time.split(/[:]/);
+        if(f_time[0]=="00"){
+            f_time = f_time[1]+":"+f_time[2]; 
+        }else{
+            f_time = finish_time;
+        }
+
+        var checked_option = document.querySelector('input[name="type"]:checked').value;
+        if(checked_option != "finish_time"){
+            return f_time;
+        }else{
+            return finish_time_input;
+        }
+        
+    }
+
+    // 給距離跟時間, 回傳單圈秒數
+    // function Calculate_ftime_version(distance, time){
+    function finishtimeToLapSeconds(distance, time){
+        
+        // distance 單位: 公尺
+        var finish_time_split = time.split(/[：:]/);
+        var hours,mins,secs;
+        var lane = getCurrentLane();
+
+        if(finish_time_split.length == 3){
+            hours = parseInt(finish_time_split[0]);
+            mins = parseInt(finish_time_split[1]);
+            secs = parseInt(finish_time_split[2]);
+        }else if(finish_time_split.length == 2){
+            hours = 0;
+            mins = parseInt(finish_time_split[0]);
+            secs = parseInt(finish_time_split[1]);
+        }
+        mins += hours * 60;
+        secs += mins * 60;
+        return secs/distance*lane;
+    }
+ 
+    
+    function Calculate3(){
+        var lane = getCurrentLane();
+        var checked_option = document.querySelector('input[name="type"]:checked').value;
+        var distance = document.getElementById("dropdown").value;
+
+        var pace_result;
+        var track_result;
+        var treadmill_result="";  
+        var finish_time_result;
+        var seconds_per_lap;
+        var seconds_per_mile;
+
+        var temp_arr = GetInputValue();
+        var pace_input1 = Number(temp_arr[0]);
+        var pace_input2 = Number(temp_arr[1]);
+        // var track_input = Number(temp_arr[2]);
+        // var treadmill_input = Number(temp_arr[10]);
+        // var m100_input = Number(temp_arr[3]);
+        // var m200_input = Number(temp_arr[4]);
+        // var m300_input = Number(temp_arr[5]);
+        // var m400_input = Number(temp_arr[6]);
+        // var m800_input = Number(temp_arr[12]);
+        // var m1200_input = Number(temp_arr[13]);
+        // var m1600_input = Number(temp_arr[14]);
+        // var m2000_input = Number(temp_arr[15]);
+
+        // get current value;
+        var current_pace_in_km = getPaceInSeconds();
+        var current_treadmill_in_km = getTreadmill();
+        var current_track = getTrackInSeconds();
+        var current_finish_time = getFinishTime();
+
+        var pace_unit = getCurrentUnitValue('unit');
+        var treadmill_unit = getCurrentUnitValue('unit2');
+
+        if(pace_unit=="mile"){
+            current_pace_in_km = mpmTompk(current_pace_in_km);
+        }
+
+        if(treadmill_unit=="mile"){
+            current_treadmill_in_km = mphTokph(current_treadmill_in_km);
+            // console.log(treadmill_in_km);
+        }
+
+        if(checked_option == 'pace'){
+            // seconds_per_lap = (pace_input1*60+pace_input2)/2.5;
+            // console.log(1000/lane);
+            // seconds_per_lap = (pace_input1*60+pace_input2)/(1000/lane);
+            seconds_per_lap = current_pace_in_km/(1000/lane);
+        }
+        else if(checked_option == 'track'){
+            seconds_per_lap = current_track;
+        }
+        else if(checked_option == 'treadmill'){
+
+            seconds_per_lap = Math.round(1440/current_treadmill_in_km*100)/100;
+            console.log(seconds_per_lap);
+        }
+        else if(checked_option == 'finish_time'){
+            // seconds_per_lap = Calculate_ftime_version(distance);
+            seconds_per_lap = finishtimeToLapSeconds(distance,current_finish_time);
+            console.log("##### seconds per lap: ####");
+            console.log(seconds_per_lap);
+        }
+
+        track_result = seconds_per_lap;
+        // pace_result = strftime('%M:%S', new Date(0,0,0,0,0,track_result*2.5));
+
+        // 避免輸入算完後被進位改掉
+        if(checked_option == 'pace'){
+            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,(pace_input1*60+pace_input2)));
+        }
+        // 如為其他模式要更新配速
+        else{
+            // 用單圈道次計算每公里配速
+            pace_result = track_result*(1000/lane); // ex: 171
+            // 換成用mile表示
+            if(pace_unit=="mile"){
+                pace_result = mpkTompm(pace_result);
+            }
+            pace_result = strftime('%M:%S', new Date(0,0,0,0,0,pace_result));
+        }
+
+        // 避免輸入算完後被進位改掉 treadmill輸入 14,21,22會發生
+        if(checked_option == 'treadmill'){
+            treadmill_result = Math.round(getTreadmill()*100)/100+"";
+            
+        }else{
+            treadmill_result = Math.round(lane/track_result*3600/1000*100)/100+"";
+        }
+
+        var pace_result_split = pace_result.split(/[:]/);
+        var treadmill_result_sp = treadmill_result;
+        console.log(treadmill_result_sp);
+        
+
+        // 計算每100m時間、increment
+        // var m100 = track_result/4;
+        var m100 = track_result/(lane/100);
+        // console.log(m100);
+        var m200 = m100+m100;
+        // console.log(m200);
+        var m300 = m200+m100;
+        // console.log(m300);
+        // var m_400 = track_result;
+        // console.log(m_400);
+        var m400 = m300+m100;
+        // console.log(m400);
+        var m200_increment = "(+"+bigDecimal.round(bigDecimal.subtract(m200,m100),1)+")";
+        var m300_increment = "(+"+bigDecimal.round(bigDecimal.subtract(m300,m200),1)+")";
+        // var m400_increment = "(+"+bigDecimal.round(bigDecimal.subtract(track_result,m300),1)+")";
+        var m400_increment = "(+"+bigDecimal.round(bigDecimal.subtract(m400,m300),1)+")";
+        
+        //原本是800/1200/1600/..改成跑2圈、3圈...變數名稱沒變
+        var m800 = track_result*2;
+        var m1200 = track_result*3;
+        var m1600 = track_result*4;
+        var m2000 = track_result*5;
+
+        m100 = bigDecimal.round(m100); // 調整m100顯示到整數位,分秒顯示
+        m200 = bigDecimal.round(m200); // 調整m200顯示到整數位,分秒顯示
+        m300 = bigDecimal.round(m300); // 調整m300顯示到整數位,分秒顯示
+        m400 = bigDecimal.round(m400); // 調整m400顯示到整數位,分秒顯示
+        track_result = bigDecimal.round(track_result); // 調整單圈顯示到小數點第2位,分秒顯示
+
+        m800 = bigDecimal.round(m800); // 調整m400顯示到整數位,分秒顯示
+        m1200 = bigDecimal.round(m1200); // 調整m400顯示到整數位,分秒顯示
+        m1600 = bigDecimal.round(m1600); // 調整m400顯示到整數位,分秒顯示
+        m2000 = bigDecimal.round(m2000); // 調整m400顯示到整數位,分秒顯示
+
+        m100 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m100))); // 調整m100顯示到整數位,分秒顯示
+        m200 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m200))); // 調整m200顯示到整數位,分秒顯示
+        m300 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m300))); // 調整m300顯示到整數位,分秒顯示
+        m400 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m400))); // 調整m400顯示到整數位,分秒顯示
+        m800 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m800))); // 調整m100顯示到整數位,分秒顯示
+        m1200 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m1200))); // 調整m200顯示到整數位,分秒顯示
+        m1600 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m1600))); // 調整m300顯示到整數位,分秒顯示
+        m2000 = strftime('%M:%S', new Date(0,0,0,0,0,bigDecimal.round(m2000))); // 調整m400顯示到整數位,分秒顯示
+        
+        finish_time_result = Calculate_finish_time(distance,track_result);
+
+        //塞入結果陣列
+        var result_arr = [];
+        result_arr.push(pace_result_split[0]);
+        result_arr.push(pace_result_split[1]);
+        result_arr.push(track_result);
+        result_arr.push(m100);
+        result_arr.push(m200);
+        result_arr.push(m300);
+        result_arr.push(m400);
+        result_arr.push(m200_increment);
+        result_arr.push(m300_increment);
+        result_arr.push(m400_increment);
+        result_arr.push(treadmill_result_sp);
+        result_arr.push(finish_time_result);
+        result_arr.push(m800);
+        result_arr.push(m1200);
+        result_arr.push(m1600);
+        result_arr.push(m2000);
+        
+        console.log(result_arr);
+
+        // UpdateInputValue(result_arr);
+        
+
+    }
+    
 
     // 計算function
     function Calculate2(){
@@ -344,11 +680,10 @@
 
         // // 把欲顯示的答案初始化
         var pace_result;
-        var track_result = track_input;
-        var treadmill_result = treadmill_input;  
-        var finish_time_result = document.getElementById("finish_time_input").value;
-        seconds_per_lap = 0;
-
+        var track_result;
+        var treadmill_result;  
+        var finish_time_result;
+        var seconds_per_lap;
         var seconds_per_mile;
 
         // get current value;
@@ -523,104 +858,7 @@
 
     }
 
-    // 計算完成時間
-    function Calculate_finish_time(d,lap_sec) {
-        
-        var distance = Number(d);
-        var time;
-        var seconds_per_lap = lap_sec;
-       
-        
-        var seconds_per_meter;
-        var lane = getCurrentLane();
-        var pace_unit = getCurrentUnitValue('unit');
-        var treadmill_unit = getCurrentUnitValue('unit2');
-
-        var finish_time_input = getFinishTime();
-        var current_pace = getPaceInSeconds();
-        var current_track = getTrackInSeconds();
-        var current_treadmill = getTreadmill();
-
-        // 解決抓取進位問題: 不要都用換算過的track_input
-        // // 1. 找到被選的選項
-        var checked_option = document.querySelector('input[name="type"]:checked').value;
-        
-        // 給pace算每公尺幾秒
-        if(checked_option=='pace'){
-            if(pace_unit=="mile"){
-                current_pace = mpmTompk(current_pace);
-            }            
-            seconds_per_meter = current_pace/1000;
-        }
-
-        // 給track算每公尺幾秒
-        else if(checked_option=='track'){
-            seconds_per_meter = current_track/lane;
-        }
-
-        // 給treadmill算每公尺幾秒: 不影響
-        else if(checked_option=='treadmill'){
-            // if(treadmill_unit=="mile"){
-            //     current_treadmill = mphTokph(current_treadmill);
-            // } 
-            seconds_per_meter = seconds_per_lap/lane;
-        }
-        // 給完成時間 算每公尺幾秒
-        // else{
-        //     // seconds_per_lap = Calculate_ftime_version(distance);
-        //     seconds_per_lap = finishtimeToLapSeconds(distance, finish_time_input);
-        // }
-        
-        
-
-        //計算速度(s/m),處理進位到小數點2
-        time = (distance*seconds_per_meter).toFixed(2); // in seconds
-        // console.log("### v*distance = time!! ###");
-        // console.log(time);
-        finish_time = strftime('%H:%M:%S', new Date(0,0,0,0,0,time));
-        // console.log("### finish_time!! ###")
-        // console.log(finish_time);
-        var f_time = finish_time.split(/[:]/);
-        if(f_time[0]=="00"){
-            f_time = f_time[1]+":"+f_time[2]; 
-        }else{
-            f_time = finish_time;
-        }
-
-        var checked_option = document.querySelector('input[name="type"]:checked').value;
-        if(checked_option != "finish_time"){
-            return f_time;
-        }else{
-            return finish_time_input;
-        }
-        
-    }
-
-    // 給距離跟時間, 回傳單圈秒數
-    // function Calculate_ftime_version(distance, time){
-    function finishtimeToLapSeconds(distance, time){
-        
-        // distance 單位: 公尺
-        var finish_time_split = time.split(/[：:]/);
-        var hours,mins,secs;
-        var lane = getCurrentLane();
-
-        if(finish_time_split.length == 3){
-            hours = parseInt(finish_time_split[0]);
-            mins = parseInt(finish_time_split[1]);
-            secs = parseInt(finish_time_split[2]);
-        }else if(finish_time_split.length == 2){
-            hours = 0;
-            mins = parseInt(finish_time_split[0]);
-            secs = parseInt(finish_time_split[1]);
-        }
-        mins += hours * 60;
-        secs += mins * 60;
-        return secs/distance*lane;
-    }
-
-
-    
+  
     // 實作捲動功能
     let container = document.getElementById('container');
     let slideButton = document.getElementById('slide-button');
@@ -639,53 +877,6 @@
     }
     slideButton2.addEventListener('click', SlideUpAndDown2);
 
-    // 取得現在顯示的pace陣列(input_ui[0],input_ui[1])
-    function getPaceInSeconds(){
-        var min=Number(document.getElementById("pace_input").value);
-        var sec=Number(document.getElementById("pace_input2").value);
-        sec+=min*60;
-        return sec;
-    }
-    // 取得現在顯示的track
-    function getTrackInSeconds(){
-        return Number(document.getElementById("track_input").value);
-    }
-    // 取得現在treadmill_input的數值
-    function getTreadmill(){
-        return document.getElementById("treadmill_input").value;
-    };
-
-    function getFinishTime(){
-        return document.getElementById("finish_time_input").value;
-    }
-
-
-
-    // 更新pace欄位數值(給秒數)
-    function updatePace(new_sec){
-        var result = strftime('%M:%S', new Date(0,0,0,0,0,new_sec));
-        result = result.split(":");
-        
-        document.getElementById('pace_input').value = result[0];
-        document.getElementById('pace_input2').value = result[1];
-    }
-    // 更新treadmill欄位數值
-    function updateTreadmill(new_treadmill){
-        document.getElementById('treadmill_input').value = new_treadmill;
-    }
-
-
-    // 回傳現在的unit_value
-    function getCurrentUnitValue(id){
-        
-        // if(btn.id == "mile-button"){
-            return document.getElementById(id).getAttribute("data-unit");
-        // }else if(btn.id == "perHour-button"){
-            // return document.getElementById(id).getAttribute("data-unit");
-        // }else{
-            // console.log("ooooop!");
-        // }
-    }
 
     // 顯示英里
     // let mileBtn = document.getElementById('mile-button');
@@ -742,31 +933,6 @@
     // mileBtn.addEventListener('click', mileToggle(mileBtn));
 
 
-    // miniutes per Km to minutes per mile
-    // return seconds
-    function mpkTompm(sec){
-        var seconds = sec*1.609344;
-        return bigDecimal.round(seconds);
-    }
-    // minutes per mile to minutes per km
-    // return seconds
-    function mpmTompk(sec){
-        var seconds = sec*0.621371192;
-        return bigDecimal.round(seconds);
-    }
-
-    // miles per hour to km per hour
-    // return seconds
-    function mphTokph(sec){
-        var seconds = sec*1.609344;
-        return bigDecimal.round(seconds,2);
-    }
-    // km per hour to miles per hour
-    // return seconds
-    function kphTomph(sec){    
-        var seconds = sec*0.621371192;
-        return bigDecimal.round(seconds,2);
-    }
 
 
 
