@@ -186,8 +186,8 @@ input{
     /* border-bottom: 2px solid rgb(184, 108, 108); */
 }
 [type=radio]:checked, .selected span {
-    /* border-bottom: 2px solid rgb(184, 108, 108); */
-    /* border-color: rgb(184, 108, 108); */
+    border-bottom: 2px solid rgb(184, 108, 108);
+    border-color: rgb(184, 108, 108);
     /* color: rgb(237, 237, 222); */
     /* background-color: rgb(184, 108, 108); */
     /* border-radius: 5px; */
