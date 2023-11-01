@@ -46,11 +46,11 @@ input[type='number']{
     /* padding: 5px 2px; */
 } 
 #pace_input{
-    width: 2.5em !important;
+    width: 2em !important;
     /* background-color: rgb(233, 233, 173); */
 }
 #pace_input2, #pace_input2::placeholder{
-    width: 2.5em !important;
+    width: 2em !important;
     text-align: left !important;
     /* background-color: rgb(233, 233, 173); */
 }
@@ -244,7 +244,8 @@ input:disabled, textarea:disabled, input:disabled::placeholder, textarea:disable
     /* overflow:hidden 一定要加 */
     overflow: hidden; 
     /* height 也必須指定pixel 用auto/100%會瞬間消失 */
-    height:2rem;
+    /* height:1.5rem; */
+    height: 24px;
 }
 .container {
     height: 120px;
@@ -264,6 +265,7 @@ input:disabled, textarea:disabled, input:disabled::placeholder, textarea:disable
     text-shadow: 0.05em 0.05em rgb(84, 84, 84);
     cursor: pointer;
     vertical-align: text-bottom;
+    padding: 2px 0;
 }
 
 #slide-button2{
@@ -351,7 +353,7 @@ a {
 }
 .footer a{
     color:rgb(189, 204, 204);
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 .float-right {
     /* text-align: end; */
@@ -391,18 +393,18 @@ a {
     /* text-shadow: 0.1em 0.1em rgb(84, 84, 84); */
     cursor: pointer;
     vertical-align: super;  
-    margin-left: 1em;
+    margin-left: 0.5em;
 } 
 #mile-button img, #perHour-button img{
-    height: 0.5rem;
+    height: 6px;
     margin-right: 0.1rem;
-    vertical-align: text-top;
+    vertical-align: super;
 }
 #switch, #switch2{
     display: inline-flex;
     width: 2em;
     vertical-align: super;
-    font-size: 0.5rem;
+    font-size: 8px;
 }
 
 

@@ -29,7 +29,8 @@
         <hr width="100%" style="margin: 0;">
         <div id="container2" class="footer float-right animation container2 SlideDown">
             <!-- <span style="font-weight: bold;">注意事項</span> 1.只能輸入整數 2.看分段配速請點<span style="color: rgb(189, 204, 204);font-weight: bold;font-size: 1.5em;text-shadow: 0.05em 0.05em rgb(84, 84, 84);">+</span> 3.沒了<br> -->
-            all icons by: <a class="" target="_blank" href="https://icons8.com" >Icons8</a><br>
+            1.隨意輸入 2.時間格式: m:s 分:秒 ; h:m:s 時:分:秒<br>
+            all icons by: <a class="link" target="_blank" href="https://icons8.com" >Icons8</a> / 
             <!-- <a class="" target="_blank" href="https://reurl.cc/DoYp8N">小M平的跑步宇宙</a> / <a class="" target="_blank" href="https://lilmp.soci.vip">聯絡我</a>🖖</div> -->
             <a class="" target="_blank" href="https://lilmp.soci.vip">問題回報．功能許願</a></div>
         <div class="box">
@@ -117,7 +118,7 @@
                     <option value="21097.5">半馬</option>
                     <option value="42195" selected="selected">全馬</option>
                 </select>
-                <input type="text" name="" id="finish_time_input" placeholder="" size="8" onclick="ChangeOption('finish_time')" onkeyup="Calculate2()" >
+                <input type="text" name="" id="finish_time_input" placeholder="" size="7" onclick="ChangeOption('finish_time')" onkeyup="Calculate2()" >
 
             </div>
         </div> 
@@ -239,7 +240,7 @@
         // var checked_option = document.querySelector('input[name="type"]:checked').value;
  
         if(checked_option=="finish_time"){
-            document.getElementById("finish_time_input").placeholder = "分:秒/時:分:秒";
+            document.getElementById("finish_time_input").placeholder = "m:s/h:m:s";
             document.getElementById(e+"_icon").classList.add("selected");
             document.getElementById("c_"+e).checked = true;
             document.querySelector('input[name="type"]:checked').value = e;
