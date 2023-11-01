@@ -394,6 +394,7 @@ a {
     cursor: pointer;
     vertical-align: super;  
     /* margin-left: 0.5em; */
+    padding: 0;
 } 
 #mile-button img, #perHour-button img{
     height: 6px;
