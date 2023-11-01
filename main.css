@@ -68,8 +68,8 @@ input[type=number] {
 }
 
 input + span {
-    /* font-size: 10px; */
-    font-size: 0.5em;
+    font-size: 12px;
+    /* font-size: 0.5em; */
     vertical-align: super;
     padding: 0 5px;
     color: rgb(189, 204, 204);
@@ -393,7 +393,7 @@ a {
     /* text-shadow: 0.1em 0.1em rgb(84, 84, 84); */
     cursor: pointer;
     vertical-align: super;  
-    margin-left: 0.5em;
+    /* margin-left: 0.5em; */
 } 
 #mile-button img, #perHour-button img{
     height: 6px;
@@ -459,7 +459,7 @@ a {
         margin-left: 1.5em;
     }
     #mile-button, #perHour-button{
-        margin-left: 0.5em;
+        /* margin-left: 0.5em; */
     }
 
     
