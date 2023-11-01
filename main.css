@@ -1,4 +1,8 @@
-
+html {
+    zoom: 2; 
+    -moz-transform: scale(2); 
+    -moz-transform-origin: center 0px;
+}
 body {
     /* font-size: 2rem; */
 	display: flex;
@@ -406,14 +410,25 @@ a {
 
 
 @media only screen and (max-device-width : 375px) {
+    html { 
+        -webkit-text-size-adjust:none; 
+        zoom: 1.5; 
+        -moz-transform: scale(1.5); 
+        -moz-transform-origin: center 0px;
+    } 
     body {
-        margin-top:30%;
+        /* margin-top:30%; */
     }
 }
 
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
     /* safari rem測試 */
-    html { -webkit-text-size-adjust:none; } 
+    html { 
+        -webkit-text-size-adjust:none; 
+        zoom: 1.5; 
+        -moz-transform: scale(1.5); 
+        -moz-transform-origin: center 0px;
+    } 
     body {
         /* font-size: 1.1em; */
         /* margin: 30% 30px; */
