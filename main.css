@@ -131,7 +131,7 @@ input + span {
 /* IMAGE STYLES */
 .row {
     display: inline-grid;
-    margin-right: 0.5em;
+    /* margin-right: 0.5em; */
     /* display: inline-grid; */
     padding: 5px 0;
     /* cursor: pointer; */
@@ -207,13 +207,16 @@ select{
     background-size: 12px;
     /* background-attachment: fixed; */
     padding-left: 15px !important;
+    padding-bottom: 0px !important;
+    padding-top: 0px;
 
 }
 
 #lane-length2 {
     font-size: 8px;
-    color: #BDCCCC;
-    text-align: center;
+    color: #95a0a0;
+    text-align: left;
+    margin-left: 2em;
 }
 
 
@@ -272,7 +275,7 @@ input:disabled, textarea:disabled, input:disabled::placeholder, textarea:disable
     outline: none;
     border: none;
     font-size: 12px;
-    padding:3px 8px;
+    /* padding:3px 8px; */
     /* 選單的預設字型 */
     font-family: inherit;
     /* width: 4em; */
