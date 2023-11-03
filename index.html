@@ -15,7 +15,7 @@
     <meta property="og:url" content="https://lilmp.github.io/paceponpon/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Pace朋朋" />
-    <meta property="og:description" content="你的配速換算好朋友" />
+    <meta property="og:description" content="道次選擇、公里英哩、分段秒數，你的配速換算好朋友" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pace朋朋</title>
     <link rel="stylesheet" href="main.css">
@@ -29,7 +29,7 @@
         <hr width="100%" style="margin: 0;">
         <div id="container2" class="footer float-right animation container2 SlideDown">
             <!-- <span style="font-weight: bold;">注意事項</span> 1.只能輸入整數 2.看分段配速請點<span style="color: rgb(189, 204, 204);font-weight: bold;font-size: 1.5em;text-shadow: 0.05em 0.05em rgb(84, 84, 84);">+</span> 3.沒了<br> -->
-            1.隨意輸入 2.時間格式: m:s 分:秒 ; h:m:s 時:分:秒<br>
+            <span style="color:rgb(233,233,173);">時間格式: m:s 分:秒 ; h:m:s 時:分:秒</span><br>
             all icons by: <a class="link" target="_blank" href="https://icons8.com" >Icons8</a> / 
             <!-- <a class="" target="_blank" href="https://reurl.cc/DoYp8N">小M平的跑步宇宙</a> / <a class="" target="_blank" href="https://lilmp.soci.vip">聯絡我</a>🖖</div> -->
             <a class="" target="_blank" href="https://lilmp.soci.vip">問題回報．功能許願</a></div>
@@ -43,7 +43,7 @@
             </div>
             
             <div class="column2">
-                <input class="pace_input" type="number" name="" id="pace_input" placeholder="ex:3" onclick="ChangeOption('pace')" onkeyup="Calculate2()" autofocus><span>:</span><input class="pace_input" type="number" name="" id="pace_input2" placeholder="30" onclick="ChangeOption('pace')" onkeyup="Calculate2()"><span id="unit" data-unit="km">/km</span>
+                <input class="pace_input" type="number" name="" id="pace_input" placeholder="4" onclick="ChangeOption('pace')" onkeyup="Calculate2(this.id)" autofocus><span>:</span><input class="pace_input" type="number" name="" id="pace_input2" placeholder="30" onclick="ChangeOption('pace')" onkeyup="Calculate2(this.id)"><span id="unit" data-unit="km">/km</span>
                 <button id='mile-button' onclick="mileToggle(this)"><img src="switch.png" alt="switch"><span id="switch">/mile</span></button>
             </div>
         </div>
@@ -54,29 +54,33 @@
             <div class="row" id="track_icon">
                 <img src="track.png" alt="Option 2"><span>田徑場</span>                
             </div>
-            <div class="column2">
-                <select id="laneNumber" onchange="ChangeLane(this)" style="margin-right: 0.5em;">
-                    <option value="400">1道</option>
-                    <option value="408">2道</option>
-                    <option value="415">3道</option>
-                    <option value="423">4道</option>
-                    <option value="430">5道</option>
-                    <option value="438">6道</option>
-                    <option value="445">7道</option>
-                    <option value="453">8道</option>
+            <div class="column2" style="display: grid;">
+                <select id="laneNumber" onchange="ChangeLane(this)">
+                    <option value="400">第1道</option>
+                    <option value="408">第2道</option>
+                    <option value="415">第3道</option>
+                    <option value="423">第4道</option>
+                    <option value="430">第5道</option>
+                    <option value="438">第6道</option>
+                    <option value="445">第7道</option>
+                    <option value="453">第8道</option>
+                    <option value="300">暖身場</option>
                 </select>
-                <input type="number" name="" id="track_input" placeholder="" size="4" maxlength="4" onclick="ChangeOption('track')" onkeyup="Calculate2()"><span>秒/圈</span>
+                <span id="lane-length2">400m</span>
+            </div>
+            <div class="column2">                
+                <input type="number" name="" id="track_input" placeholder="" size="4" maxlength="4" onclick="ChangeOption('track')" onkeyup="Calculate2(this.id)"><span>秒/圈</span>
                 <button id='slide-button'>+</button>
             </div>
         </div>
         <div class='container animation SlideDown' id='container' >
-            <div id="lane-length">第1道：400m</div>
+            <!-- <div id="lane-length">第1道：400m</div> -->
             <div id="split-detail">
                 <div class="box indent-text" > 
-                    <div style="display: inline;" class="increment">100　</div><input class="increment input-right" type="text" name="" id="m100_input" placeholder="" size="1" disabled><br>
-                    <div style="display: inline;" class="increment">200　</div><input class="increment input-right" type="text" name="" id="m200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m200_increment" placeholder="" disabled><br>
-                    <div style="display: inline;" class="increment">300　</div><input class="increment input-right" type="text" name="" id="m300_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m300_increment" placeholder="" disabled><br>
-                    <div style="display: inline;" class="increment">400　</div><input class="increment input-right" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m400_increment" placeholder="" disabled><br>
+                    <div style="display: inline;" class="increment">100&emsp;</div><input class="increment input-right" type="text" name="" id="m100_input" placeholder="" size="1" disabled><br>
+                    <div style="display: inline;" class="increment">200&emsp;</div><input class="increment input-right" type="text" name="" id="m200_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m200_increment" placeholder="" disabled><br>
+                    <div style="display: inline;" class="increment">300&emsp;</div><input class="increment input-right" type="text" name="" id="m300_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m300_increment" placeholder="" disabled><br>
+                    <div style="display: inline;" class="increment">400&emsp;</div><input class="increment input-right" type="text" name="" id="m400_input" placeholder="" size="1" disabled><input class="increment" type="text" name="" size="5" id="m400_increment" placeholder="" disabled><br>
                 </div>
                 <div id="laps-result2" class="indent-text">
                     <div style="display: inline;" class="increment">2圈<span id="twolaps">&emsp;800</span>　</div><input class="increment input-right" type="text" name="" id="m800_input" placeholder="" size="1" disabled><br>
@@ -96,7 +100,7 @@
                 <img src="treadmill.png" alt="Option 3"><span>跑步機</span>
             </div>
             <div class="column2">
-                <input type="number" name="" id="treadmill_input" placeholder="" onclick="ChangeOption('treadmill')" onkeyup="Calculate2()"><span id="unit2" data-unit="km">km/h</span>
+                <input type="number" name="" id="treadmill_input" placeholder="" onclick="ChangeOption('treadmill')" onkeyup="Calculate2(this.id)"><span id="unit2" data-unit="km">km/h</span>
                 <button id='perHour-button' onclick="mileToggle(this)"><img src="switch.png" alt="switch2"><span id="switch2">mile/h</span></button>
             </div>
         </div> 
@@ -108,17 +112,17 @@
                 <img src="stopwatch.png" alt="Option 3"><span>完成時間</span>
             </div>
             <div class="column2">
-                <select id="dropdown" onchange="ChangeDistance(this.value)" style="margin-right: 0.5em;">
+                <select id="dropdown" onchange="ChangeDistance(this.value)">
                     <option value="">距離</option>
-                    <option value="800">800</option>
-                    <option value="1500">1500</option>
-                    <option value="3000">3k</option>
-                    <option value="5000">5k</option>
+                    <option value="800">800m</option>
+                    <option value="1500">1500m</option>
+                    <option value="3000">3000m</option>
+                    <option value="5000">5000m</option>
                     <option value="10000">10k</option>
                     <option value="21097.5">半馬</option>
                     <option value="42195" selected="selected">全馬</option>
                 </select>
-                <input type="text" name="" id="finish_time_input" placeholder="" size="7" onclick="ChangeOption('finish_time')" onkeyup="Calculate2()" >
+                <input type="text" name="" id="finish_time_input" placeholder="" size="7" onclick="ChangeOption('finish_time')" onkeyup="Calculate2(this.id)" >
 
             </div>
         </div> 
@@ -162,9 +166,7 @@
         "treadmill_input",
         "finish_time_input",
         "m800_input","m1200_input","m1600_input","m2000_input"
-    ];
-
-    
+    ];    
     
     var input_ui_value = new Array(input_ui.length);
     var seconds_per_lap = 0;
@@ -185,6 +187,8 @@
             document.getElementById(input_ui[index]).value = result_arr[index];
         }
     }
+
+    
 
     function AllInputDisabled(){
         input_ui.forEach(element => {
@@ -222,7 +226,17 @@
         }else{
             
             document.getElementById(checked_option+"_icon").classList.remove("selected");
-            
+            if(checked_option == "pace"){
+                // document.getElementById(checked_option+"_input2").style.color = "";
+                // document.getElementById(checked_option+"_input2").style.fontSize = "10px";
+                // document.getElementById(checked_option+"_input").style.fontWeight = "";
+                highlightInput("pace_input","");
+                highlightInput("pace_input2","");
+            }
+            // document.getElementById(checked_option+"_input").style.color = "";
+            // document.getElementById(checked_option+"_input").style.fontSize = "10px";
+            // document.getElementById(checked_option+"_input").style.fontWeight = "";
+            highlightInput(checked_option+"_input","");
             checked_option = e;
         }
         
@@ -240,26 +254,26 @@
         // var checked_option = document.querySelector('input[name="type"]:checked').value;
  
         if(checked_option=="finish_time"){
-            document.getElementById("finish_time_input").placeholder = "m:s/h:m:s";
+            document.getElementById("finish_time_input").placeholder = "m:s / h:m:s";
             document.getElementById(e+"_icon").classList.add("selected");
             document.getElementById("c_"+e).checked = true;
             document.querySelector('input[name="type"]:checked').value = e;
             
         }else if(checked_option=="track"){
-            document.getElementById(e+"_input").placeholder = "ex:96";
+            document.getElementById(e+"_input").placeholder = "96";
             document.getElementById(e+"_icon").classList.add("selected");
             document.getElementById("c_"+e).checked = true;
             document.querySelector('input[name="type"]:checked').value = e;
             
         }else if(checked_option=="treadmill"){
-            document.getElementById(e+"_input").placeholder = "ex:12";
+            document.getElementById(e+"_input").placeholder = "12";
             document.getElementById(e+"_icon").classList.add("selected");
             document.getElementById("c_"+e).checked = true;
             document.querySelector('input[name="type"]:checked').value = e;
             
         }
         else if(checked_option=="pace"){
-            document.getElementById(e+"_input").placeholder = "ex:3";
+            document.getElementById(e+"_input").placeholder = "4";
             document.getElementById(e+"_input2").placeholder = "30";
             // document.getElementById(e+"_input2").style.backgroundColor = "rgb(233, 233, 173)";
             document.getElementById(e+"_icon").classList.add("selected");
@@ -293,21 +307,28 @@
             
         // }
         // document.getElementById("finish_time_input").value = Calculate_finish_time(distance);
-        Calculate2();
+        Calculate2(checked_option+"_input");
         // document.getElementById("finish_time_input").value = Calculate_finish_time(checked_dropdown);
         
     }
 
     function ChangeLane(lane) {
         var currentLane = lane.value;
+        var checked_option = document.querySelector('input[name="type"]:checked').value;
         // console.log("current lane: "+currentLane);
-        Calculate2();
+        Calculate2(checked_option+"_input");
 
         // 取得select option的text
         var lane_chinese = lane.options[lane.selectedIndex].text;
-        document.getElementById('lane-length').innerHTML = "第"+lane_chinese+"："+currentLane+"m";
+        // document.getElementById('lane-length').innerHTML = lane_chinese+"："+currentLane+"m";
+        document.getElementById('lane-length2').innerHTML = currentLane+"m";
+
         document.getElementById('twolaps').innerHTML = "&emsp;"+currentLane*2+"";
-        document.getElementById('threelaps').innerHTML = ""+currentLane*3+"";
+        if(lane_chinese=="暖身場"){
+            document.getElementById('threelaps').innerHTML = "&ensp;"+currentLane*3+"";
+        }else{
+            document.getElementById('threelaps').innerHTML = ""+currentLane*3+"";
+        }
         document.getElementById('fourlaps').innerHTML = ""+currentLane*4+"";
         document.getElementById('fivelaps').innerHTML = ""+currentLane*5+"";
     }
@@ -645,14 +666,38 @@
 
     }
     
+    function highlightInput(id, color){
+        // if(id=='pace_input'){
+        //     document.getElementById('pace_input2').style.color=color;
+        // }else if(id=='pace_input2'){
+        //     document.getElementById('pace_input').style.color=color;
+        // }
+        document.getElementById(id).style.color=color;
+    }
+
 
     // 計算function
-    function Calculate2(){
+    function Calculate2(id){
         
         // for (let index = 0; index < input_ui_value.length; index++) {
         //     console.log("id: "+input_ui[index]);
         //     console.log("value: "+input_ui_value[index]);
         // }
+
+        if(id=="pace_input" | id=="pace_input2"){
+            highlightInput("pace_input","rgb(255,137,137)");
+            highlightInput("pace_input2","rgb(255,137,137)");
+        }else{
+            highlightInput(id,"rgb(255,137,137)");
+        }
+
+        
+
+        // document.getElementById(id).style.color="rgb(242, 141, 141)";
+        // document.getElementById(id).style.color="rgb(255,137,137)";
+        
+        // document.getElementById(id).style.fontSize="14px";
+        // document.getElementById(id).style.fontWeight = "bold";
 
         // 取目前的input值
         var temp_arr = GetInputValue();
